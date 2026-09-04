@@ -1,0 +1,7 @@
+*.pyc
+__pycache__/
+dtm.raw
+dtm_processed.raw
+splat*_half.png
+splat*_processed.png
+checksums.txt

@@ -1,0 +1,15 @@
+# teleports to your builds
+
+tp 2415 61 -817   # Prison-perimiter
+tp 2416 61 -936   # IncredibleTower
+tp 2099 60 -521   # DriveThroughPeremiter
+tp 2422 62 -698   # BunkerPerimiter
+tp 2420 62 -582   # UFOhomeBase
+tp 2312 56 -739   # House
+tp 2276 45 -892   # Farm1
+tp 2184 41 -1089   # CoolHouse1
+tp 1996 61 -429   # RangerStation
+tp 1991 37 -1341   # RogueNerds
+tp 2316 57 -665   # AyasterMansion
+tp 2258 42 -958   # bakerywithbunkergarage
+tp 2277 60 -806   # Tower1

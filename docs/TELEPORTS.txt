@@ -1,0 +1,158 @@
+# Astoria 8K - teleport commands for all 122 added mod POIs
+# Press F1 in game, paste a line, Enter.
+# Coords are the POI corner; add ~20 to Y if you clip into terrain.
+
+
+============================================================
+## In town (replacing filler) — 73
+============================================================
+
+--- MPLogue Prefabs (7)
+tp -1759 57 -3192         # 7Days_Swinger_Pad_by_MPLogue
+tp 2849 36 -2962          # DiaLogueTowers_by_MPLogue
+tp -945 149 637           # FacePalmInc_by_MPLogue
+tp 1324 57 -1496          # MidCenturyModernHouse01_by_MPLogue
+tp -117 149 1560          # MidCenturyModernHouse02_by_MPLogue
+tp -2662 36 2249          # Pubic_Libary_by_MPLogue
+tp -1490 57 1906          # Rainbow_Pit_by_MPLogue
+
+--- Voltralux's POI Pack (17)
+tp -2443 149 -1845        # Alamo_Restaurant_Voltralux
+tp -3552 7 3414           # Boxing_Gym_Voltralux
+tp -2896 149 -896         # Central_Station_Voltralux
+tp 1099 57 1463           # Eternal_Rests_Voltralux
+tp 361 36 3360            # Fastfood_Roosters_Voltralux
+tp -1573 57 2163          # Gun_Shop_Kendo_Voltralux
+tp -3388 36 1179          # Hallucigen_Inc_Voltralux
+tp -3323 36 -9            # House_Atomic_01_Voltralux
+tp 3474 36 -2181          # KickFlipz_Skate_Store_Voltralux
+tp 2589 58 -341           # Liberty_Apartments_Voltralux
+tp 2588 36 1649           # Little_Italy_Voltralux
+tp 3019 57 -1220          # Mafia_Museum_Voltralux
+tp 1837 36 -864           # Oasis_Apartments_Voltralux
+tp 1836 36 1313           # Quick_Cabs_Voltralux
+tp 704 36 704             # RPD_Voltralux
+tp 904 57 2704            # Umbrella_Corp_VoltraLux
+tp 1128 36 979            # Video_Rental_Voltralux
+
+--- Zeebark POI Pack (42)
+tp -154 149 662           # Ambulance_Station_Zeebark
+tp 960 57 2161            # Bar_Bistro_Zeebark
+tp -3221 36 1578          # Camera_Shop_Zeebark
+tp 1276 57 2452           # Camping_Store_Zeebark
+tp -1640 57 -2811         # Cemetery_Zeebark
+tp -563 149 829           # Charity_Bar_Duplex_Zeebark
+tp -1834 57 -2961         # Chippys_Chippy_Zeebark
+tp -3345 36 -222          # Church_Zeebark
+tp -1656 57 -3034         # Cinema_Zeebark
+tp 2522 57 79             # Cocktail_Bar_Zeebark
+tp -2171 149 -2145        # Coffee_Shop_Zeebark
+tp -3089 36 -261          # Community_Center_Zeebark
+tp -138 101 2442          # Community_Hall_Zeebark
+tp 2204 57 -222           # Computer_Store_Zeebark
+tp 1237 57 1879           # Cool_Shooz_Duplex_Zeebark
+tp -2428 36 2761          # Crack_a_Book_Zeebark
+tp 2505 36 -2797          # Fanz_Duplex_Zeebark
+tp 937 36 212             # Garden_Centre_Zeebark
+tp -44 57 -496            # Ice_Skating_Rink_Zeebark
+tp 1429 57 1305           # Jail_Break_Pizza_Zeebark
+tp 1454 78 -2957          # Mile_End_Prison_Zeebark
+tp -2322 36 2420          # Mirror_Shop_Zeebark
+tp 856 57 1711            # Pet_Salon_Zeebark
+tp 2656 57 -795           # Phabbers_Cafe_Zeebark
+tp -2745 149 -1996        # Pop_n_Pills_Zeebark
+tp -2257 149 -1546        # Quad_Zeebark
+tp -778 149 256           # Reptile_Store_Zeebark
+tp 2761 36 -2623          # Retro_Cafe_Zeebark
+tp -2492 149 -1309        # Retro_Diner_Zeebark
+tp -1931 149 -1670        # Shotgun_Messiah_Zeebark
+tp 8 149 1104             # Stuff_N_Books_Zeebark
+tp -2658 36 -296          # The_Holly_Residence_Zeebark
+tp -3236 36 -153          # Time_Out Diner_Zeebark
+tp 3679 36 -2411          # Wagon_Trail_Cafe_Zeebark
+tp 3208 36 -3027          # Yard_Sale_Zeebark
+tp 2361 36 2909           # ZBites_Zeebark
+tp -494 149 405           # Zden_Nightclub_Zeebark
+tp -795 36 2954           # Zee_Antiques_Zeebark
+tp -2594 149 -1574        # Zee_Bliss_Zeebark
+tp 1005 78 -2663          # Zee_Hardware_Zeebark
+tp -3496 36 1519          # Zee_Plantz_Zeebark
+tp -1689 36 -241          # Zmart_Zeebark
+
+--- Svarii's POI Package (7)
+tp -601 36 3188           # church_01_svarii
+tp 2904 36 1808           # farnsworth_residence_svarii
+tp -2968 36 -116          # graveyard_01_svarii
+tp -3179 36 79            # house_burnt_01_exd_svarii
+tp -781 149 -736          # house_old_cottage_oneHalf_svarii
+tp 2355 57 -496           # park_azaroth_svarii
+tp -2893 36 2406          # park_residential_01_exd_svarii
+
+============================================================
+## In the wilderness — 49
+============================================================
+
+--- MPLogue Prefabs (22)
+tp 1160 36 -3184          # Ayesoar_Mansion_by_MPLogue
+tp 3372 30 2368           # Baslica_Cistern_by_MPLogue
+tp -1088 30 -1252         # BoulderHouse01_by_MPLogue
+tp -1436 57 -420          # Cat_Statue_by_MPLogue
+tp -236 150 -236          # CrystalCave01_by_MPLogue
+tp 3348 37 -2544          # Dirigible_by_MPLogue
+tp -948 150 -648          # Flying_Wallendas__by_MPLogue
+tp -1112 150 480          # MaunSell_Fort_by_MPLogue
+tp -2404 150 -1388        # MazeSm_by_MPLogue
+tp -1052 30 -1552         # MidCenturyModernHouse04_by_MPLogue
+tp -3360 36 -3540         # MikeAirB+B01_by_MPLogue
+tp -580 150 -1888         # Obelisk_2001_by_MPLogue
+tp -3448 36 -880          # Petra_Indiana_Jones_by_MPLogue
+tp 2284 52 -596           # RadCave01_by_MPLogue
+tp -1528 57 2064          # RaveCave02_by_MPLogue
+tp -3532 36 -2604         # Rose_Abby_byMPLogue
+tp -3392 36 -3240         # Rubble_wall_01_by_MPLogue
+tp 128 78 -2900           # Skeletor_Hermitage_by_MPLogue
+tp -2220 150 -2236        # Skywalker_Homestead_by_MPLogue
+tp 2588 37 -2588          # SnekCave_by_MPLogue
+tp -2816 150 -2000        # Step_Well_by_MPLogue
+tp -3052 36 -3092         # Svalbard_Seed_Vault_by_MPLogue
+
+--- Voltralux's POI Pack (7)
+tp -3524 36 -2940         # Casino_Voltralux
+tp -2528 53 820           # Community_Centre_Voltralux
+tp 1464 57 1476           # Crash_Site_Voltralux
+tp -3104 36 -2704         # Crystal_Creek_Voltralux
+tp 1788 36 -1740          # Roadside_Haunt_Voltralux
+tp -1780 150 -1812        # WindFarm_Voltralux
+tp -332 36 -3200          # Zap_Arcade_Voltralux
+
+--- Zeebark POI Pack (10)
+tp -1404 38 336           # Bandit_Station_Zeebark
+tp 2328 36 2048           # BikeB&B_Zeebark
+tp 1888 36 2652           # Damoclez_Zeebark
+tp -756 150 1012          # Le_Cube_Zeebark
+tp -724 150 -940          # Modern_House_Zeebark
+tp 2344 35 2376           # Old_Church_Mansion_Zeebark
+tp -748 101 1628          # Temple_of_the_Warriors_Zeebark
+tp 2584 35 2800           # UR_Ziggorat_Zeebark
+tp 844 78 -2596           # ZTec_Labs_Zeebark
+tp 672 57 -1352           # Zarnak_Temple_Zeebark
+
+--- WinterDawn Fortress (1)
+tp -2132 150 -1812        # WinterDawn_Fortress
+
+--- Svarii's POI Package (1)
+tp 1440 36 280            # house_shanty_01_svarii
+
+--- Caleseche (1)
+tp 760 57 2148            # caleseche
+
+--- ShadowModernHouse (1)
+tp -876 30 -1300          # modern_house_shadow
+
+--- Cog's POIs (6)
+tp -3284 36 -2968         # Cogmart
+tp -372 150 292           # Cogs_Bloodmoon_Arena_Forest
+tp -1988 150 -1484        # Cogs_Burnt_Forest_Bloodmoon_Arena
+tp -2764 38 -2776         # Cogs_Desert_Bloodmoon_Arena
+tp 936 78 -2832           # Cogs_Snow_Bloodmoon_Arena
+tp 3216 30 2656           # Makin_Taters

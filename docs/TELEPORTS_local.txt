@@ -1,0 +1,139 @@
+# teleports for the 124 new local POIs
+
+--- 31-tile town (2656,-677), 721 m from player
+tp 2677 57 -413   # 7Days_Swinger_Pad_by_MPLogue
+tp 2667 57 -547   # Ambulance_Station_Zeebark
+tp 2709 57 -547   # Bar_Bistro_Zeebark
+tp 2598 57 -698   # Boxing_Gym_Voltralux
+tp 2478 57 -496   # Camera_Shop_Zeebark
+tp 2355 57 -397   # Camping_Store_Zeebark
+tp 2812 57 -921   # Cemetery_Zeebark
+tp 2505 57 -487   # Charity_Bar_Duplex_Zeebark
+tp 2204 57 -308   # Chippys_Chippy_Zeebark
+tp 2303 57 -343   # Church_Zeebark
+tp 2505 57 -462   # Cinema_Zeebark
+tp 2436 57 -397   # Coffee_Shop_Zeebark
+tp 2656 57 -471   # Community_Center_Zeebark
+tp 2806 57 -471   # Community_Hall_Zeebark
+tp 2204 57 -283   # Cool_Shooz_Duplex_Zeebark
+tp 2530 57 -413   # Crack_a_Book_Zeebark
+tp 2508 59 -341   # DiaLogueTowers_by_MPLogue
+tp 2513 57 -633   # Eternal_Rests_Voltralux
+tp 2504 57 37   # FacePalmInc_by_MPLogue
+tp 2513 57 -549   # Fastfood_Roosters_Voltralux
+tp 2437 57 -171   # Garden_Centre_Zeebark
+tp 2204 57 -345   # Gun_Shop_Kendo_Voltralux
+tp 2760 57 -413   # House_Atomic_01_Voltralux
+tp 2699 57 -795   # Ice_Skating_Rink_Zeebark
+tp 2303 57 -303   # Jail_Break_Pizza_Zeebark
+tp 2360 57 -151   # Little_Italy_Voltralux
+tp 2848 57 -627   # MidCenturyModernHouse02_by_MPLogue
+tp 2654 57 -646   # Mile_End_Prison_Zeebark
+tp 2436 57 -372   # Mirror_Shop_Zeebark
+tp 2679 57 -1071   # Oasis_Apartments_Voltralux
+tp 2476 57 -397   # Pet_Salon_Zeebark
+tp 2328 57 -303   # Pop_n_Pills_Zeebark
+tp 2443 57 -260   # Pubic_Libary_by_MPLogue
+tp 2204 57 -257   # Quad_Zeebark
+tp 2380 57 -397   # Quick_Cabs_Voltralux
+tp 2892 57 -746   # Rainbow_Pit_by_MPLogue
+tp 2586 57 -495   # Reptile_Store_Zeebark
+tp 2824 57 -746   # Retro_Diner_Zeebark
+tp 2529 57 -171   # Shotgun_Messiah_Zeebark
+tp 2862 57 -926   # Stuff_N_Books_Zeebark
+tp 2866 57 -1013   # The_Holly_Residence_Zeebark
+tp 2622 57 -1376   # Time_Out Diner_Zeebark
+tp 2862 57 -858   # Yard_Sale_Zeebark
+tp 2777 57 -943   # ZBites_Zeebark
+tp 2751 57 -547   # Zden_Nightclub_Zeebark
+tp 2390 57 -496   # Zee_Antiques_Zeebark
+tp 2416 57 -496   # Zee_Bliss_Zeebark
+tp 2437 57 -113   # Zee_Hardware_Zeebark
+tp 2654 57 -1013   # Zee_Plantz_Zeebark
+tp 2778 57 -1013   # Zmart_Zeebark
+tp 2588 57 -151   # church_01_svarii
+tp 2700 57 -471   # farnsworth_residence_svarii
+tp 2478 57 -1245   # graveyard_01_svarii
+tp 2759 57 -1278   # house_burnt_01_exd_svarii
+tp 2519 57 -1336   # house_old_cottage_oneHalf_svarii
+tp 2441 57 -496   # park_residential_01_exd_svarii
+
+--- 23-tile town (2879,-2944), 2142 m from player
+tp 2965 35 -2731   # Ambulance_Station_Zeebark
+tp 2530 36 -2797   # Crack_a_Book_Zeebark
+tp 3104 36 -2638   # Fastfood_Roosters_Voltralux
+tp 2699 36 -2662   # Pubic_Libary_by_MPLogue
+tp 2737 36 -2721   # Quick_Cabs_Voltralux
+tp 3208 36 -2959   # Retro_Diner_Zeebark
+tp 2660 36 -2851   # church_01_svarii
+
+--- 17-tile town (840,549), 1930 m from player
+tp 896 36 512   # Alamo_Restaurant_Voltralux
+tp 715 36 418   # Eternal_Rests_Voltralux
+tp 729 36 337   # Hallucigen_Inc_Voltralux
+tp 788 36 299   # Liberty_Apartments_Voltralux
+tp 729 36 279   # Mafia_Museum_Voltralux
+tp 789 36 422   # Phabbers_Cafe_Zeebark
+tp 802 36 198   # The_Holly_Residence_Zeebark
+tp 568 36 126   # Umbrella_Corp_VoltraLux
+tp 810 36 661   # Zden_Nightclub_Zeebark
+tp 942 36 139   # Zee_Antiques_Zeebark
+tp 909 36 114   # Zee_Bliss_Zeebark
+tp 917 36 139   # Zee_Plantz_Zeebark
+tp 979 36 139   # park_azaroth_svarii
+tp 896 36 229   # park_residential_01_exd_svarii
+
+--- 13-tile town (1713,-847), 325 m from player
+tp 1929 36 -1073   # 7Days_Swinger_Pad_by_MPLogue
+tp 1551 36 -697   # Alamo_Restaurant_Voltralux
+tp 1471 36 -927   # Boxing_Gym_Voltralux
+tp 1877 36 -903   # Camera_Shop_Zeebark
+tp 1852 36 -943   # Camping_Store_Zeebark
+tp 1877 36 -1093   # Charity_Bar_Duplex_Zeebark
+tp 1879 36 -864   # Chippys_Chippy_Zeebark
+tp 1827 36 -943   # Church_Zeebark
+tp 1852 36 -1093   # Cinema_Zeebark
+tp 1813 36 -972   # Cocktail_Bar_Zeebark
+tp 1827 36 -1093   # Coffee_Shop_Zeebark
+tp 1788 36 -972   # Computer_Store_Zeebark
+tp 1763 36 -972   # Cool_Shooz_Duplex_Zeebark
+tp 1779 36 -945   # FacePalmInc_by_MPLogue
+tp 1813 36 -822   # Fanz_Duplex_Zeebark
+tp 1879 36 -1014   # Gun_Shop_Kendo_Voltralux
+tp 1780 36 -878   # Hallucigen_Inc_Voltralux
+tp 1755 36 -1053   # Jail_Break_Pizza_Zeebark
+tp 1877 36 -943   # KickFlipz_Skate_Store_Voltralux
+tp 2010 36 -863   # MidCenturyModernHouse01_by_MPLogue
+tp 1962 36 -776   # MidCenturyModernHouse02_by_MPLogue
+tp 1755 36 -903   # Mirror_Shop_Zeebark
+tp 1788 36 -822   # Pet_Salon_Zeebark
+tp 1729 36 -904   # Pop_n_Pills_Zeebark
+tp 1763 36 -822   # Quad_Zeebark
+tp 1962 36 -708   # Rainbow_Pit_by_MPLogue
+tp 1729 36 -863   # Reptile_Store_Zeebark
+tp 1621 36 -946   # Retro_Cafe_Zeebark
+tp 1646 36 -822   # Time_Out Diner_Zeebark
+tp 1877 36 -1053   # Video_Rental_Voltralux
+tp 1606 36 -839   # Wagon_Trail_Cafe_Zeebark
+tp 1559 36 -828   # ZBites_Zeebark
+tp 1519 36 -931   # Zmart_Zeebark
+tp 1364 36 -686   # graveyard_01_svarii
+tp 1422 36 -926   # house_burnt_01_exd_svarii
+tp 1324 36 -789   # house_old_cottage_oneHalf_svarii
+
+--- 13-tile town (1309,-2728), 1874 m from player
+tp 1370 78 -2896   # Bar_Bistro_Zeebark
+tp 1558 78 -2809   # Cemetery_Zeebark
+tp 1558 78 -2877   # Community_Center_Zeebark
+tp 1160 78 -2701   # Little_Italy_Voltralux
+tp 1340 78 -2568   # RPD_Voltralux
+tp 1237 78 -2721   # Shotgun_Messiah_Zeebark
+tp 1305 78 -2896   # Stuff_N_Books_Zeebark
+tp 1252 78 -2582   # farnsworth_residence_svarii
+
+--- 5-tile town (3509,-1021), 1503 m from player
+tp 3268 36 -1074   # Central_Station_Voltralux
+
+--- 2-tile town (1379,-1396), 748 m from player
+tp 1358 57 -1538   # Community_Hall_Zeebark
+tp 1392 57 -1496   # House_Atomic_01_Voltralux
