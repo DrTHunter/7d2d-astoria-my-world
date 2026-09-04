@@ -46,16 +46,21 @@ those POIs will silently fail to spawn and you will get holes in the map.
 
 ## Install
 
-`dtm.raw` is 128 MB, over GitHub's 100 MB file limit, so it ships gzipped. Expand it first.
+The heightmap is **not in this repository** — `dtm.raw` is 128 MB, over GitHub's 100 MB file
+limit. It ships gzipped as a release asset, which also keeps it out of every clone:
+
+> **[Download `dtm.raw.gz` from the v1.0 release](../../releases/tag/v1.0)** (90.6 MB)
+
+Clone the repo, drop `dtm.raw.gz` into the world folder, then run this from the repo root in
+PowerShell:
 
 ```powershell
-# from the repo root, in PowerShell
 $w = "$env:APPDATA\7DaysToDie\GeneratedWorlds\Astoria 8K"
 New-Item -ItemType Directory -Force $w | Out-Null
 Copy-Item "GeneratedWorlds\Astoria 8K\*" $w -Recurse -Force
 Copy-Item "LocalPrefabs\*" "$env:APPDATA\7DaysToDie\LocalPrefabs" -Recurse -Force
 
-# expand the heightmap
+# expand the heightmap you downloaded from the release into the world folder
 $in  = [IO.File]::OpenRead("$w\dtm.raw.gz")
 $out = [IO.File]::Create("$w\dtm.raw")
 $gz  = New-Object IO.Compression.GzipStream($in, [IO.Compression.CompressionMode]::Decompress)
@@ -63,8 +68,8 @@ $gz.CopyTo($out); $gz.Close(); $out.Close(); $in.Close()
 Remove-Item "$w\dtm.raw.gz"
 ```
 
-`dtm.raw` must end up exactly **134,217,728 bytes**. Then start a new game and pick
-*Astoria 8K*.
+`dtm.raw` must end up exactly **134,217,728 bytes** — the world will not load correctly
+otherwise. Then start a new game and pick *Astoria 8K*.
 
 The 13 custom builds load from `LocalPrefabs`. If any of them fail to appear, check the log
 for a missing‑prefab warning and move that folder to `Mods/<anything>/Prefabs/` instead —
