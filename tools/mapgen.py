@@ -103,14 +103,16 @@ def build(args):
 
     user = import_user_maps(args.maps, OUTDIR, args.size, args.quality) if args.maps else []
 
-    # your own maps replace the old foundation render rather than sitting
-    # alongside it - it only stays as a fallback when there is nothing else
-    base_render = os.path.join(OUTDIR, "base_render.jpg")
-    keep_render = os.path.exists(base_render) and (not user or args.keep_render)
-    if user and not args.keep_render:
-        print("  - dropped the old foundation render, your maps replace it")
-    elif not os.path.exists(base_render):
-        print("  ! docs/maps/base_render.jpg missing, no foundation render layer", file=sys.stderr)
+    # The base map chips are built from --maps alone, so a rebuild without it
+    # drops them from the viewer even though the images are still sitting in
+    # docs/maps. Worth saying out loud rather than silently shipping a map with
+    # nothing but the two generated bases on it.
+    if not user:
+        print(
+            "  ! no --maps given: the only base maps will be Biomes and Terrain "
+            "zones. Pass --maps to keep your own renders as the base chips.",
+            file=sys.stderr,
+        )
 
     maplayers.roads(WORLD, OUTDIR, args.size)
     maplayers.biomes(WORLD, OUTDIR, args.size)
@@ -118,16 +120,6 @@ def build(args):
     print("  + roads, biomes, regions from the world PNGs")
 
     layers = list(user)
-    if keep_render:
-        layers.append(
-            {
-                "id": "render",
-                "label": "Game render",
-                "kind": "base",
-                "file": "maps/base_render.jpg",
-                "note": "the original foundation map",
-            }
-        )
     layers += [
         {
             "id": "biomes-b",
@@ -199,11 +191,6 @@ def main():
     ap.add_argument("--maps", metavar="DIR", help="folder of your own full-world map renders")
     ap.add_argument("--size", type=int, default=2048, help="layer resolution, px (default 2048)")
     ap.add_argument("--quality", type=int, default=82, help="WebP quality for --maps imports (default 82)")
-    ap.add_argument(
-        "--keep-render",
-        action="store_true",
-        help="keep the old foundation render as a base layer even when --maps supplies your own",
-    )
     ap.add_argument("--inline", action="store_true", help="embed every layer, one portable .html")
     ap.add_argument("--out", default=OUTHTML)
     args = ap.parse_args()

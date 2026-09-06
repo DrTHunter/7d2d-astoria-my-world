@@ -147,21 +147,25 @@ python tools\mapgen.py --maps "C:\Users\you\Desktop\maps"
 ```
 
 Each image becomes a base map chip, and **the first one in natural filename order is the one
-the map opens on** — so name the one you want as the main map `1_something.png`. Supplying
-your own maps **drops the old foundation render entirely**; it is only there as a fallback
-when you have given it nothing else, and `--keep-render` puts it back as one more chip.
+the map opens on**. The chip's label is its filename, so a `1_` prefix forced into the name to
+win that order shows up in the label too — giving the main render a name that already sorts
+first reads better than numbering it.
 
 They must be square and north‑up covering the whole world, which every 7 Days to Die map
 export already is; the generator warns if one is not square, because a stretched map will
-not line up with the pins.
+not line up with the pins. Imports are saved as WebP, and are never scaled up past the
+resolution you exported at.
 
 Useful flags:
 
-- `--size 4096` — layers at 4096 px instead of 2048, sharper when zoomed right in, four times the file size.
-- `--inline` — bake every layer into the HTML as one portable ~2.3 MB file with no `docs/maps/` alongside it.
-- `--keep-render` — keep the old foundation render as a chip instead of dropping it.
+- `--size 4096` — build the generated roads, biome and terrain layers at 4096 px instead of 2048. It does not enlarge your own renders beyond their own resolution.
+- `--quality 90` — WebP quality for the imported maps, 82 by default.
+- `--inline` — bake every layer into the HTML as one portable file with no `docs/maps/` alongside it.
 
-Rerun `python tools\mapgen.py` with no arguments to rebuild from the repo alone.
+`--maps` is what builds the base map chips, so pass it every time you rebuild. Running
+`python tools\mapgen.py` with no arguments regenerates the page with only the Biomes and
+Terrain zones bases and drops your own renders from the viewer — it warns on stderr when
+you do.
 
 ---
 
