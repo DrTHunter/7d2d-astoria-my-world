@@ -93,9 +93,14 @@ def build(args):
 
     user = import_user_maps(args.maps, OUTDIR, args.size, args.quality) if args.maps else []
 
+    # your own maps replace the old foundation render rather than sitting
+    # alongside it - it only stays as a fallback when there is nothing else
     base_render = os.path.join(OUTDIR, "base_render.jpg")
-    if not os.path.exists(base_render):
-        print("  ! docs/maps/base_render.jpg missing, skipping the game render layer", file=sys.stderr)
+    keep_render = os.path.exists(base_render) and (not user or args.keep_render)
+    if user and not args.keep_render:
+        print("  - dropped the old foundation render, your maps replace it")
+    elif not os.path.exists(base_render):
+        print("  ! docs/maps/base_render.jpg missing, no foundation render layer", file=sys.stderr)
 
     maplayers.roads(WORLD, OUTDIR, args.size)
     maplayers.biomes(WORLD, OUTDIR, args.size)
@@ -103,7 +108,7 @@ def build(args):
     print("  + roads, biomes, regions from the world PNGs")
 
     layers = list(user)
-    if os.path.exists(base_render):
+    if keep_render:
         layers.append(
             {
                 "id": "render",
@@ -184,6 +189,11 @@ def main():
     ap.add_argument("--maps", metavar="DIR", help="folder of your own full-world map renders")
     ap.add_argument("--size", type=int, default=2048, help="layer resolution, px (default 2048)")
     ap.add_argument("--quality", type=int, default=88, help="JPEG quality for --maps imports")
+    ap.add_argument(
+        "--keep-render",
+        action="store_true",
+        help="keep the old foundation render as a base layer even when --maps supplies your own",
+    )
     ap.add_argument("--inline", action="store_true", help="embed every layer, one portable .html")
     ap.add_argument("--out", default=OUTHTML)
     args = ap.parse_args()

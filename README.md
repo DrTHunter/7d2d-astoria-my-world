@@ -123,15 +123,16 @@ pins without any offset:
 
 | | Layer | From |
 |---|---|---|
-| **base** | Game render | the original foundation map |
+| **base** | your own maps | whatever you pass to `--maps`, one chip each |
 | **base** | Biomes | `biomes.png`, with a legend of what each colour is and how much of the map it covers |
 | **base** | Terrain zones | `regions.png` |
 | overlay | Roads | `splat3.png` — grey asphalt, tan gravel. On by default; it sharpens the road network on any base |
 | overlay | Biomes | the biome colours as a tint over whatever base you are on |
 | overlay | Terrain zones | the same for the terrain banding |
 
-Pick the base map with the radio buttons, the number keys **1**–**9**, or the **MAP** button
-by the zoom controls, which steps to the next one (**M**, or shift+**M** to go back).
+Base maps are chips, the same as the POI pack chips in the rail — click one to switch to it.
+The number keys **1**–**9** pick one directly, and the **MAP** button by the zoom controls
+steps to the next (**M**, or shift+**M** to go back).
 Whichever base you are on, the overlays stay exactly as you left them — turning them on once
 keeps them over every map you switch to. Overlays each have an opacity slider. **G** toggles a 512 m coordinate grid (1024 m lines drawn heavier), and
 the world X/Z under the cursor is read out under the title. POI pins, footprints and spawn
@@ -145,16 +146,20 @@ Drop any full‑world renders you have into a folder and point the generator at 
 python tools\mapgen.py --maps "C:\Users\you\Desktop\maps"
 ```
 
-Each image becomes a base layer, and **the first one in natural filename order becomes the
-map's default base** — so name the one you want as the main map `1_something.png`. They must
-be square and north‑up covering the whole world, which every 7 Days to Die map export
-already is; the generator warns if one is not square, because a stretched map will not line
-up with the pins.
+Each image becomes a base map chip, and **the first one in natural filename order is the one
+the map opens on** — so name the one you want as the main map `1_something.png`. Supplying
+your own maps **drops the old foundation render entirely**; it is only there as a fallback
+when you have given it nothing else, and `--keep-render` puts it back as one more chip.
+
+They must be square and north‑up covering the whole world, which every 7 Days to Die map
+export already is; the generator warns if one is not square, because a stretched map will
+not line up with the pins.
 
 Useful flags:
 
 - `--size 4096` — layers at 4096 px instead of 2048, sharper when zoomed right in, four times the file size.
 - `--inline` — bake every layer into the HTML as one portable ~2.3 MB file with no `docs/maps/` alongside it.
+- `--keep-render` — keep the old foundation render as a chip instead of dropping it.
 
 Rerun `python tools\mapgen.py` with no arguments to rebuild from the repo alone.
 

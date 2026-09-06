@@ -57,7 +57,7 @@ body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--body);
 .hud .crd{color:var(--ochre-dim);letter-spacing:.06em}
 
 /* layer panel */
-.panel{position:absolute;right:18px;top:18px;width:238px;z-index:12;
+.panel{position:absolute;right:18px;top:18px;width:262px;z-index:12;
   background:var(--panel);border:1px solid var(--ridge);border-radius:3px;
   display:flex;flex-direction:column;max-height:calc(100% - 84px)}
 .panel .head{display:flex;align-items:center;gap:8px;width:100%;padding:10px 13px;cursor:pointer;
@@ -82,6 +82,12 @@ body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--body);
 .lrow input[type=range]{width:100%;margin:5px 0 2px;accent-color:var(--ochre-dim);height:3px}
 .lrow.off input[type=range]{opacity:.3}
 .hint{padding:0 13px 6px 34px;font:400 10px/1.4 var(--mono);color:var(--muted)}
+.mapchips{padding:3px 13px 5px}
+.mapchips .chip{color:var(--ink-dim)}
+.mapchips .chip[aria-pressed="true"]{opacity:1;color:var(--ochre);
+  border-color:var(--ochre-dim);background:var(--ground)}
+.mapchips .chip[aria-pressed="false"]{opacity:.55}
+.mapnote,.legend[data-who="base"]{padding-left:13px}
 .legend{padding:2px 13px 4px 34px;display:none;flex-wrap:wrap;gap:3px 10px}
 .legend.show{display:flex}
 .legend span{display:flex;align-items:center;gap:5px;font:400 10px/1.5 var(--mono);color:var(--muted)}
@@ -231,6 +237,10 @@ function paint(){
     e.style.display='block';
     e.style.opacity=l.kind==='base'?1:st.ov[l.id].op/100;
   });
+  document.querySelectorAll('.mapchips .chip').forEach(c=>
+    c.setAttribute('aria-pressed',c.dataset.base===st.base?'true':'false'));
+  const cur=LAYERS.find(l=>l.id===st.base),note=document.querySelector('.mapnote');
+  if(note)note.textContent=cur&&cur.note||'';
   gridEl.classList.toggle('on',st.mk.grid);   /* not .hidden: an <svg> is not an HTMLElement */
   document.querySelectorAll('.legend').forEach(el=>{
     el.classList.toggle('show',el.dataset.who==='base'
@@ -241,11 +251,7 @@ function paint(){
 }
 
 const bases=LAYERS.filter(l=>l.kind==='base');
-function setBase(id){
-  st.base=id;
-  document.querySelectorAll('input[name=base]').forEach(i=>i.checked=i.value===id);
-  paint();
-}
+function setBase(id){ st.base=id; paint(); }
 function cycleBase(dir){
   const i=bases.findIndex(l=>l.id===st.base);
   const n=bases[(i+dir+bases.length)%bases.length];
@@ -258,16 +264,21 @@ function cycleBase(dir){
   const hint=t=>{const d=document.createElement('div');d.className='hint';d.textContent=t;body.appendChild(d);};
 
   grp('Base map');
+  const mapChips=document.createElement('div');
+  mapChips.className='chips mapchips';
   bases.forEach((l,i)=>{
-    const d=row();
-    d.innerHTML='<label><input type="radio" name="base" value="'+l.id+'"><s>'+esc(l.label)+'</s>'
-      +(i<9?'<kbd>'+(i+1)+'</kbd>':'')+'</label>';
-    const inp=d.querySelector('input');
-    inp.checked=st.base===l.id;
-    inp.addEventListener('change',()=>{st.base=l.id;paint();});
-    if(l.note)hint(l.note);
-    if(l.id==='biomes-b')body.appendChild(biomeLegend('base'));
+    const c=document.createElement('button');
+    c.className='chip'; c.type='button'; c.dataset.base=l.id;
+    c.setAttribute('aria-pressed','false');
+    c.innerHTML='<span>'+esc(l.label)+'</span>'+(i<9?'<em>'+(i+1)+'</em>':'');
+    c.addEventListener('click',()=>{setBase(l.id);flash(l.label);});
+    mapChips.appendChild(c);
   });
+  body.appendChild(mapChips);
+  const mapNote=document.createElement('div');
+  mapNote.className='hint mapnote';
+  body.appendChild(mapNote);
+  body.appendChild(biomeLegend('base'));
 
   const ovs=LAYERS.filter(l=>l.kind==='overlay');
   if(ovs.length){
