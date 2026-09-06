@@ -1,3 +1,7 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Astoria 8K &#8212; Added POIs</title>
 <style>
 :root{
@@ -496,10 +500,13 @@ function apply(){
 }
 
 /* ------------------------------------------------------------ pan / zoom -- */
-let s=1,tx=0,ty=0;
+let s=1,tx=0,ty=0,drawnS=0;
 function draw(){
   world.style.transform='translate('+tx+'px,'+ty+'px) scale('+s+')';
-  layer.style.setProperty('--inv',1/s);            /* keep pins a constant screen size */
+  /* --inv keeps pins a constant screen size, but it cascades to every pin,
+     footprint and spawn marker - restyling ~130 elements. Panning does not
+     change the scale, so only write it when the zoom has actually moved. */
+  if(s!==drawnS){ layer.style.setProperty('--inv',1/s); drawnS=s; }
 }
 function fit(){s=1;tx=-world.offsetWidth/2;ty=-world.offsetHeight/2;draw();}
 function zoomAt(cx,cy,f){

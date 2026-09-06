@@ -28,6 +28,10 @@ import maplayers
 
 Image.MAX_IMAGE_PIXELS = None
 
+# Windows has no .webp in its registry, so guess_type() returns None there and
+# --inline would label the payload image/png. Register it rather than rely on it.
+mimetypes.add_type("image/webp", ".webp")
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 WORLD = os.path.join(ROOT, "GeneratedWorlds", "Astoria 8K")
@@ -52,7 +56,8 @@ def slug(s):
 
 
 def import_user_maps(maps_dir, out, size, quality):
-    """Copy the user's own renders in as base layers, downscaled to `size`."""
+    """Copy the user's own renders in as base layers, as WebP no larger than
+    `size` - a render already smaller than that is kept at its own resolution."""
     files = sorted(
         (f for f in os.listdir(maps_dir) if f.lower().endswith(IMG_EXT)),
         key=natural,
@@ -71,9 +76,14 @@ def import_user_maps(maps_dir, out, size, quality):
                 "square and will not line up with the pins" % (f, im.width, im.height),
                 file=sys.stderr,
             )
-        im = im.convert("RGB").resize((size, size), Image.LANCZOS)
-        name = "user-%02d-%s.jpg" % (i + 1, slug(os.path.splitext(f)[0])[:40])
-        im.save(os.path.join(out, name), quality=quality, optimize=True, progressive=True)
+        # never scale up: enlarging a 2000 px export to 2048 invents no detail,
+        # it just costs bytes and softens what is there
+        n = min(size, max(im.size))
+        im = im.convert("RGB")
+        if im.size != (n, n):
+            im = im.resize((n, n), Image.LANCZOS)
+        name = "user-%02d-%s.webp" % (i + 1, slug(os.path.splitext(f)[0])[:40])
+        im.save(os.path.join(out, name), quality=quality, method=6)
         layers.append(
             {
                 "id": "u%d" % (i + 1),
@@ -188,7 +198,7 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--maps", metavar="DIR", help="folder of your own full-world map renders")
     ap.add_argument("--size", type=int, default=2048, help="layer resolution, px (default 2048)")
-    ap.add_argument("--quality", type=int, default=88, help="JPEG quality for --maps imports")
+    ap.add_argument("--quality", type=int, default=82, help="WebP quality for --maps imports (default 82)")
     ap.add_argument(
         "--keep-render",
         action="store_true",

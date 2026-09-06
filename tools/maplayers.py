@@ -65,7 +65,14 @@ def roads(world, out, size):
     network continuous once it is resized.
     """
     a = np.asarray(Image.open(os.path.join(world, "splat3.png")).convert("RGBA"))
-    asphalt, gravel = a[:, :, 0], a[:, :, 1]
+
+    # Grow each road class on its own, before a colour is chosen. Dilating the
+    # composed RGBA instead takes the maximum of every channel independently,
+    # so an asphalt edge meeting a gravel edge came out (214, 201, 210) - a
+    # lilac that is neither road colour.
+    grow = ImageFilter.MaxFilter(3)
+    asphalt = np.asarray(Image.fromarray(a[:, :, 0]).filter(grow))
+    gravel = np.asarray(Image.fromarray(a[:, :, 1]).filter(grow))
 
     rgba = np.zeros(asphalt.shape + (4,), np.uint8)
     rgba[:, :, 3] = np.maximum(asphalt, gravel)
@@ -73,8 +80,7 @@ def roads(world, out, size):
     for c in range(3):
         rgba[:, :, c] = np.where(is_asphalt, ASPHALT[c], GRAVEL[c])
 
-    im = Image.fromarray(rgba, "RGBA").filter(ImageFilter.MaxFilter(3))
-    im = im.resize((size, size), Image.LANCZOS)
+    im = Image.fromarray(rgba, "RGBA").resize((size, size), Image.LANCZOS)
     return _save_indexed(im, os.path.join(out, "roads.png"), 32)
 
 
