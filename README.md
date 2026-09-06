@@ -111,6 +111,53 @@ or dropped.
 
 ---
 
+## The interactive map
+
+[`docs/ADDED_POIS_map.html`](docs/ADDED_POIS_map.html) — open it from a clone, pan and zoom,
+hover a pin for the POI's pack, size and what it replaced, click to copy its `teleport`
+command. Filter by name or by pack in the right‑hand rail.
+
+The map is a stack of switchable layers, in the **Layers** panel top right. Every layer is
+the whole 8192 × 8192 world drawn north‑up, so they all line up with each other and with the
+pins without any offset:
+
+| | Layer | From |
+|---|---|---|
+| **base** | Game render | the original foundation map |
+| **base** | Biomes | `biomes.png`, with a legend of what each colour is and how much of the map it covers |
+| **base** | Terrain zones | `regions.png` |
+| overlay | Roads | `splat3.png` — grey asphalt, tan gravel. On by default; it sharpens the road network on any base |
+| overlay | Biomes | the biome colours as a tint over whatever base you are on |
+| overlay | Terrain zones | the same for the terrain banding |
+
+Pick the base map with the radio buttons or the number keys **1**–**9**. Overlays each have
+an opacity slider. **G** toggles a 512 m coordinate grid (1024 m lines drawn heavier), and
+the world X/Z under the cursor is read out under the title. POI pins, footprints and spawn
+markers each toggle separately. Your layer choices are remembered between visits.
+
+### Using your own map renders
+
+Drop any full‑world renders you have into a folder and point the generator at it:
+
+```powershell
+python tools\mapgen.py --maps "C:\Users\you\Desktop\maps"
+```
+
+Each image becomes a base layer, and **the first one in natural filename order becomes the
+map's default base** — so name the one you want as the main map `1_something.png`. They must
+be square and north‑up covering the whole world, which every 7 Days to Die map export
+already is; the generator warns if one is not square, because a stretched map will not line
+up with the pins.
+
+Useful flags:
+
+- `--size 4096` — layers at 4096 px instead of 2048, sharper when zoomed right in, four times the file size.
+- `--inline` — bake every layer into the HTML as one portable ~2.3 MB file with no `docs/maps/` alongside it.
+
+Rerun `python tools\mapgen.py` with no arguments to rebuild from the repo alone.
+
+---
+
 ## Stopping zombies spawning in your base
 
 A Land Claim Block cannot be baked into a world file — it needs an owner, and an unowned one
@@ -160,6 +207,11 @@ the edited one, and the original is unmodified upstream.
 The Python used to build this: street‑tile lot‑slot resolution from `POIMarker*` data,
 POI placement and collision checking against the full 8192×8192 heightmap, the terrain
 levelling pass, and the map renderer. Not polished, but reproducible.
+
+`mapgen.py` builds the interactive map above: it turns the world's own PNGs into map layers
+via `maplayers.py`, then fills `map_template.html` with those layers and the POI, pack and
+spawn data in `mapdata.json`. `render2.py` is the separate one‑shot PNG renderer that
+produced `docs/ADDED_POIS_map.png`.
 
 Rotation for lot swaps uses the law derived from 8,758 matched placements across Navezgane
 and the shipped Pregen worlds:
