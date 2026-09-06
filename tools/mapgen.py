@@ -5,12 +5,16 @@ of overlays on top, then the POI pins. Every layer covers the full
 8192x8192 world north-up, so nothing needs registering.
 
     python tools/mapgen.py                         # rebuild from the repo
-    python tools/mapgen.py --maps "C:\\path\\to\\maps"   # add your own map renders
+    python tools/mapgen.py --maps "C:\\path\\to\\maps"   # (re)import your map renders
     python tools/mapgen.py --inline                # one self-contained .html
 
 Maps passed with --maps are added as base layers, and the first one (natural
 filename order) becomes the default base. They must be square, north-up and
 cover the whole world, which is what every 7 Days to Die map export already is.
+
+Importing records what it built in docs/maps/maps.json, and a run without
+--maps reads that back, so rebuilding needs the repo alone - the folder the
+renders came from does not have to still exist.
 """
 
 import argparse
@@ -37,6 +41,7 @@ ROOT = os.path.dirname(HERE)
 WORLD = os.path.join(ROOT, "GeneratedWorlds", "Astoria 8K")
 OUTDIR = os.path.join(ROOT, "docs", "maps")
 OUTHTML = os.path.join(ROOT, "docs", "ADDED_POIS_map.html")
+MANIFEST = os.path.join(OUTDIR, "maps.json")
 IMG_EXT = (".png", ".jpg", ".jpeg", ".webp", ".bmp", ".gif")
 
 
@@ -94,6 +99,48 @@ def import_user_maps(maps_dir, out, size, quality):
             }
         )
         print("  + %-28s %s" % (label_from(f), name))
+
+    keep = {os.path.basename(l["file"]) for l in layers}
+    for stale in os.listdir(out):
+        if re.match(r"user-\d+-", stale) and stale not in keep:
+            os.remove(os.path.join(out, stale))
+            print("  - %s (no longer in %s)" % (stale, maps_dir))
+
+    with open(MANIFEST, "w", encoding="utf-8") as fh:
+        json.dump(layers, fh, indent=1)
+    return layers
+
+
+def load_imported_maps(out):
+    """The base map chips from the last --maps run.
+
+    The imported images are committed but cannot be re-derived from the repo,
+    so without this a plain rebuild would quietly drop every one of them.
+    maps.json carries the labels the import gave them; if it is missing we can
+    still recover the layers from the filenames, just with the capitalisation
+    flattened by the slug.
+    """
+    if os.path.exists(MANIFEST):
+        with open(MANIFEST, encoding="utf-8") as fh:
+            layers = json.load(fh)
+        layers = [l for l in layers if os.path.exists(os.path.join(ROOT, "docs", l["file"]))]
+        missing = len(json.load(open(MANIFEST, encoding="utf-8"))) - len(layers)
+        if missing:
+            print("  ! %d map(s) in maps.json are missing from docs/maps" % missing, file=sys.stderr)
+    else:
+        layers = []
+        for i, f in enumerate(sorted((f for f in os.listdir(out) if re.match(r"user-\d+-", f)), key=natural)):
+            layers.append(
+                {
+                    "id": "u%d" % (i + 1),
+                    "label": label_from(re.sub(r"^user-\d+-", "", f)),
+                    "kind": "base",
+                    "file": "maps/" + f,
+                    "note": "your render",
+                }
+            )
+    if layers:
+        print("  = %d base map(s) carried over from the last import" % len(layers))
     return layers
 
 
@@ -101,16 +148,14 @@ def build(args):
     os.makedirs(OUTDIR, exist_ok=True)
     print("building layers at %dx%d" % (args.size, args.size))
 
-    user = import_user_maps(args.maps, OUTDIR, args.size, args.quality) if args.maps else []
-
-    # The base map chips are built from --maps alone, so a rebuild without it
-    # drops them from the viewer even though the images are still sitting in
-    # docs/maps. Worth saying out loud rather than silently shipping a map with
-    # nothing but the two generated bases on it.
+    if args.maps:
+        user = import_user_maps(args.maps, OUTDIR, args.size, args.quality)
+    else:
+        user = load_imported_maps(OUTDIR)
     if not user:
         print(
-            "  ! no --maps given: the only base maps will be Biomes and Terrain "
-            "zones. Pass --maps to keep your own renders as the base chips.",
+            "  ! no base maps of your own: the only bases will be Biomes and "
+            "Terrain zones. Pass --maps to import some.",
             file=sys.stderr,
         )
 
