@@ -1,0 +1,51 @@
+[
+ {
+  "id": "u1",
+  "label": "Astoria World Map",
+  "kind": "base",
+  "file": "maps/user-01-astoria-world-map.webp",
+  "note": "your render \u00b7 Astoria World Map.webp"
+ },
+ {
+  "id": "u2",
+  "label": "Battle Arenas",
+  "kind": "base",
+  "file": "maps/user-02-battle-arenas.webp",
+  "note": "your render \u00b7 Battle Arenas.webp"
+ },
+ {
+  "id": "u3",
+  "label": "Biome Layout",
+  "kind": "base",
+  "file": "maps/user-03-biome-layout.webp",
+  "note": "your render \u00b7 Biome Layout.webp"
+ },
+ {
+  "id": "u4",
+  "label": "Blood Moon Forts",
+  "kind": "base",
+  "file": "maps/user-04-blood-moon-forts.webp",
+  "note": "your render \u00b7 Blood Moon Forts.webp"
+ },
+ {
+  "id": "u5",
+  "label": "Driving Features",
+  "kind": "base",
+  "file": "maps/user-05-driving-features.webp",
+  "note": "your render \u00b7 Driving Features.webp"
+ },
+ {
+  "id": "u6",
+  "label": "Road System",
+  "kind": "base",
+  "file": "maps/user-06-road-system.webp",
+  "note": "your render \u00b7 Road System.webp"
+ },
+ {
+  "id": "u7",
+  "label": "World Areas",
+  "kind": "base",
+  "file": "maps/user-07-world-areas.webp",
+  "note": "your render \u00b7 World Areas.webp"
+ }
+]
