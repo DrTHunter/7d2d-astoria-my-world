@@ -17,8 +17,12 @@ body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--body);
 .shell{display:grid;grid-template-columns:minmax(0,1fr) 348px;height:100vh}
 @media (max-width:900px){.shell{grid-template-columns:1fr;grid-template-rows:62vh 1fr;height:auto}}
 
+/* user-select:none because dragging to pan otherwise starts a selection over
+   the layer stack. It selects no text, so it looks like nothing happened until
+   you notice the whole map has gone selection-blue. The roster in the rail is
+   outside the stage and stays selectable. */
 .stage{position:relative;overflow:hidden;background:radial-gradient(120% 90% at 50% 0%,#1d1810 0%,var(--ground) 70%);
-  cursor:grab;touch-action:none}
+  cursor:grab;touch-action:none;-webkit-user-select:none;user-select:none}
 .stage.drag{cursor:grabbing}
 .world{position:absolute;top:50%;left:50%;width:min(94%,94vh);aspect-ratio:1;transform-origin:0 0;
   will-change:transform;border:1px solid var(--ridge);background:#0d0b07}
