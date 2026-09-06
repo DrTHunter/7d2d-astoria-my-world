@@ -130,8 +130,10 @@ pins without any offset:
 | overlay | Biomes | the biome colours as a tint over whatever base you are on |
 | overlay | Terrain zones | the same for the terrain banding |
 
-Pick the base map with the radio buttons or the number keys **1**–**9**. Overlays each have
-an opacity slider. **G** toggles a 512 m coordinate grid (1024 m lines drawn heavier), and
+Pick the base map with the radio buttons, the number keys **1**–**9**, or the **MAP** button
+by the zoom controls, which steps to the next one (**M**, or shift+**M** to go back).
+Whichever base you are on, the overlays stay exactly as you left them — turning them on once
+keeps them over every map you switch to. Overlays each have an opacity slider. **G** toggles a 512 m coordinate grid (1024 m lines drawn heavier), and
 the world X/Z under the cursor is read out under the title. POI pins, footprints and spawn
 markers each toggle separately. Your layer choices are remembered between visits.
 

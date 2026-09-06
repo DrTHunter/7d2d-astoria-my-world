@@ -90,6 +90,7 @@ body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--body);
 .zoom{position:absolute;right:18px;bottom:18px;display:flex;gap:6px;z-index:11}
 .zoom button{width:34px;height:34px;font:400 16px/1 var(--body);color:var(--ink-dim);
   background:var(--panel);border:1px solid var(--ridge);border-radius:3px;cursor:pointer}
+.zoom #zmap{width:auto;padding:0 11px;font:600 10px/1 var(--display);letter-spacing:.14em}
 .zoom button:hover{color:var(--ochre);border-color:var(--ochre-dim)}
 .zoom button:focus-visible{outline:2px solid var(--ochre);outline-offset:1px}
 .tip{position:absolute;pointer-events:none;z-index:60;opacity:0;transition:opacity .1s;
@@ -154,6 +155,7 @@ body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--body);
     <div class="zoom">
       <button id="zin" title="Zoom in">+</button>
       <button id="zout" title="Zoom out">&#8722;</button>
+      <button id="zmap" title="Next base map (M, shift+M back)">MAP</button>
       <button id="zfit" title="Reset view" style="font-size:11px">FIT</button>
     </div>
     <div class="tip" id="tip"></div>
@@ -239,6 +241,16 @@ function paint(){
 }
 
 const bases=LAYERS.filter(l=>l.kind==='base');
+function setBase(id){
+  st.base=id;
+  document.querySelectorAll('input[name=base]').forEach(i=>i.checked=i.value===id);
+  paint();
+}
+function cycleBase(dir){
+  const i=bases.findIndex(l=>l.id===st.base);
+  const n=bases[(i+dir+bases.length)%bases.length];
+  setBase(n.id); flash(n.label);
+}
 (function buildPanel(){
   const body=document.getElementById('panelBody');
   const grp=t=>{const d=document.createElement('div');d.className='lgrp';d.textContent=t;body.appendChild(d);};
@@ -493,7 +505,9 @@ function centreOn(p){
 stage.addEventListener('wheel',e=>{e.preventDefault();zoomAt(e.clientX,e.clientY,e.deltaY<0?1.16:1/1.16);},{passive:false});
 let down=null;
 stage.addEventListener('pointerdown',e=>{
-  if(e.target.closest('.pin')||e.target.closest('.panel'))return;
+  /* the stage captures the pointer to drag, which swallows the click on
+     anything sitting over it - every control has to opt out here */
+  if(e.target.closest('.pin,.spawn,.panel,.zoom'))return;
   down={x:e.clientX-tx,y:e.clientY-ty};
   stage.setPointerCapture(e.pointerId); stage.classList.add('drag');
 });
@@ -508,18 +522,22 @@ stage.addEventListener('pointerleave',()=>{crd.textContent=' ';});
 addEventListener('pointerup',()=>{down=null;stage.classList.remove('drag');});
 document.getElementById('zin').onclick=()=>{const r=stage.getBoundingClientRect();zoomAt(r.left+r.width/2,r.top+r.height/2,1.4);};
 document.getElementById('zout').onclick=()=>{const r=stage.getBoundingClientRect();zoomAt(r.left+r.width/2,r.top+r.height/2,1/1.4);};
+document.getElementById('zmap').onclick=()=>cycleBase(1);
 document.getElementById('zfit').onclick=fit;
 addEventListener('resize',fit);
 
-/* 1-9 pick a base map, G the grid - only when you are not typing in the filter */
+/* 1-9 pick a base map, M the next one, G the grid. Guard only against text
+   entry: a focused checkbox, radio or slider must not swallow the shortcuts,
+   which is what happens the moment you touch anything in the Layers panel. */
+const TYPING=/^(text|search|url|email|password|number|tel|date|time)$/;
 addEventListener('keydown',e=>{
-  if(e.target.matches('input,textarea')||e.ctrlKey||e.metaKey||e.altKey)return;
+  const t=e.target;
+  if(e.ctrlKey||e.metaKey||e.altKey)return;
+  if(t.matches('textarea,[contenteditable=""],[contenteditable="true"]'))return;
+  if(t.matches('input')&&TYPING.test(t.type))return;
   const n=+e.key;
-  if(n>=1&&n<=9&&bases[n-1]){
-    st.base=bases[n-1].id;
-    document.querySelectorAll('input[name=base]').forEach(i=>i.checked=i.value===st.base);
-    flash(bases[n-1].label); paint(); return;
-  }
+  if(n>=1&&n<=9&&bases[n-1]){ setBase(bases[n-1].id); flash(bases[n-1].label); return; }
+  if(e.key==='m'||e.key==='M'){ cycleBase(e.shiftKey?-1:1); return; }
   if(e.key==='g'||e.key==='G'){
     st.mk.grid=!st.mk.grid;
     document.querySelector('input[data-mk=grid]').checked=st.mk.grid;
