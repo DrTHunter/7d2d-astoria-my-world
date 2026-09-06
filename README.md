@@ -162,10 +162,11 @@ Useful flags:
 - `--quality 90` — WebP quality for the imported maps, 82 by default.
 - `--inline` — bake every layer into the HTML as one portable file with no `docs/maps/` alongside it.
 
-`--maps` is what builds the base map chips, so pass it every time you rebuild. Running
-`python tools\mapgen.py` with no arguments regenerates the page with only the Biomes and
-Terrain zones bases and drops your own renders from the viewer — it warns on stderr when
-you do.
+An import records what it built in `docs/maps/maps.json`, so you only need `--maps` when the
+renders themselves change. `python tools\mapgen.py` on its own reads that manifest back and
+rebuilds the page with every base map chip intact — the folder the renders came from does
+not have to still exist. Re-importing also deletes any previously imported map that is no
+longer in the source folder, so `docs/maps` and the manifest cannot drift apart.
 
 ---
 
