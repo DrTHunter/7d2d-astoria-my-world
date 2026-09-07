@@ -1,239 +1,163 @@
-# 7 Days to Die — Astoria 8K, POI overhaul
+# Astoria 8K — my world
 
-A heavily populated edit of the **Astoria 8K** world for 7 Days to Die (tested on V 3.2.0 b10).
+My version of the **Astoria 8K** map for *7 Days to Die* **V 3.2.0 (b10)**: the junk cleared out, a
+few thousand POIs swapped in, and eight zombie-free starter bases in two walled compounds.
 
-259 modded points of interest were added to the map, almost all of them by **replacing
-Tier‑0 filler** — the non‑enterable rubble piles, burnt shells and empty gravel lots that
-otherwise take up city blocks and give you nothing to do. Thirteen custom player builds sit
-on levelled pads next to the main city, and the player spawn was moved into one of them.
+**[Browse every POI on the interactive map →](https://drthunter.github.io/astoria-8k-poi-map/)**
 
----
-
-## ⚠️ Credit — the base map is not mine
-
-The world itself (terrain, biomes, road network, road splats, the original POI layout) is
-**Astoria 8K by Grim**, published on Nexus Mods:
-
-> **https://www.nexusmods.com/7daystodie/mods/7017**
-
-All of `dtm.raw`, `biomes.png`, `splat3.png`, `splat4.png`, `regions.png`, `main.ttw` and the
-original `prefabs.xml` are that author's work. This repository is a modification of it, not a
-replacement — please go and endorse the original.
-
-If you are the author of Astoria 8K and would prefer this not be mirrored here, open an issue
-and I will take it down.
+| | |
+|---|--:|
+| POIs in the world | **13,081** |
+| …not in the stock map | **2,088** |
+| Starter bases (no sleeper volumes) | **8** |
+| Terrain cells re-graded | 112,881 |
 
 ---
 
-## Required mods
+# Installing it (for my friends)
 
-The world's `prefabs.xml` references POIs from these packs. **Install all of them first** or
-those POIs will silently fail to spawn and you will get holes in the map.
+You need **five things**. Steps 1–3 are downloads from Nexus; steps 4–5 are one command.
 
-| Pack | Nexus |
-|---|---|
-| Astoria 8K (base map) | [7017](https://www.nexusmods.com/7daystodie/mods/7017) |
-| MPLogue Prefabs | [3436](https://www.nexusmods.com/7daystodie/mods/3436) |
-| Voltralux's POI Pack | [4916](https://www.nexusmods.com/7daystodie/mods/4916) |
-| Zeebark POI Pack | [6577](https://www.nexusmods.com/7daystodie/mods/6577) |
-| WinterDawn Fortress | [9420](https://www.nexusmods.com/7daystodie/mods/9420) |
-| Svarii's POI Package | [9899](https://www.nexusmods.com/7daystodie/mods/9899) |
-| Caleseche | [10496](https://www.nexusmods.com/7daystodie/mods/10496) |
-| ShadowModernHouse | [10509](https://www.nexusmods.com/7daystodie/mods/10509) |
-| Cog's POIs | [10928](https://www.nexusmods.com/7daystodie/mods/10928) |
-
----
-
-## Install
-
-The heightmap is **not in this repository** — `dtm.raw` is 128 MB, over GitHub's 100 MB file
-limit. It ships gzipped as a release asset, which also keeps it out of every clone:
-
-> **[Download `dtm.raw.gz` from the v1.0 release](../../releases/tag/v1.0)** (90.6 MB)
-
-Clone the repo, drop `dtm.raw.gz` into the world folder, then run this from the repo root in
-PowerShell:
-
-```powershell
-$w = "$env:APPDATA\7DaysToDie\GeneratedWorlds\Astoria 8K"
-New-Item -ItemType Directory -Force $w | Out-Null
-Copy-Item "GeneratedWorlds\Astoria 8K\*" $w -Recurse -Force
-Copy-Item "LocalPrefabs\*" "$env:APPDATA\7DaysToDie\LocalPrefabs" -Recurse -Force
-
-# expand the heightmap you downloaded from the release into the world folder
-$in  = [IO.File]::OpenRead("$w\dtm.raw.gz")
-$out = [IO.File]::Create("$w\dtm.raw")
-$gz  = New-Object IO.Compression.GzipStream($in, [IO.Compression.CompressionMode]::Decompress)
-$gz.CopyTo($out); $gz.Close(); $out.Close(); $in.Close()
-Remove-Item "$w\dtm.raw.gz"
-```
-
-`dtm.raw` must end up exactly **134,217,728 bytes** — the world will not load correctly
-otherwise. Then start a new game and pick *Astoria 8K*.
-
-The 13 custom builds load from `LocalPrefabs`. If any of them fail to appear, check the log
-for a missing‑prefab warning and move that folder to `Mods/<anything>/Prefabs/` instead —
-you also need to do that if you are hosting a dedicated server, since `LocalPrefabs` is not
-distributed to clients.
-
----
-
-## What changed
-
-Original map: **13,011** decorations. This edit: **13,064**.
-
-### 122 modded POIs from the packs above
-73 dropped into real street‑tile lot slots in towns across the map, replacing Tier‑0 filler;
-49 placed in the wilderness on flat, road‑adjacent ground. Full list with coordinates in
-[`docs/ADDED_POIS.md`](docs/ADDED_POIS.md).
-
-### 124 more around the map's east/central towns
-Extra copies concentrated where you actually play, again all replacing junk lots — 56 in the
-31‑tile city at (2656, −677), 36 in the 13‑tile town at (1714, −848), the rest spread over
-seven more clusters. Capped at two copies of any POI in the area, never twice in one town,
-copies at least 300 m apart. See [`docs/ADDED_POIS_local.md`](docs/ADDED_POIS_local.md).
-
-### 13 custom builds on levelled pads
-Astoria has **nowhere** a 103×103 building can sit on flat empty ground — RWG flattened every
-large plateau and then built a town on it. So `dtm.raw` was edited to level a pad under each
-build, with a 24 m cosine ramp back to natural terrain. 0.27 % of the map's terrain was
-touched; land steeper than 45° in the modified area actually *decreased*, from 15,872 m² to
-7,401 m². Details in [`docs/MY_PREFABS.md`](docs/MY_PREFABS.md).
-
-### Spawn
-`spawnpoints.xml` now holds a single point at **X 2415, Z −817**, inside `Prison-perimiter`.
-The original ten points are in `GeneratedWorlds/Astoria 8K/backups/`.
-
-### 19 broken references repaired
-V 3.2.0 removed several prefabs the original map used — `remnant_lot_industrial_01`,
-`cave_15`, `aaa_subway` and some orphaned parts. These were remapped to current equivalents
-or dropped.
-
----
-
-## The interactive map
-
-[`docs/ADDED_POIS_map.html`](docs/ADDED_POIS_map.html) — open it from a clone, pan and zoom,
-hover a pin for the POI's pack, size and what it replaced, click to copy its `teleport`
-command. Filter by name or by pack in the right‑hand rail.
-
-The map is a stack of switchable layers, in the **Layers** panel top right. Every layer is
-the whole 8192 × 8192 world drawn north‑up, so they all line up with each other and with the
-pins without any offset:
-
-| | Layer | From |
-|---|---|---|
-| **base** | your own maps | whatever you pass to `--maps`, one chip each |
-| **base** | Biomes | `biomes.png`, with a legend of what each colour is and how much of the map it covers |
-| **base** | Terrain zones | `regions.png` |
-| overlay | Roads | `splat3.png` — grey asphalt, tan gravel. On by default; it sharpens the road network on any base |
-| overlay | Biomes | the biome colours as a tint over whatever base you are on |
-| overlay | Terrain zones | the same for the terrain banding |
-
-Base maps are chips, the same as the POI pack chips in the rail — click one to switch to it.
-The number keys **1**–**9** pick one directly, and the **MAP** button by the zoom controls
-steps to the next (**M**, or shift+**M** to go back).
-Whichever base you are on, the overlays stay exactly as you left them — turning them on once
-keeps them over every map you switch to. Overlays each have an opacity slider. **G** toggles a 512 m coordinate grid (1024 m lines drawn heavier), and
-the world X/Z under the cursor is read out under the title. POI pins, footprints and spawn
-markers each toggle separately. Your layer choices are remembered between visits.
-
-### Using your own map renders
-
-Drop any full‑world renders you have into a folder and point the generator at it:
-
-```powershell
-python tools\mapgen.py --maps "C:\Users\you\Desktop\maps"
-```
-
-Each image becomes a base map chip, and **the first one in natural filename order is the one
-the map opens on**. The chip's label is its filename, so a `1_` prefix forced into the name to
-win that order shows up in the label too — giving the main render a name that already sorts
-first reads better than numbering it.
-
-They must be square and north‑up covering the whole world, which every 7 Days to Die map
-export already is; the generator warns if one is not square, because a stretched map will
-not line up with the pins. Imports are saved as WebP, and are never scaled up past the
-resolution you exported at.
-
-Useful flags:
-
-- `--size 4096` — build the generated roads, biome and terrain layers at 4096 px instead of 2048. It does not enlarge your own renders beyond their own resolution.
-- `--quality 90` — WebP quality for the imported maps, 82 by default.
-- `--inline` — bake every layer into the HTML as one portable file with no `docs/maps/` alongside it.
-
-`--maps` is what builds the base map chips, so pass it every time you rebuild. Running
-`python tools\mapgen.py` with no arguments regenerates the page with only the Biomes and
-Terrain zones bases and drops your own renders from the viewer — it warns on stderr when
-you do.
-
----
-
-## Stopping zombies spawning in your base
-
-A Land Claim Block cannot be baked into a world file — it needs an owner, and an unowned one
-claims nothing. Place one yourself. In the F1 console:
+Everything below happens in your 7 Days to Die data folder. On Windows that is:
 
 ```
-giveself keystoneBlock
+%APPDATA%\7DaysToDie
 ```
 
-Quoting the game's own description:
+Paste that into Explorer's address bar and it will take you there.
 
-> LCBs will also prevent Sleeper and Biome respawns, but allow Blood Moon or Screamer spawns.
+## 1. The game
 
-So it stops POI sleepers and wandering biome zombies inside the claimed area, but **not**
-blood moons or screamers. It prevents *respawns* — clear the POI once after you first enter
-and the LCB keeps them from coming back.
+**7 Days to Die V 3.2.0 (b10)**. Other versions will not match — the patch checks and refuses.
+
+## 2. The base map
+
+**[Astoria 8K — Game Version 2.0 — Full World Map](https://www.nexusmods.com/7daystodie/mods/7017)**
+(Nexus mod 7017, **version 1.5.1**). Extract it so the files land here:
+
+```
+%APPDATA%\7DaysToDie\GeneratedWorlds\Astoria 8K\
+    biomes.png   dtm.raw   main.ttw   map_info.xml
+    prefabs.xml  regions.png  spawnpoints.xml  splat3.png  splat4.png
+```
+
+Do **not** rename the folder — it must be exactly `Astoria 8K`.
+
+## 3. The POI packs
+
+These supply the buildings. Every one goes in `%APPDATA%\7DaysToDie\Mods\`.
+**Without them you get empty lots where 2,088 POIs should be.**
+
+| Pack | POIs used | Also needed for |
+|---|--:|---|
+| **[Compopack Classic All-In-One (No Traders)](https://www.nexusmods.com/7daystodie/mods/5438)** | 1,812 | by far the biggest share — most of the map |
+| [Zeebark POI Pack](https://www.nexusmods.com/7daystodie/mods/6577) | 125 | blocks for one starter base |
+| [Voltralux's POI Pack](https://www.nexusmods.com/7daystodie/mods/4916) | 50 | |
+| [MPLogue Prefabs](https://www.nexusmods.com/7daystodie/mods/3436) | 41 | blocks for one starter base |
+| [Svarii's POI Package](https://www.nexusmods.com/7daystodie/mods/9899) | 21 | |
+| [Cog's POIs](https://www.nexusmods.com/7daystodie/mods/10928) | 6 | |
+| [WinterDawn Fortress](https://www.nexusmods.com/7daystodie/mods/9420) | 1 | |
+| [Caleseche](https://www.nexusmods.com/7daystodie/mods/10496) | 1 | |
+| [ShadowModernHouse](https://www.nexusmods.com/7daystodie/mods/10509) | 1 | |
+
+**All of us must run the same list**, including the host. MPLogue and Zeebark ship `blocks.xml`,
+`shapes.xml` and `materials.xml`, which change core game data — if one person is missing them the
+block IDs will not line up.
+
+## 4. Get this repo
+
+```
+git clone https://github.com/DrTHunter/7d2d-astoria-my-world.git
+```
+
+or **Code → Download ZIP** and unzip it anywhere.
+
+## 5. Run the installer
+
+```
+python tools/install.py
+```
+
+It finds your game folder on its own. It will:
+
+- check your stock Astoria files are v1.5.1 (**it stops if they are not** — nothing is touched)
+- copy them to `*.stock-backup` so you can always go back
+- patch `dtm.raw` (112,881 cells — the levelled pads and the roads)
+- replace `prefabs.xml` and `spawnpoints.xml`
+- verify all three against known checksums
+- install `Mods\Astoria-StarterBases`
+
+Re-running it is safe. To undo, delete the three files and rename the `.stock-backup` copies back.
+
+## 6. Start a **new** save
+
+Pick **Astoria 8K**. You will spawn in the prison yard at `2430, -800`.
+
+> **An existing save will not show any of this.** 7 Days to Die bakes POIs into a chunk the first
+> time it generates, so anything you have already explored keeps the old layout. Start fresh.
 
 ---
 
-## Using this on an existing save
-
-New POIs only appear in chunks the save has not generated yet. For an existing save, rebuild
-the affected areas from the F1 console (this destroys anything you built inside the box and
-resets loot containers):
+# What is actually in here
 
 ```
-chunkreset 1272 -1128 2086 -614     # 13-tile town
-chunkreset 2172 -1428 3136 136      # 31-tile city
-chunkreset 1920 -1412 2509 -358     # the custom-build cluster
+mods/Astoria-StarterBases/   the eight starter bases + their walls and roads (my own builds)
+world-patch/                 dtm.patch, prefabs.xml, spawnpoints.xml, manifest.json
+tools/install.py             applies the patch to a stock Astoria world
+docs/                        the full write-up of every change
 ```
 
-The rest are listed in `docs/ADDED_POIS_local.md`. Starting a fresh game is cleaner.
+**This repo does not redistribute anyone else's work.** The base map and the POI packs come from
+Nexus (links above); what is stored here is the patch that turns a stock Astoria into mine, plus my
+own prefabs. That is also why `dtm.patch` is 0.2 MB instead of a 128 MB file.
 
----
+## The eight starter bases
 
-## Reverting
+Each was cut out of an existing POI. **None of them has a single sleeper volume**, so nothing spawns
+inside — they are safe to move into on day one.
 
-`GeneratedWorlds/Astoria 8K/backups/` holds each stage of `prefabs.xml`
-(`.ORIGINAL-BACKUP` is Grim's untouched file) plus the original `spawnpoints.xml` and
-`map_info.xml`. For terrain, re-download `dtm.raw` from the Nexus page — the copy here is
-the edited one, and the original is unmodified upstream.
+| Cut from | Name | Size |
+|---|---|--:|
+| `prison_01` | **StarterBase_Prison_Cellblock** — the map spawn is in its yard | 113×109 |
+| `farm_17` | **StarterBase_UFO_Farm** | 69×75 |
+| `ranger_station_07` | **StarterBase_Ranger_Station** | 70×79 |
+| `hotel_03` | **StarterBase_Hotel_Tower** | 127×124 |
+| `house_modern_18` | **StarterBase_Modern_House** — compound | 111×105 |
+| `house_modern_31` | **StarterBase_Bunker_House** — compound | 69×75 |
+| `Ayesoar_Mansion_by_MPLogue` | **StarterBase_Ayesoar_Mansion** — compound | 60×54 |
+| `Modern_House_Zeebark` | **StarterBase_Zeebark_Modern_House** — own plot | 60×60 |
 
----
+The last one ships from Zeebark as a Tier‑5 `infested` POI with **31 badass sleeper volumes**; those
+were stripped so it matches the rest. Its geometry is byte-identical to Zeebark's original.
 
-## `tools/`
+Two walled plots hold them: a **146×202 compound** with three houses, and a **74×74 plot** 14 m east
+with the Zeebark house. The wall is copied block-for-block from the Modern House's own front wall —
+brick pillars every 6 m, dark metal panels, iron railings — with **seven working roll-up gates** and
+a paved ring road inside each, linked to the real road network.
 
-The Python used to build this: street‑tile lot‑slot resolution from `POIMarker*` data,
-POI placement and collision checking against the full 8192×8192 heightmap, the terrain
-levelling pass, and the map renderer. Not polished, but reproducible.
+Teleports for everything: [`docs/TELEPORTS_mine.txt`](docs/TELEPORTS_mine.txt).
 
-`mapgen.py` builds the interactive map above: it turns the world's own PNGs into map layers
-via `maplayers.py`, then fills `map_template.html` with those layers and the POI, pack and
-spawn data in `mapdata.json`. `render2.py` is the separate one‑shot PNG renderer that
-produced `docs/ADDED_POIS_map.png`.
+## What was done to the map
 
-Rotation for lot swaps uses the law derived from 8,758 matched placements across Navezgane
-and the shipped Pregen worlds:
+- **1,812 junk POIs replaced.** Astoria shipped with 1,070 Tier‑0 filler lots — `remnant_*`,
+  `rubble_*`, `lot_vacant_*`, the non-enterable rubble RWG scatters everywhere — plus a lot of
+  repetition (one downtown filler appeared **18 times**). Those, and every 7th-and-beyond copy of a
+  vanilla POI, now hold a Compopack POI: **820 distinct** ones, never more than 4 copies of any
+  single POI across the whole 8 km map. **1,769 of them have sleeper volumes**, so they are lootable
+  and questable — the rubble was not.
+- **Terrain re-graded** under the two plots and the roads: 112,881 cells, 0.17 % of the map.
+- Full detail, including how the placement rules were derived and verified:
+  [`docs/REPOPULATED.md`](docs/REPOPULATED.md) and [`docs/MY_PREFABS.md`](docs/MY_PREFABS.md).
+  Every swap is listed in [`docs/REPOPULATED_pois.csv`](docs/REPOPULATED_pois.csv).
 
-```
-rotation = (marker_rotation + tile_rotation + RotationToFaceNorth) mod 4
-```
+## If something is missing in game
 
----
+Almost always one of two things:
 
-## Licence
+1. **A mod was added or removed while the game was running.** 7 Days to Die scans the prefab folders
+   once at startup and remembers where each POI lives. Install everything, *then* start the game.
+   If Vortex renames a mod folder mid-session, every POI in it silently vanishes.
+2. **You are on an old save.** See step 6.
 
-The tooling in `tools/` and the documentation are free to use. The world and prefab data
-belong to their respective authors — see credits above.
+To confirm, search your log in `%APPDATA%\7DaysToDie\logs\` for `does not exist` — it names every
+prefab the game could not find.

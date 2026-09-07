@@ -1,6 +1,6 @@
 # POIs added to Astoria 8K
 
-World: `%APPDATA%\7DaysToDie\GeneratedWorlds\Astoria 8K`
+World: `C:\Users\drtre\AppData\Roaming\7DaysToDie\GeneratedWorlds\Astoria 8K`
 Untouched original: `prefabs.xml.ORIGINAL-BACKUP`
 
 **73 POIs placed in town lots**, replacing Tier-0 remnant/rubble/empty-lot filler.

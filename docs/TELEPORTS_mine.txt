@@ -1,15 +1,14 @@
-# teleports to your builds
+# teleports to your builds (compound rebuilt 2026-09-06)
 
-tp 2415 61 -817   # Prison-perimiter
-tp 2416 61 -936   # IncredibleTower
-tp 2099 60 -521   # DriveThroughPeremiter
-tp 2422 62 -698   # BunkerPerimiter
-tp 2420 62 -582   # UFOhomeBase
-tp 2312 56 -739   # House
-tp 2276 45 -892   # Farm1
-tp 2184 41 -1089   # CoolHouse1
-tp 1996 61 -429   # RangerStation
-tp 1991 37 -1341   # RogueNerds
-tp 2316 57 -665   # AyasterMansion
-tp 2258 42 -958   # bakerywithbunkergarage
-tp 2277 60 -806   # Tower1
+tp 2430 61 -800   # StarterBase_Prison_Cellblock - prison yard (this is the spawn)
+tp 2463 59 -952   # StarterBase_UFO_Farm
+tp 2461 61 -670   # StarterBase_Ranger_Station
+tp 2349 59 -674   # StarterBase_Hotel_Tower
+tp 2084 59 -525   # Compound - StarterBase_Modern_House
+tp 2053 59 -429   # Compound - StarterBase_Bunker_House
+tp 2121 59 -430   # Compound - StarterBase_Ayesoar_Mansion
+tp 2160 59 -530   # Compound - east gate 1 (outside the wall)
+tp 2160 59 -430   # Compound - east gate 2 (outside the wall)
+tp 2100 59 -380   # Compound - north gate (outside)
+tp 2085 59 -590   # Compound - south gate (outside)
+tp 2008 59 -464   # Compound - west gate (outside)
