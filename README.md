@@ -15,144 +15,188 @@ My version of the **Astoria 8K** map for *7 Days to Die* **V 3.2.0 (b10)**: the 
 
 ---
 
-# Setup — read this bit, it's short
+# Setup
 
-**You will not break your game.** Everything below is either managed by Vortex (one switch, on or
-off) or backed up automatically and undoable with one command.
+**You will not break your game.** Everything here is one switch in Vortex. Turn it off and your
+game is exactly as it was, and Navezgane and random worlds keep working the whole time.
 
-**You can still play vanilla whenever you like.** Flip the mods off in Vortex and play Navezgane or
-a random world exactly as before. The Astoria map just sits there doing nothing until you pick it.
+**Nothing gets edited, patched or overwritten.** The whole thing lives in its own folder.
 
-**Two steps. Give it 15 minutes — nearly all of it is one download.**
+## First — which one do you want?
 
-## 1. Install Vortex
+There are two. **Pick one.** They're the same map with the same 13,095 buildings in the same places.
 
-**[Download Vortex →](https://www.nexusmods.com/vortex)** (from Nexus — it's free)
+| | **Astoria 8K — Complete** | **Astoria 8K — Vanilla Complete** |
+|---|---|---|
+| Download size | 601 MB | 115 MB |
+| The buildings | the modders' originals, with all their custom furniture, signs and textures | the same buildings, rebuilt out of ordinary game blocks |
+| Looks | the best it gets | 91% of the POIs are pixel-for-pixel identical anyway |
+| Anti-cheat / servers | fine | fine |
 
-Install it, open it, and let it find 7 Days to Die under **Games**. Click **Manage** on it.
+**If you're not sure, take the Vanilla one.** It's five times smaller and you honestly won't notice
+the difference in most buildings — the layouts, the loot and the zombies are identical.
 
-This is the whole reason we're using Vortex: the mod becomes a switch you can turn **on to play
-with me** and **off to play vanilla**. No moving files around, nothing to break.
-
-## 2. Install the one mod
-
-**[Download `Astoria-8K-Complete.zip` from Releases →](https://github.com/DrTHunter/7d2d-astoria-my-world/releases/latest)**
-(601 MB)
-
-**Drag it onto the Vortex window** → **Install** → **Enable**.
-
-Start the game and pick **Astoria 8K** from the world list. That's the whole setup.
-
-That one file carries the map itself, the 981 POIs it places, the 640 block definitions those POIs
-use, the Unity assets behind them, my eight starter bases and all 38 traders. **You do not need the
-Astoria map from Nexus, and you do not need the nine POI packs** — if you already installed any of
-them, disable them in Vortex, or the same POI ends up defined twice and which copy you get is
-anyone's guess.
-
-> **Start a new game.** The game bakes buildings into the ground the first time you visit an area,
-> so an existing save keeps the old layout wherever you've already been. You'll spawn in the prison
-> yard.
-
-<details>
-<summary>Why there's no longer anything to patch</summary>
-
-7 Days to Die resolves worlds through `PathAbstractions.WorldsSearchPaths`, and that includes mod
-folders — so `Mods/<mod>/Worlds/<name>/` is a first-class world source, exactly like
-`GeneratedWorlds/`. Earlier versions shipped only the POIs and had to edit the Nexus map in place
-with a script; this one carries the world itself, so enabling the mod *is* the install.
-
-The world folder ships the 9 files the game needs. The `*_processed` and `*_half` caches are left
-out on purpose — the game rebuilds them on first load.
-</details>
-
-<details>
-<summary>How it stays at 601 MB instead of the 1,531 MB the nine downloads used to be</summary>
-
-- **Only what the map places.** The packs hold ~2,900 prefabs between them; Astoria places 981.
-- **No `.mesh` files** — 479 MB of distant-view imposters, and optional: 11 vanilla POIs and 31 of
-  the packs' own ship without one. Distant silhouettes pop in a little closer; nothing else changes.
-- **Config pruned to 640 blocks** from the 1,550 the packs define, following each kept block's
-  `Extends` and upgrade chains so nothing dangles. That also dropped 200 MB of asset bundles only
-  unused blocks referenced.
-
-Verified against a simulated install of vanilla + this one mod: 0 of 1,794 POIs fail to resolve,
-0 undefined blocks, 0 dangling `Extends`, 0 missing bundles.
-</details>
-
-<details>
-<summary>If you already have the Nexus map patched (the old way)</summary>
-
-Use `Astoria-AllInOne.zip` from the
-[v1.1 release](https://github.com/DrTHunter/7d2d-astoria-my-world/releases/tag/v1.0-allinone)
-plus `python tools/install.py`, which patches the map in `GeneratedWorlds` in place. **Don't enable
-both** — you'd have two worlds named *Astoria 8K* in two different search paths and no way to say
-which one the game picks.
-</details>
+> ⚠️ **Only ever enable ONE of them.** Both contain a world called *Astoria 8K*, so if you turn on
+> both, the game sees two maps with the same name and picks one at random.
 
 ---
 
-# Switching back to vanilla
+## Step 1 — Install Vortex (5 minutes, once)
 
-**To play vanilla:** open Vortex and click **Disable** on *Astoria 8K — Complete*. That's it. The
-world disappears from the list along with every POI, block and asset it brought, and your game is
-stock again. Play Navezgane or a random world exactly as before.
+Vortex is Nexus's free mod manager. It's what turns this into a single on/off switch.
 
-**To play with me again:** click **Enable**.
+**[Download Vortex here →](https://www.nexusmods.com/vortex)**
 
-Nothing outside the mod folder is ever touched, so there is nothing to undo and no backup to
-restore. Your saves stay where they are — a save on Astoria 8K simply can't be loaded while the mod
-is off, and works again the moment you turn it back on.
-
-*(Only relevant if you used the old patch-the-map route: `python tools/install.py --undo` puts the
-original Astoria files back from the installer's backups.)*
+Install it, open it, click **Games** in the left sidebar, find **7 Days to Die**, and click
+**Manage**. Vortex finds your game on its own.
 
 ---
+
+## Step 2 — Download the mod
+
+### The easy way — copy and paste one line
+
+**1.** Hold down the **Windows key** and press **R**. A little box called *Run* opens in the corner.
+
+**2.** Type this and press Enter:
+
+```
+powershell
+```
+
+**3.** A blue window opens. Copy the line below (click the copy icon in the corner of the box),
+right-click inside the blue window to paste it, and press **Enter**.
+
+For **Vanilla Complete** (115 MB — the recommended one):
+
+```powershell
+curl.exe -L -o "$([Environment]::GetFolderPath('Desktop'))\Astoria-8K-Vanilla-Complete.zip" https://github.com/DrTHunter/7d2d-astoria-my-world/releases/latest/download/Astoria-8K-Vanilla-Complete.zip
+```
+
+For **Complete** (601 MB — the full-fat one):
+
+```powershell
+curl.exe -L -o "$([Environment]::GetFolderPath('Desktop'))\Astoria-8K-Complete.zip" https://github.com/DrTHunter/7d2d-astoria-my-world/releases/latest/download/Astoria-8K-Complete.zip
+```
+
+You'll see a progress bar. When it finishes, **the zip file is sitting on your Desktop.** Close the
+blue window.
+
+*Nothing clever is happening here — `curl` is a download tool that comes with Windows, and this just
+tells it to save the file to your Desktop.*
+
+### Or just click a link
+
+Prefer to click? These download the same files straight to your browser's Downloads folder:
+
+- **[Astoria-8K-Vanilla-Complete.zip](https://github.com/DrTHunter/7d2d-astoria-my-world/releases/latest/download/Astoria-8K-Vanilla-Complete.zip)** (115 MB)
+- **[Astoria-8K-Complete.zip](https://github.com/DrTHunter/7d2d-astoria-my-world/releases/latest/download/Astoria-8K-Complete.zip)** (601 MB)
+
+Your browser may warn that it's a large file — that's fine, keep it.
+
+---
+
+## Step 3 — Drag it into Vortex
+
+**Don't unzip it.** Vortex wants the zip exactly as it downloaded.
+
+1. Open Vortex
+2. **Drag the zip file from your Desktop and drop it onto the Vortex window**
+3. Vortex shows it in the list — click **Install**
+4. When that finishes, click **Enable**
+
+That's the install. There is no step where you copy files into the game folder.
+
+---
+
+## Step 4 — Play
+
+Start 7 Days to Die. Click **New Game**, and in the world dropdown pick **Astoria 8K**.
+
+You'll spawn in the prison yard, which is a starter base with no zombies in it.
+
+> **Start a NEW game.** 7 Days to Die bakes the buildings into the ground the first time you visit
+> an area. If you load an old save, everywhere you've already walked keeps the old layout.
+
+> **If the game was already running while you installed, close it completely and reopen it.** It
+> only reads the mod folder at startup.
+
+---
+
+## Turning it off again
+
+Open Vortex, find the mod, click **Disable**. Done — the world vanishes from the list and your game
+is stock. Click **Enable** to bring it back.
+
+Your saves aren't touched either way. A save on Astoria 8K just can't be opened while the mod is
+off, and works again the second you turn it on.
 
 # Troubleshooting
 
-**Buildings are missing / there are empty lots where houses should be.**
+**Astoria 8K isn't in the world list.**
+The mod isn't enabled in Vortex, or the game was already open when you enabled it. Close the game
+completely — all the way to the desktop — and start it again.
+
+**Buildings are missing, or there are empty lots where houses should be.**
 Almost always one of two things:
 
-1. **A mod was turned on or off while the game was running.** 7 Days to Die reads the mod folders
-   once when it starts and remembers where every building lives. Sort your mods out *first*, then
-   launch. If Vortex moves a mod folder while you're playing, everything in it silently disappears.
-   **Fix: quit the game completely and restart it.**
-2. **You're on an old save.** See the note in step 2.
+1. **A mod got switched on or off while the game was running.** 7 Days to Die reads the mod folder
+   once at startup and remembers where every building lives. Sort your mods out *first*, then
+   launch. **Fix: quit the game completely and restart it.**
+2. **You're on an old save.** See Step 4.
 
-To check, open the newest file in `%APPDATA%\7DaysToDie\logs\` and search for `does not exist` — it
-names every building the game couldn't find.
+To check for yourself, open the newest file in your logs folder and search it for `does not exist` —
+it names every building the game couldn't find. To get to the logs: **Windows key + R**, then paste
+`%APPDATA%\7DaysToDie\logs` and press Enter.
 
-**The world isn't in the list.** The mod isn't enabled, or the game was already running when you
-enabled it — quit all the way out and restart.
+**I enabled both mods and something's wrong.**
+Disable one. They both contain a world called *Astoria 8K*, and with both on the game picks one at
+random. Turn one off, restart the game.
 
-**Two worlds called Astoria 8K.** You have both this mod *and* the old patched map in
-`%APPDATA%\7DaysToDie\GeneratedWorlds\`. Pick one: either disable the mod, or delete the
-`GeneratedWorlds\Astoria 8K` folder. With both present the game picks one and won't tell you which.
+**Vortex says the mod is "not deployed".**
+Click **Deploy Mods** at the top of Vortex, or just click Disable then Enable again.
 
-**The installer says "MISMATCH"** *(old patch route only)*. Your Astoria download isn't v1.5.1. Get
-that exact version. The installer deliberately refuses rather than half-patching your map.
+**I have no idea whether it worked.**
+Start a new game on Astoria 8K and look at where you spawn. If you're standing in a prison yard,
+it worked. If you're in an ordinary field, it didn't.
 
 ---
 
 # What's in this repo
 
+The two mods are on the [Releases page](https://github.com/DrTHunter/7d2d-astoria-my-world/releases/latest) —
+they're too big to sit in the repo itself:
+
 ```
-Releases: Astoria-8K-Complete.zip  the whole thing: map + 981 POIs + blocks + assets  <- use this
-Releases: Astoria-AllInOne.zip     POIs only, for the older patch-the-map route
-vortex/Astoria-StarterBases.zip    just the 8 starter bases, if you want them on their own
-world-patch/                       the map changes: dtm.patch, prefabs.xml, spawnpoints.xml
-tools/install.py                   applies them; --undo puts the stock map back
-docs/                              the full write-up of every change
+Astoria-8K-Complete.zip           601 MB  map + 981 POIs with the modders' own blocks and models
+Astoria-8K-Vanilla-Complete.zip   115 MB  map + the same 981 POIs rebuilt from stock blocks only
 ```
 
-The git repo itself holds only the map patch and my own buildings — the 0.2 MB `dtm.patch` instead
-of a 128 MB file. The two mods, which do repackage the nine packs' POIs and the Astoria map, are
-Release assets; credit and links for every author are in their release notes and at the bottom of
-this page.
+And in the repo:
 
-**Want this without any mods at all?** There's a second version where every POI has been rewritten
-to use only vanilla blocks — same 13,095 POIs, nothing to install but the map:
-**[7d2d-astoria-vanilla](https://github.com/DrTHunter/7d2d-astoria-vanilla)**.
+```
+vortex/Astoria-StarterBases.zip   just the 8 starter bases, if you want them on their own
+world-patch/                      the raw map changes: dtm.patch, prefabs.xml, spawnpoints.xml
+tools/install.py                  the old route - patches a Nexus copy of the map in place
+docs/                             the full write-up of every change, and every trader's coordinates
+```
+
+The git repo holds only the map patch and my own buildings — a 0.2 MB `dtm.patch` rather than a
+128 MB heightmap. The two mods, which repackage the packs' POIs and the Astoria map, are Release
+assets; credit and links for every author are in the release notes and at the bottom of this page.
+
+<details>
+<summary>The older way, if you already patched a Nexus copy of the map</summary>
+
+`Astoria-AllInOne.zip` from the
+[v1.1 release](https://github.com/DrTHunter/7d2d-astoria-my-world/releases/tag/v1.0-allinone)
+ships the POIs only, and `python tools/install.py` edits the map in
+`%APPDATA%\7DaysToDie\GeneratedWorlds\Astoria 8K` in place (`--undo` puts it back). It needs the
+Astoria 8K map v1.5.1 from Nexus first.
+
+**Don't run both routes at once** — you'd have two worlds named *Astoria 8K* in two different
+places and no way to say which one the game loads.
+</details>
 
 ## Traders
 
