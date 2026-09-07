@@ -23,7 +23,7 @@ off) or backed up automatically and undoable with one command.
 **You can still play vanilla whenever you like.** Flip the mods off in Vortex and play Navezgane or
 a random world exactly as before. The Astoria map just sits there doing nothing until you pick it.
 
-Four steps. Give it 20 minutes - most of it is one download.
+**Two steps. Give it 15 minutes — nearly all of it is one download.**
 
 ## 1. Install Vortex
 
@@ -31,23 +31,42 @@ Four steps. Give it 20 minutes - most of it is one download.
 
 Install it, open it, and let it find 7 Days to Die under **Games**. Click **Manage** on it.
 
-This is the whole reason we're using Vortex: every mod becomes a switch you can turn **on to play
+This is the whole reason we're using Vortex: the mod becomes a switch you can turn **on to play
 with me** and **off to play vanilla**. No moving files around, nothing to break.
 
-## 2. Get the all-in-one mod
+## 2. Install the one mod
 
-**[Download `Astoria-AllInOne.zip` from Releases →](https://github.com/DrTHunter/7d2d-astoria-my-world/releases/latest)**
-(500 MB)
+**[Download `Astoria-8K-Complete.zip` from Releases →](https://github.com/DrTHunter/7d2d-astoria-my-world/releases/latest)**
+(601 MB)
 
-**Drag it onto the Vortex window** → **Install** → **Enable**. Done.
+**Drag it onto the Vortex window** → **Install** → **Enable**.
 
-That one file holds everything the map needs: the 981 POIs it places, the 640 block definitions
-those POIs use, the Unity assets behind them, and my eight starter bases. **You do not need the
-nine separate POI packs any more** — if you already installed them, disable them in Vortex, or the
-same POI ends up defined twice and which copy you get is anyone's guess.
+Start the game and pick **Astoria 8K** from the world list. That's the whole setup.
+
+That one file carries the map itself, the 981 POIs it places, the 640 block definitions those POIs
+use, the Unity assets behind them, my eight starter bases and all 38 traders. **You do not need the
+Astoria map from Nexus, and you do not need the nine POI packs** — if you already installed any of
+them, disable them in Vortex, or the same POI ends up defined twice and which copy you get is
+anyone's guess.
+
+> **Start a new game.** The game bakes buildings into the ground the first time you visit an area,
+> so an existing save keeps the old layout wherever you've already been. You'll spawn in the prison
+> yard.
 
 <details>
-<summary>How it stays at 500 MB instead of the 1,531 MB the nine downloads used to be</summary>
+<summary>Why there's no longer anything to patch</summary>
+
+7 Days to Die resolves worlds through `PathAbstractions.WorldsSearchPaths`, and that includes mod
+folders — so `Mods/<mod>/Worlds/<name>/` is a first-class world source, exactly like
+`GeneratedWorlds/`. Earlier versions shipped only the POIs and had to edit the Nexus map in place
+with a script; this one carries the world itself, so enabling the mod *is* the install.
+
+The world folder ships the 9 files the game needs. The `*_processed` and `*_half` caches are left
+out on purpose — the game rebuilds them on first load.
+</details>
+
+<details>
+<summary>How it stays at 601 MB instead of the 1,531 MB the nine downloads used to be</summary>
 
 - **Only what the map places.** The packs hold ~2,900 prefabs between them; Astoria places 981.
 - **No `.mesh` files** — 479 MB of distant-view imposters, and optional: 11 vanilla POIs and 31 of
@@ -60,56 +79,32 @@ Verified against a simulated install of vanilla + this one mod: 0 of 1,794 POIs 
 0 undefined blocks, 0 dangling `Extends`, 0 missing bundles.
 </details>
 
-## 3. Get the map, then patch it
+<details>
+<summary>If you already have the Nexus map patched (the old way)</summary>
 
-**a.** Install the base map:
-**[Astoria 8K — Full World Map](https://www.nexusmods.com/7daystodie/mods/7017)** (Nexus 7017,
-**version 1.5.1**). This one is *not* a Vortex mod — extract it by hand so the files land here:
-
-```
-%APPDATA%\7DaysToDie\GeneratedWorlds\Astoria 8K\
-```
-
-(Paste `%APPDATA%\7DaysToDie` into Explorer's address bar to get there.) The folder has to be named
-exactly **Astoria 8K**.
-
-**b.** Download this repo — green **Code** button → **Download ZIP** — unzip it anywhere, then
-open the folder and run:
-
-```
-python tools/install.py
-```
-
-It finds your game on its own, checks your Astoria files are the right version, **backs them up**,
-applies my changes, then checks the result. If anything looks wrong it stops and changes nothing.
-
-*(No Python? Get it from [python.org](https://www.python.org/downloads/) — tick **"Add Python to
-PATH"** during install.)*
-
-## 4. Play
-
-Start a **new** game, pick **Astoria 8K**. You'll spawn in the prison yard.
-
-> **An existing save won't show any of this.** The game bakes buildings into the ground the first
-> time you visit an area, so anywhere you've already been keeps the old layout. Start fresh.
+Use `Astoria-AllInOne.zip` from the
+[v1.1 release](https://github.com/DrTHunter/7d2d-astoria-my-world/releases/tag/v1.0-allinone)
+plus `python tools/install.py`, which patches the map in `GeneratedWorlds` in place. **Don't enable
+both** — you'd have two worlds named *Astoria 8K* in two different search paths and no way to say
+which one the game picks.
+</details>
 
 ---
 
 # Switching back to vanilla
 
-**To play vanilla:** open Vortex and click **Disable** on the POI packs and on
-Astoria-StarterBases. Play Navezgane or a random world. Done — nothing else to do.
+**To play vanilla:** open Vortex and click **Disable** on *Astoria 8K — Complete*. That's it. The
+world disappears from the list along with every POI, block and asset it brought, and your game is
+stock again. Play Navezgane or a random world exactly as before.
 
-**To play with me again:** click **Enable** on them.
+**To play with me again:** click **Enable**.
 
-**To remove my changes from the map itself** (you almost never need to — the map is only used if you
-choose it):
+Nothing outside the mod folder is ever touched, so there is nothing to undo and no backup to
+restore. Your saves stay where they are — a save on Astoria 8K simply can't be loaded while the mod
+is off, and works again the moment you turn it back on.
 
-```
-python tools/install.py --undo
-```
-
-That puts the original Astoria files straight back from the backups the installer made.
+*(Only relevant if you used the old patch-the-map route: `python tools/install.py --undo` puts the
+original Astoria files back from the installer's backups.)*
 
 ---
 
@@ -122,29 +117,38 @@ Almost always one of two things:
    once when it starts and remembers where every building lives. Sort your mods out *first*, then
    launch. If Vortex moves a mod folder while you're playing, everything in it silently disappears.
    **Fix: quit the game completely and restart it.**
-2. **You're on an old save.** See step 4.
+2. **You're on an old save.** See the note in step 2.
 
 To check, open the newest file in `%APPDATA%\7DaysToDie\logs\` and search for `does not exist` — it
 names every building the game couldn't find.
 
-**The installer says "MISMATCH".** Your Astoria download isn't v1.5.1. Get that exact version. The
-installer deliberately refuses rather than half-patching your map.
+**The world isn't in the list.** The mod isn't enabled, or the game was already running when you
+enabled it — quit all the way out and restart.
+
+**Two worlds called Astoria 8K.** You have both this mod *and* the old patched map in
+`%APPDATA%\7DaysToDie\GeneratedWorlds\`. Pick one: either disable the mod, or delete the
+`GeneratedWorlds\Astoria 8K` folder. With both present the game picks one and won't tell you which.
+
+**The installer says "MISMATCH"** *(old patch route only)*. Your Astoria download isn't v1.5.1. Get
+that exact version. The installer deliberately refuses rather than half-patching your map.
 
 ---
 
 # What's in this repo
 
 ```
-Releases: Astoria-AllInOne.zip    one mod: 981 POIs, their blocks and assets, my starter bases
-vortex/Astoria-StarterBases.zip   just the 8 starter bases, if you want them on their own
-world-patch/                      the map changes: dtm.patch, prefabs.xml, spawnpoints.xml
-tools/install.py                  applies them; --undo puts the stock map back
-docs/                             the full write-up of every change
+Releases: Astoria-8K-Complete.zip  the whole thing: map + 981 POIs + blocks + assets  <- use this
+Releases: Astoria-AllInOne.zip     POIs only, for the older patch-the-map route
+vortex/Astoria-StarterBases.zip    just the 8 starter bases, if you want them on their own
+world-patch/                       the map changes: dtm.patch, prefabs.xml, spawnpoints.xml
+tools/install.py                   applies them; --undo puts the stock map back
+docs/                              the full write-up of every change
 ```
 
 The git repo itself holds only the map patch and my own buildings — the 0.2 MB `dtm.patch` instead
-of a 128 MB file. The all-in-one mod, which does repackage the nine packs' POIs, is a Release asset;
-credit and links for every author are in its release notes and at the bottom of this page.
+of a 128 MB file. The two mods, which do repackage the nine packs' POIs and the Astoria map, are
+Release assets; credit and links for every author are in their release notes and at the bottom of
+this page.
 
 **Want this without any mods at all?** There's a second version where every POI has been rewritten
 to use only vanilla blocks — same 13,095 POIs, nothing to install but the map:
