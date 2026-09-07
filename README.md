@@ -22,7 +22,7 @@ off) or backed up automatically and undoable with one command.
 **You can still play vanilla whenever you like.** Flip the mods off in Vortex and play Navezgane or
 a random world exactly as before. The Astoria map just sits there doing nothing until you pick it.
 
-You need to do four things. Give it 20 minutes.
+Four steps. Give it 20 minutes - most of it is one download.
 
 ## 1. Install Vortex
 
@@ -33,39 +33,33 @@ Install it, open it, and let it find 7 Days to Die under **Games**. Click **Mana
 This is the whole reason we're using Vortex: every mod becomes a switch you can turn **on to play
 with me** and **off to play vanilla**. No moving files around, nothing to break.
 
-## 2. Get the POI packs
+## 2. Get the all-in-one mod
 
-These are the actual buildings. Download each from Nexus — Vortex picks them up automatically if
-you use the **Mod Manager Download** button on the page, otherwise drag the downloaded file onto the
-Vortex window.
+**[Download `Astoria-AllInOne.zip` from Releases →](https://github.com/DrTHunter/7d2d-astoria-my-world/releases/latest)**
+(474 MB)
 
-| Pack | POIs it supplies |
-|---|--:|
-| **[Compopack Classic All-In-One (No Traders)](https://www.nexusmods.com/7daystodie/mods/5438)** | **1,812** ← the big one |
-| [Zeebark POI Pack](https://www.nexusmods.com/7daystodie/mods/6577) | 125 |
-| [Voltralux's POI Pack](https://www.nexusmods.com/7daystodie/mods/4916) | 50 |
-| [MPLogue Prefabs](https://www.nexusmods.com/7daystodie/mods/3436) | 41 |
-| [Svarii's POI Package](https://www.nexusmods.com/7daystodie/mods/9899) | 21 |
-| [Cog's POIs](https://www.nexusmods.com/7daystodie/mods/10928) | 6 |
-| [WinterDawn Fortress](https://www.nexusmods.com/7daystodie/mods/9420) | 1 |
-| [Caleseche](https://www.nexusmods.com/7daystodie/mods/10496) | 1 |
-| [ShadowModernHouse](https://www.nexusmods.com/7daystodie/mods/10509) | 1 |
+**Drag it onto the Vortex window** → **Install** → **Enable**. Done.
 
-In Vortex, hit **Install** then **Enable** on each one.
+That one file holds everything the map needs: the 972 POIs it places, the 616 block definitions
+those POIs use, the Unity assets behind them, and my eight starter bases. **You do not need the
+nine separate POI packs any more** — if you already installed them, disable them in Vortex, or the
+same POI ends up defined twice and which copy you get is anyone's guess.
 
-> **All of us need the same list, me included.** MPLogue and Zeebark change core game data
-> (`blocks.xml`, `shapes.xml`, `materials.xml`), so if one person is missing them the block IDs
-> won't line up and the world will look wrong.
+<details>
+<summary>How it got to 474 MB from the 1,531 MB the nine downloads used to be</summary>
 
-## 3. Get my starter bases
+- **Only what the map places.** The packs hold ~2,900 prefabs between them; Astoria places 972.
+- **No `.mesh` files** — 479 MB of distant-view imposters, and optional: 11 vanilla POIs and 31 of
+  the packs' own ship without one. Distant silhouettes pop in a little closer; nothing else changes.
+- **Config pruned to 616 blocks** from the 1,550 the packs define, following each kept block's
+  `Extends` and upgrade chains so nothing dangles. That also dropped 200 MB of asset bundles only
+  unused blocks referenced.
 
-Download **[`vortex/Astoria-StarterBases.zip`](vortex/Astoria-StarterBases.zip)** from this repo
-(click the file, then the **Download** button — it's only 0.5 MB).
+Verified against a simulated install of vanilla + this one mod: 0 of 1,785 POIs fail to resolve,
+0 undefined blocks, 0 dangling `Extends`, 0 missing bundles.
+</details>
 
-**Drag it onto the Vortex window** → **Install** → **Enable**. That's it. It's a normal mod now, with
-its own on/off switch like the others.
-
-## 4. Get the map, then patch it
+## 3. Get the map, then patch it
 
 **a.** Install the base map:
 **[Astoria 8K — Full World Map](https://www.nexusmods.com/7daystodie/mods/7017)** (Nexus 7017,
@@ -79,7 +73,7 @@ its own on/off switch like the others.
 exactly **Astoria 8K**.
 
 **b.** Download this repo — green **Code** button → **Download ZIP** — unzip it anywhere, then
-double-click into the folder and run:
+open the folder and run:
 
 ```
 python tools/install.py
@@ -91,7 +85,7 @@ applies my changes, then checks the result. If anything looks wrong it stops and
 *(No Python? Get it from [python.org](https://www.python.org/downloads/) — tick **"Add Python to
 PATH"** during install.)*
 
-## 5. Play
+## 4. Play
 
 Start a **new** game, pick **Astoria 8K**. You'll spawn in the prison yard.
 
@@ -127,7 +121,7 @@ Almost always one of two things:
    once when it starts and remembers where every building lives. Sort your mods out *first*, then
    launch. If Vortex moves a mod folder while you're playing, everything in it silently disappears.
    **Fix: quit the game completely and restart it.**
-2. **You're on an old save.** See step 5.
+2. **You're on an old save.** See step 4.
 
 To check, open the newest file in `%APPDATA%\7DaysToDie\logs\` and search for `does not exist` — it
 names every building the game couldn't find.
@@ -140,15 +134,20 @@ installer deliberately refuses rather than half-patching your map.
 # What's in this repo
 
 ```
-vortex/Astoria-StarterBases.zip   my 8 starter bases + their walls and roads, ready for Vortex
+Releases: Astoria-AllInOne.zip    one mod: 972 POIs, their blocks and assets, my starter bases
+vortex/Astoria-StarterBases.zip   just the 8 starter bases, if you want them on their own
 world-patch/                      the map changes: dtm.patch, prefabs.xml, spawnpoints.xml
 tools/install.py                  applies them; --undo puts the stock map back
 docs/                             the full write-up of every change
 ```
 
-**This repo doesn't redistribute anyone else's work.** The base map and the POI packs come from
-Nexus; what's stored here is the *difference* between stock Astoria and mine, plus my own buildings.
-That's why the map patch is 0.2 MB instead of a 128 MB file.
+The git repo itself holds only the map patch and my own buildings — the 0.2 MB `dtm.patch` instead
+of a 128 MB file. The all-in-one mod, which does repackage the nine packs' POIs, is a Release asset;
+credit and links for every author are in its release notes and at the bottom of this page.
+
+**Want this without any mods at all?** There's a second version where every POI has been rewritten
+to use only vanilla blocks — same 13,081 POIs, nothing to install but the map:
+**[7d2d-astoria-vanilla](https://github.com/DrTHunter/7d2d-astoria-vanilla)**.
 
 ## The eight starter bases
 
@@ -187,3 +186,18 @@ Teleports for all of them: [`docs/TELEPORTS_mine.txt`](docs/TELEPORTS_mine.txt).
 - The detail, including how the placement rules were derived and checked:
   [`docs/REPOPULATED.md`](docs/REPOPULATED.md) and [`docs/MY_PREFABS.md`](docs/MY_PREFABS.md).
   Every single swap is listed in [`docs/REPOPULATED_pois.csv`](docs/REPOPULATED_pois.csv).
+
+## Credit
+
+The POIs in the all-in-one mod are other people's work. The buildings were designed by the authors
+of the [Compopack](https://www.nexusmods.com/7daystodie/mods/5438),
+[Zeebark](https://www.nexusmods.com/7daystodie/mods/6577),
+[Voltralux](https://www.nexusmods.com/7daystodie/mods/4916),
+[MPLogue](https://www.nexusmods.com/7daystodie/mods/3436),
+[Svarii](https://www.nexusmods.com/7daystodie/mods/9899),
+[Cog](https://www.nexusmods.com/7daystodie/mods/10928),
+[WinterDawn](https://www.nexusmods.com/7daystodie/mods/9420),
+[Caleseche](https://www.nexusmods.com/7daystodie/mods/10496) and
+[ShadowModernHouse](https://www.nexusmods.com/7daystodie/mods/10509) packs, and the map itself by
+the author of [Astoria 8K](https://www.nexusmods.com/7daystodie/mods/7017). All that was done here
+is to repackage the parts this map uses into one install. Go give them endorsements.
