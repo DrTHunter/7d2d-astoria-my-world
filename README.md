@@ -26,18 +26,20 @@ game is exactly as it was, and Navezgane and random worlds keep working the whol
 
 There are two. **Pick one.** They're the same map with the same 13,095 buildings in the same places.
 
-| | **Astoria 8K — Complete** | **Astoria 8K — Vanilla Complete** |
+| | **Astoria 8K — Modded** | **Astoria 8K — Vanilla** |
 |---|---|---|
 | Download size | 601 MB | 115 MB |
 | The buildings | the modders' originals, with all their custom furniture, signs and textures | the same buildings, rebuilt out of ordinary game blocks |
 | Looks | the best it gets | 91% of the POIs are pixel-for-pixel identical anyway |
+| Shows in the world list as | `Astoria 8K Modded` | `Astoria 8K Vanilla` |
 | Anti-cheat / servers | fine | fine |
 
 **If you're not sure, take the Vanilla one.** It's five times smaller and you honestly won't notice
 the difference in most buildings — the layouts, the loot and the zombies are identical.
 
-> ⚠️ **Only ever enable ONE of them.** Both contain a world called *Astoria 8K*, so if you turn on
-> both, the game sees two maps with the same name and picks one at random.
+> ⚠️ **Only ever enable ONE of them.** They show up as two clearly different worlds, but both carry
+> POI files under the same names — so with both switched on, each building could come from either
+> edition and you'd get a mix. Pick one, enable it, leave the other off.
 
 ---
 
@@ -67,13 +69,13 @@ powershell
 **3.** A blue window opens. Copy the line below (click the copy icon in the corner of the box),
 right-click inside the blue window to paste it, and press **Enter**.
 
-For **Vanilla Complete** (115 MB — the recommended one):
+For **Vanilla** (115 MB — the recommended one):
 
 ```powershell
 curl.exe -L -o "$([Environment]::GetFolderPath('Desktop'))\Astoria-8K-Vanilla-Complete.zip" https://github.com/DrTHunter/7d2d-astoria-my-world/releases/latest/download/Astoria-8K-Vanilla-Complete.zip
 ```
 
-For **Complete** (601 MB — the full-fat one):
+For **Modded** (601 MB — the full-fat one):
 
 ```powershell
 curl.exe -L -o "$([Environment]::GetFolderPath('Desktop'))\Astoria-8K-Complete.zip" https://github.com/DrTHunter/7d2d-astoria-my-world/releases/latest/download/Astoria-8K-Complete.zip
@@ -111,7 +113,12 @@ That's the install. There is no step where you copy files into the game folder.
 
 ## Step 4 — Play
 
-Start 7 Days to Die. Click **New Game**, and in the world dropdown pick **Astoria 8K**.
+Start 7 Days to Die. Click **New Game**, and in the world dropdown pick whichever you installed:
+
+- **Astoria 8K Modded**
+- **Astoria 8K Vanilla**
+
+Only the one you enabled will be in the list.
 
 You'll spawn in the prison yard, which is a starter base with no zombies in it.
 
@@ -133,7 +140,7 @@ off, and works again the second you turn it on.
 
 # Troubleshooting
 
-**Astoria 8K isn't in the world list.**
+**Astoria 8K Modded / Astoria 8K Vanilla isn't in the world list.**
 The mod isn't enabled in Vortex, or the game was already open when you enabled it. Close the game
 completely — all the way to the desktop — and start it again.
 
@@ -149,16 +156,17 @@ To check for yourself, open the newest file in your logs folder and search it fo
 it names every building the game couldn't find. To get to the logs: **Windows key + R**, then paste
 `%APPDATA%\7DaysToDie\logs` and press Enter.
 
-**I enabled both mods and something's wrong.**
-Disable one. They both contain a world called *Astoria 8K*, and with both on the game picks one at
-random. Turn one off, restart the game.
+**I enabled both mods and buildings look wrong.**
+Disable one. Both editions ship POI files under the same names, so with both on the game picks
+whichever it found first for each building and you end up with a mix. Turn one off, restart the
+game.
 
 **Vortex says the mod is "not deployed".**
 Click **Deploy Mods** at the top of Vortex, or just click Disable then Enable again.
 
 **I have no idea whether it worked.**
-Start a new game on Astoria 8K and look at where you spawn. If you're standing in a prison yard,
-it worked. If you're in an ordinary field, it didn't.
+Start a new game on Astoria 8K Modded or Astoria 8K Vanilla and look at where you spawn. If you're
+standing in a prison yard, it worked. If you're in an ordinary field, it didn't.
 
 ---
 
@@ -168,8 +176,8 @@ The two mods are on the [Releases page](https://github.com/DrTHunter/7d2d-astori
 they're too big to sit in the repo itself:
 
 ```
-Astoria-8K-Complete.zip           601 MB  map + 981 POIs with the modders' own blocks and models
-Astoria-8K-Vanilla-Complete.zip   115 MB  map + the same 981 POIs rebuilt from stock blocks only
+Astoria-8K-Complete.zip           601 MB  world "Astoria 8K Modded"  - the modders' own blocks and models
+Astoria-8K-Vanilla-Complete.zip   115 MB  world "Astoria 8K Vanilla" - the same 981 POIs, stock blocks only
 ```
 
 And in the repo:
@@ -194,8 +202,8 @@ ships the POIs only, and `python tools/install.py` edits the map in
 `%APPDATA%\7DaysToDie\GeneratedWorlds\Astoria 8K` in place (`--undo` puts it back). It needs the
 Astoria 8K map v1.5.1 from Nexus first.
 
-**Don't run both routes at once** — you'd have two worlds named *Astoria 8K* in two different
-places and no way to say which one the game loads.
+**Don't run both routes at once** — the patched map in `GeneratedWorlds` is also called
+*Astoria 8K*, and its POIs come from the packs, so mixing the two gets confusing fast.
 </details>
 
 ## Traders
