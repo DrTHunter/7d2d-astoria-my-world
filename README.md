@@ -172,6 +172,8 @@ because the first walk was otherwise the better part of a kilometre.
 Turn on the **Traders** layer on the [interactive map](https://drthunter.github.io/astoria-8k-poi-map/)
 to see where they all are.
 
+The full list, with teleport commands: [`docs/TRADERS.md`](docs/TRADERS.md).
+
 ## The eight starter bases
 
 Each was cut out of an existing POI. **None has a single sleeper volume**, so nothing spawns inside —
