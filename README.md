@@ -9,7 +9,7 @@ My version of the **Astoria 8K** map for *7 Days to Die* **V 3.2.0 (b10)**: the 
 | | |
 |---|--:|
 | POIs in the world | **13,095** |
-| …that aren't in the stock map | **2,102** |
+| …that aren't in the stock map | **2,100** |
 | Traders, one for every town | **38** |
 | Starter bases, no zombies inside | **8** |
 
@@ -37,7 +37,7 @@ with me** and **off to play vanilla**. No moving files around, nothing to break.
 ## 2. Get the all-in-one mod
 
 **[Download `Astoria-AllInOne.zip` from Releases →](https://github.com/DrTHunter/7d2d-astoria-my-world/releases/latest)**
-(474 MB)
+(500 MB)
 
 **Drag it onto the Vortex window** → **Install** → **Enable**. Done.
 
@@ -47,7 +47,7 @@ nine separate POI packs any more** — if you already installed them, disable th
 same POI ends up defined twice and which copy you get is anyone's guess.
 
 <details>
-<summary>How it got to 474 MB from the 1,531 MB the nine downloads used to be</summary>
+<summary>How it stays at 500 MB instead of the 1,531 MB the nine downloads used to be</summary>
 
 - **Only what the map places.** The packs hold ~2,900 prefabs between them; Astoria places 981.
 - **No `.mesh` files** — 479 MB of distant-view imposters, and optional: 11 vanilla POIs and 31 of
