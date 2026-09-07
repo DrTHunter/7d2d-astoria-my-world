@@ -1,120 +1,159 @@
 # Astoria 8K — my world
 
-My version of the **Astoria 8K** map for *7 Days to Die* **V 3.2.0 (b10)**: the junk cleared out, a
-few thousand POIs swapped in, and eight zombie-free starter bases in two walled compounds.
+My version of the **Astoria 8K** map for *7 Days to Die* **V 3.2.0 (b10)**: the junk cleared out,
+1,812 POIs swapped in, and eight zombie-free starter bases in two walled compounds.
 
-**[Browse every POI on the interactive map →](https://drthunter.github.io/astoria-8k-poi-map/)**
+📍 **[Browse every POI on the interactive map →](https://drthunter.github.io/astoria-8k-poi-map/)**
+&nbsp;·&nbsp; [how the map page works](https://github.com/DrTHunter/astoria-8k-poi-map)
 
 | | |
 |---|--:|
 | POIs in the world | **13,081** |
-| …not in the stock map | **2,088** |
-| Starter bases (no sleeper volumes) | **8** |
-| Terrain cells re-graded | 112,881 |
+| …that aren't in the stock map | **2,088** |
+| Starter bases, no zombies inside | **8** |
 
 ---
 
-# Installing it (for my friends)
+# Setup — read this bit, it's short
 
-You need **five things**. Steps 1–3 are downloads from Nexus; steps 4–5 are one command.
+**You will not break your game.** Everything below is either managed by Vortex (one switch, on or
+off) or backed up automatically and undoable with one command.
 
-Everything below happens in your 7 Days to Die data folder. On Windows that is:
+**You can still play vanilla whenever you like.** Flip the mods off in Vortex and play Navezgane or
+a random world exactly as before. The Astoria map just sits there doing nothing until you pick it.
 
-```
-%APPDATA%\7DaysToDie
-```
+You need to do four things. Give it 20 minutes.
 
-Paste that into Explorer's address bar and it will take you there.
+## 1. Install Vortex
 
-## 1. The game
+**[Download Vortex →](https://www.nexusmods.com/site/mods/1)** (from Nexus — it's free)
 
-**7 Days to Die V 3.2.0 (b10)**. Other versions will not match — the patch checks and refuses.
+Install it, open it, and let it find 7 Days to Die under **Games**. Click **Manage** on it.
 
-## 2. The base map
+This is the whole reason we're using Vortex: every mod becomes a switch you can turn **on to play
+with me** and **off to play vanilla**. No moving files around, nothing to break.
 
-**[Astoria 8K — Game Version 2.0 — Full World Map](https://www.nexusmods.com/7daystodie/mods/7017)**
-(Nexus mod 7017, **version 1.5.1**). Extract it so the files land here:
+## 2. Get the POI packs
+
+These are the actual buildings. Download each from Nexus — Vortex picks them up automatically if
+you use the **Mod Manager Download** button on the page, otherwise drag the downloaded file onto the
+Vortex window.
+
+| Pack | POIs it supplies |
+|---|--:|
+| **[Compopack Classic All-In-One (No Traders)](https://www.nexusmods.com/7daystodie/mods/5438)** | **1,812** ← the big one |
+| [Zeebark POI Pack](https://www.nexusmods.com/7daystodie/mods/6577) | 125 |
+| [Voltralux's POI Pack](https://www.nexusmods.com/7daystodie/mods/4916) | 50 |
+| [MPLogue Prefabs](https://www.nexusmods.com/7daystodie/mods/3436) | 41 |
+| [Svarii's POI Package](https://www.nexusmods.com/7daystodie/mods/9899) | 21 |
+| [Cog's POIs](https://www.nexusmods.com/7daystodie/mods/10928) | 6 |
+| [WinterDawn Fortress](https://www.nexusmods.com/7daystodie/mods/9420) | 1 |
+| [Caleseche](https://www.nexusmods.com/7daystodie/mods/10496) | 1 |
+| [ShadowModernHouse](https://www.nexusmods.com/7daystodie/mods/10509) | 1 |
+
+In Vortex, hit **Install** then **Enable** on each one.
+
+> **All of us need the same list, me included.** MPLogue and Zeebark change core game data
+> (`blocks.xml`, `shapes.xml`, `materials.xml`), so if one person is missing them the block IDs
+> won't line up and the world will look wrong.
+
+## 3. Get my starter bases
+
+Download **[`vortex/Astoria-StarterBases.zip`](vortex/Astoria-StarterBases.zip)** from this repo
+(click the file, then the **Download** button — it's only 0.5 MB).
+
+**Drag it onto the Vortex window** → **Install** → **Enable**. That's it. It's a normal mod now, with
+its own on/off switch like the others.
+
+## 4. Get the map, then patch it
+
+**a.** Install the base map:
+**[Astoria 8K — Full World Map](https://www.nexusmods.com/7daystodie/mods/7017)** (Nexus 7017,
+**version 1.5.1**). This one is *not* a Vortex mod — extract it by hand so the files land here:
 
 ```
 %APPDATA%\7DaysToDie\GeneratedWorlds\Astoria 8K\
-    biomes.png   dtm.raw   main.ttw   map_info.xml
-    prefabs.xml  regions.png  spawnpoints.xml  splat3.png  splat4.png
 ```
 
-Do **not** rename the folder — it must be exactly `Astoria 8K`.
+(Paste `%APPDATA%\7DaysToDie` into Explorer's address bar to get there.) The folder has to be named
+exactly **Astoria 8K**.
 
-## 3. The POI packs
-
-These supply the buildings. Every one goes in `%APPDATA%\7DaysToDie\Mods\`.
-**Without them you get empty lots where 2,088 POIs should be.**
-
-| Pack | POIs used | Also needed for |
-|---|--:|---|
-| **[Compopack Classic All-In-One (No Traders)](https://www.nexusmods.com/7daystodie/mods/5438)** | 1,812 | by far the biggest share — most of the map |
-| [Zeebark POI Pack](https://www.nexusmods.com/7daystodie/mods/6577) | 125 | blocks for one starter base |
-| [Voltralux's POI Pack](https://www.nexusmods.com/7daystodie/mods/4916) | 50 | |
-| [MPLogue Prefabs](https://www.nexusmods.com/7daystodie/mods/3436) | 41 | blocks for one starter base |
-| [Svarii's POI Package](https://www.nexusmods.com/7daystodie/mods/9899) | 21 | |
-| [Cog's POIs](https://www.nexusmods.com/7daystodie/mods/10928) | 6 | |
-| [WinterDawn Fortress](https://www.nexusmods.com/7daystodie/mods/9420) | 1 | |
-| [Caleseche](https://www.nexusmods.com/7daystodie/mods/10496) | 1 | |
-| [ShadowModernHouse](https://www.nexusmods.com/7daystodie/mods/10509) | 1 | |
-
-**All of us must run the same list**, including the host. MPLogue and Zeebark ship `blocks.xml`,
-`shapes.xml` and `materials.xml`, which change core game data — if one person is missing them the
-block IDs will not line up.
-
-## 4. Get this repo
-
-```
-git clone https://github.com/DrTHunter/7d2d-astoria-my-world.git
-```
-
-or **Code → Download ZIP** and unzip it anywhere.
-
-## 5. Run the installer
+**b.** Download this repo — green **Code** button → **Download ZIP** — unzip it anywhere, then
+double-click into the folder and run:
 
 ```
 python tools/install.py
 ```
 
-It finds your game folder on its own. It will:
+It finds your game on its own, checks your Astoria files are the right version, **backs them up**,
+applies my changes, then checks the result. If anything looks wrong it stops and changes nothing.
 
-- check your stock Astoria files are v1.5.1 (**it stops if they are not** — nothing is touched)
-- copy them to `*.stock-backup` so you can always go back
-- patch `dtm.raw` (112,881 cells — the levelled pads and the roads)
-- replace `prefabs.xml` and `spawnpoints.xml`
-- verify all three against known checksums
-- install `Mods\Astoria-StarterBases`
+*(No Python? Get it from [python.org](https://www.python.org/downloads/) — tick **"Add Python to
+PATH"** during install.)*
 
-Re-running it is safe. To undo, delete the three files and rename the `.stock-backup` copies back.
+## 5. Play
 
-## 6. Start a **new** save
+Start a **new** game, pick **Astoria 8K**. You'll spawn in the prison yard.
 
-Pick **Astoria 8K**. You will spawn in the prison yard at `2430, -800`.
-
-> **An existing save will not show any of this.** 7 Days to Die bakes POIs into a chunk the first
-> time it generates, so anything you have already explored keeps the old layout. Start fresh.
+> **An existing save won't show any of this.** The game bakes buildings into the ground the first
+> time you visit an area, so anywhere you've already been keeps the old layout. Start fresh.
 
 ---
 
-# What is actually in here
+# Switching back to vanilla
+
+**To play vanilla:** open Vortex and click **Disable** on the POI packs and on
+Astoria-StarterBases. Play Navezgane or a random world. Done — nothing else to do.
+
+**To play with me again:** click **Enable** on them.
+
+**To remove my changes from the map itself** (you almost never need to — the map is only used if you
+choose it):
 
 ```
-mods/Astoria-StarterBases/   the eight starter bases + their walls and roads (my own builds)
-world-patch/                 dtm.patch, prefabs.xml, spawnpoints.xml, manifest.json
-tools/install.py             applies the patch to a stock Astoria world
-docs/                        the full write-up of every change
+python tools/install.py --undo
 ```
 
-**This repo does not redistribute anyone else's work.** The base map and the POI packs come from
-Nexus (links above); what is stored here is the patch that turns a stock Astoria into mine, plus my
-own prefabs. That is also why `dtm.patch` is 0.2 MB instead of a 128 MB file.
+That puts the original Astoria files straight back from the backups the installer made.
+
+---
+
+# Troubleshooting
+
+**Buildings are missing / there are empty lots where houses should be.**
+Almost always one of two things:
+
+1. **A mod was turned on or off while the game was running.** 7 Days to Die reads the mod folders
+   once when it starts and remembers where every building lives. Sort your mods out *first*, then
+   launch. If Vortex moves a mod folder while you're playing, everything in it silently disappears.
+   **Fix: quit the game completely and restart it.**
+2. **You're on an old save.** See step 5.
+
+To check, open the newest file in `%APPDATA%\7DaysToDie\logs\` and search for `does not exist` — it
+names every building the game couldn't find.
+
+**The installer says "MISMATCH".** Your Astoria download isn't v1.5.1. Get that exact version. The
+installer deliberately refuses rather than half-patching your map.
+
+---
+
+# What's in this repo
+
+```
+vortex/Astoria-StarterBases.zip   my 8 starter bases + their walls and roads, ready for Vortex
+world-patch/                      the map changes: dtm.patch, prefabs.xml, spawnpoints.xml
+tools/install.py                  applies them; --undo puts the stock map back
+docs/                             the full write-up of every change
+```
+
+**This repo doesn't redistribute anyone else's work.** The base map and the POI packs come from
+Nexus; what's stored here is the *difference* between stock Astoria and mine, plus my own buildings.
+That's why the map patch is 0.2 MB instead of a 128 MB file.
 
 ## The eight starter bases
 
-Each was cut out of an existing POI. **None of them has a single sleeper volume**, so nothing spawns
-inside — they are safe to move into on day one.
+Each was cut out of an existing POI. **None has a single sleeper volume**, so nothing spawns inside —
+they're safe to move into on day one.
 
 | Cut from | Name | Size |
 |---|---|--:|
@@ -127,37 +166,24 @@ inside — they are safe to move into on day one.
 | `Ayesoar_Mansion_by_MPLogue` | **StarterBase_Ayesoar_Mansion** — compound | 60×54 |
 | `Modern_House_Zeebark` | **StarterBase_Zeebark_Modern_House** — own plot | 60×60 |
 
-The last one ships from Zeebark as a Tier‑5 `infested` POI with **31 badass sleeper volumes**; those
+The last one ships from Zeebark as a Tier‑5 *infested* POI with **31 badass sleeper volumes**; those
 were stripped so it matches the rest. Its geometry is byte-identical to Zeebark's original.
 
 Two walled plots hold them: a **146×202 compound** with three houses, and a **74×74 plot** 14 m east
 with the Zeebark house. The wall is copied block-for-block from the Modern House's own front wall —
 brick pillars every 6 m, dark metal panels, iron railings — with **seven working roll-up gates** and
-a paved ring road inside each, linked to the real road network.
+a paved ring road inside each, joined to the real road network.
 
-Teleports for everything: [`docs/TELEPORTS_mine.txt`](docs/TELEPORTS_mine.txt).
+Teleports for all of them: [`docs/TELEPORTS_mine.txt`](docs/TELEPORTS_mine.txt).
 
 ## What was done to the map
 
-- **1,812 junk POIs replaced.** Astoria shipped with 1,070 Tier‑0 filler lots — `remnant_*`,
-  `rubble_*`, `lot_vacant_*`, the non-enterable rubble RWG scatters everywhere — plus a lot of
-  repetition (one downtown filler appeared **18 times**). Those, and every 7th-and-beyond copy of a
-  vanilla POI, now hold a Compopack POI: **820 distinct** ones, never more than 4 copies of any
-  single POI across the whole 8 km map. **1,769 of them have sleeper volumes**, so they are lootable
-  and questable — the rubble was not.
+- **1,812 junk POIs replaced.** Astoria shipped with 1,070 Tier‑0 filler lots — the non-enterable
+  rubble RWG scatters everywhere — plus a lot of repetition (one downtown filler appeared **18
+  times**). Those, and every 7th-and-beyond copy of a vanilla POI, now hold a Compopack POI: **820
+  distinct** ones, never more than 4 copies of any single POI across the whole 8 km map. **1,769 of
+  them have sleeper volumes**, so they're lootable and questable — the rubble wasn't.
 - **Terrain re-graded** under the two plots and the roads: 112,881 cells, 0.17 % of the map.
-- Full detail, including how the placement rules were derived and verified:
+- The detail, including how the placement rules were derived and checked:
   [`docs/REPOPULATED.md`](docs/REPOPULATED.md) and [`docs/MY_PREFABS.md`](docs/MY_PREFABS.md).
-  Every swap is listed in [`docs/REPOPULATED_pois.csv`](docs/REPOPULATED_pois.csv).
-
-## If something is missing in game
-
-Almost always one of two things:
-
-1. **A mod was added or removed while the game was running.** 7 Days to Die scans the prefab folders
-   once at startup and remembers where each POI lives. Install everything, *then* start the game.
-   If Vortex renames a mod folder mid-session, every POI in it silently vanishes.
-2. **You are on an old save.** See step 6.
-
-To confirm, search your log in `%APPDATA%\7DaysToDie\logs\` for `does not exist` — it names every
-prefab the game could not find.
+  Every single swap is listed in [`docs/REPOPULATED_pois.csv`](docs/REPOPULATED_pois.csv).
