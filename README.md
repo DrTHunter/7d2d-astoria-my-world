@@ -26,7 +26,7 @@ You need to do four things. Give it 20 minutes.
 
 ## 1. Install Vortex
 
-**[Download Vortex →](https://www.nexusmods.com/site/mods/1)** (from Nexus — it's free)
+**[Download Vortex →](https://www.nexusmods.com/vortex)** (from Nexus — it's free)
 
 Install it, open it, and let it find 7 Days to Die under **Games**. Click **Manage** on it.
 
