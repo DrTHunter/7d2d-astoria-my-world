@@ -8,8 +8,9 @@ My version of the **Astoria 8K** map for *7 Days to Die* **V 3.2.0 (b10)**: the 
 
 | | |
 |---|--:|
-| POIs in the world | **13,081** |
-| …that aren't in the stock map | **2,088** |
+| POIs in the world | **13,095** |
+| …that aren't in the stock map | **2,102** |
+| Traders, one for every town | **38** |
 | Starter bases, no zombies inside | **8** |
 
 ---
@@ -40,7 +41,7 @@ with me** and **off to play vanilla**. No moving files around, nothing to break.
 
 **Drag it onto the Vortex window** → **Install** → **Enable**. Done.
 
-That one file holds everything the map needs: the 972 POIs it places, the 616 block definitions
+That one file holds everything the map needs: the 981 POIs it places, the 640 block definitions
 those POIs use, the Unity assets behind them, and my eight starter bases. **You do not need the
 nine separate POI packs any more** — if you already installed them, disable them in Vortex, or the
 same POI ends up defined twice and which copy you get is anyone's guess.
@@ -48,14 +49,14 @@ same POI ends up defined twice and which copy you get is anyone's guess.
 <details>
 <summary>How it got to 474 MB from the 1,531 MB the nine downloads used to be</summary>
 
-- **Only what the map places.** The packs hold ~2,900 prefabs between them; Astoria places 972.
+- **Only what the map places.** The packs hold ~2,900 prefabs between them; Astoria places 981.
 - **No `.mesh` files** — 479 MB of distant-view imposters, and optional: 11 vanilla POIs and 31 of
   the packs' own ship without one. Distant silhouettes pop in a little closer; nothing else changes.
-- **Config pruned to 616 blocks** from the 1,550 the packs define, following each kept block's
+- **Config pruned to 640 blocks** from the 1,550 the packs define, following each kept block's
   `Extends` and upgrade chains so nothing dangles. That also dropped 200 MB of asset bundles only
   unused blocks referenced.
 
-Verified against a simulated install of vanilla + this one mod: 0 of 1,785 POIs fail to resolve,
+Verified against a simulated install of vanilla + this one mod: 0 of 1,794 POIs fail to resolve,
 0 undefined blocks, 0 dangling `Extends`, 0 missing bundles.
 </details>
 
@@ -134,7 +135,7 @@ installer deliberately refuses rather than half-patching your map.
 # What's in this repo
 
 ```
-Releases: Astoria-AllInOne.zip    one mod: 972 POIs, their blocks and assets, my starter bases
+Releases: Astoria-AllInOne.zip    one mod: 981 POIs, their blocks and assets, my starter bases
 vortex/Astoria-StarterBases.zip   just the 8 starter bases, if you want them on their own
 world-patch/                      the map changes: dtm.patch, prefabs.xml, spawnpoints.xml
 tools/install.py                  applies them; --undo puts the stock map back
@@ -146,8 +147,30 @@ of a 128 MB file. The all-in-one mod, which does repackage the nine packs' POIs,
 credit and links for every author are in its release notes and at the bottom of this page.
 
 **Want this without any mods at all?** There's a second version where every POI has been rewritten
-to use only vanilla blocks — same 13,081 POIs, nothing to install but the map:
+to use only vanilla blocks — same 13,095 POIs, nothing to install but the map:
 **[7d2d-astoria-vanilla](https://github.com/DrTHunter/7d2d-astoria-vanilla)**.
+
+## Traders
+
+**38 traders, and every town has one within a short walk.** Astoria shipped 24, but they were
+distributed by the world generator rather than by town, so several towns had none at all and the
+spawn city had two on opposite corners.
+
+Astoria's own traders sit a median 66 m *outside* the town edge, on the approach road, and that is
+the shape this follows — for each town without one, a clear, flat 60x60 patch 25–140 m beyond the
+edge was scored on distance to the nearest road, how much cut and fill it needs, and whether it
+faces the next town along. Every site chosen is on or beside a road; all but two need under a
+metre of levelling. An existing town lot was the fallback, and never won.
+
+Three traders that were already in the right place kept their spot and just got a better building.
+All **14 distinct trader buildings** are now in use — the five vanilla ones, six of MPLogue's,
+Zeebark's, and both of xcpv's settlements — so no two neighbouring towns look alike.
+
+The spawn city gets a third, `trader_xcpv_Settlement_02_Viper7`, 266 m from where you wake up,
+because the first walk was otherwise the better part of a kilometre.
+
+Turn on the **Traders** layer on the [interactive map](https://drthunter.github.io/astoria-8k-poi-map/)
+to see where they all are.
 
 ## The eight starter bases
 
