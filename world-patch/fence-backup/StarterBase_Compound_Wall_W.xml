@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<prefab>
+  <property name="PrefabSize" value="200, 10, 21" />
+  <property name="YOffset" value="-3" />
+  <property name="CopyAirBlocks" value="False" />
+  <property name="AllowTopSoilDecorations" value="False" />
+  <property name="DifficultyTier" value="0" />
+  <property name="RotationToFaceNorth" value="0" />
+</prefab>

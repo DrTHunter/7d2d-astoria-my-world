@@ -285,13 +285,21 @@ itself. Every block was cut out of `StarterBase_Modern_House` with its rotation 
 | | |
 |---|---|
 | **Fence** | the house's own front bay, tiled along every side — brick pier, five panels of half-brick with iron bars on top, cast cap |
-| **Gates** | 6 working 5×3 roll-up doors set into the line between two piers, with a driveway out through the yard |
-| **Entrance buildings** | the 16 m building embedded in the house's front line, once per full side — brick back wall *on* the fence, windowed facade and door one row inside, yard in front |
+| **Gates** | 6 working 5×3 roll-up doors set into the line between two piers, with a driveway out through the yard. The bar course runs across the top of each opening and a cast lintel ties the two flanking pier caps together, so a gate reads as a portal rather than a gap |
+| **Entrance buildings** | the 16 m building embedded in the house's front line, once per full side — brick back wall *on* the fence, windowed facade and door one row inside, yard in front. Each one stands hard against its gate's own pier, so the guard shack watches the drive-through |
 | **Security posts** | the module from the house's west fence, at every pedestrian entrance: carport outside, the fence with its door and the *Staff Only* / *Private Property* signs, the booth just inside — standing 4 m proud of the line so the booth clears the ring road |
 | **Yard** | an 18 m apron in front of the S, N and W sides and Plot 2's east side, on regraded ground |
 
 The E side faces Plot 2 across a road, and Plot 2's other three sides are boxed in by the road out
 and a cabin, so those are the fence and gates only.
+
+Every fence block carries the same paint the Modern House gives it — `0x3f` on the brick piers,
+`0x32` on the half-brick panels and the caps, `0x18` on the window, the bars and the steel gate
+panels. The first build of these strips wrote no paint layer at all, which is why the piers and
+gates came out the wrong colour against the house they were cut from;
+[`tools/refence.py`](tools/refence.py) puts it back, reading the scheme off a capture of the house's
+own fence. The rebuilt strips are in [`world-patch/fence/`](world-patch/fence/), the originals
+beside them in `world-patch/fence-backup/`.
 
 The two buildings carry block rotations up to 27, so nothing was rotated by hand: each side is
 authored facing south and the game rotates it (S 0, E 1, N 2, W 3); the post is authored facing
