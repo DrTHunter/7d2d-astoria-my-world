@@ -8,10 +8,10 @@ My version of the **Astoria 8K** map for *7 Days to Die* **V 3.2.0 (b10)**: the 
 
 | | |
 |---|--:|
-| POIs in the world | **13,103** |
-| …that aren't in the stock map | **2,108** |
+| POIs in the world | **13,105** |
+| …that aren't in the stock map | **2,110** |
 | Traders, one for every town | **38** |
-| Starter bases, no zombies inside | **8** |
+| Starter bases, no zombies inside | **8** + 2 horde bunkers |
 
 ---
 
@@ -24,7 +24,7 @@ game is exactly as it was, and Navezgane and random worlds keep working the whol
 
 ## First — which one do you want?
 
-There are two. **Pick one.** They're the same map with the same 13,103 buildings in the same places.
+There are two. **Pick one.** They're the same map with the same 13,105 buildings in the same places.
 
 | | **Astoria 8K — Modded** | **Astoria 8K — Vanilla** |
 |---|---|---|
@@ -171,7 +171,7 @@ You have a build before 8 September 2026. Two separate faults aborted the `block
 shape pointing at an asset bundle that wasn't shipped, 73 blocks defined before the parent they
 extend, and 15 blocks whose `DowngradeBlock` target had been pruned away. Any one of these stops
 block creation, so most blocks never exist and every POI with a container throws. Re-download; the
-fixed build reports **1.7.0** in Vortex.
+fixed build reports **1.8.0** in Vortex.
 
 **Vortex says the mod is "not deployed".**
 Click **Deploy Mods** at the top of Vortex, or just click Disable then Enable again.
@@ -189,7 +189,7 @@ they're too big to sit in the repo itself:
 
 ```
 Astoria-8K-Complete.zip           638 MB  world "Astoria 8K Modded"  - the modders' own blocks and models
-Astoria-8K-Vanilla-Complete.zip   116 MB  world "Astoria 8K Vanilla" - the same 989 POIs, stock blocks only
+Astoria-8K-Vanilla-Complete.zip   116 MB  world "Astoria 8K Vanilla" - the same 990 POIs, stock blocks only
 ```
 
 And in the repo:
@@ -308,6 +308,17 @@ were shortened 2 m so they meet the wall's new outer face cleanly rather than ru
 
 Two entrances had to move: the north gate opened straight onto `xcpv_Trailer_01_ZZTong` and one east
 gate onto `cabin_16`, so both were shifted along the wall to the nearest clear ground.
+
+### Two horde bunkers
+
+Both are TFP's own `aaa_horde_base` — a 25 m concrete pillbox with iron bars, entered through a
+roof hatch, no sleeper volumes, every block stock — shipped here as **StarterBase_Horde_Bunker** so it
+doesn't depend on the game's `Test` folder being on the prefab search path.
+
+| Where | Position | Notes |
+|---|---|---|
+| **In the compound** | X 2126 Z −412, the northeast nook | The mansion moved 10 m south and the north ring road was cut short of the corner to open a 25×25 pocket — there wasn't one before |
+| **Behind the prison** | X 2418 Z −746 | 66 m from the map spawn, 3 m off the prison's back wall, 12 m short of the ranger station — between two starter bases, clear of the prison gate, which faces south |
 
 Teleports for all of them: [`docs/TELEPORTS_mine.txt`](docs/TELEPORTS_mine.txt).
 
