@@ -8,8 +8,8 @@ My version of the **Astoria 8K** map for *7 Days to Die* **V 3.2.0 (b10)**: the 
 
 | | |
 |---|--:|
-| POIs in the world | **13,105** |
-| …that aren't in the stock map | **2,110** |
+| POIs in the world | **13,108** |
+| …that aren't in the stock map | **2,109** |
 | Traders, one for every town | **38** |
 | Starter bases, no zombies inside | **8** + 2 horde bunkers |
 
@@ -24,7 +24,7 @@ game is exactly as it was, and Navezgane and random worlds keep working the whol
 
 ## First — which one do you want?
 
-There are two. **Pick one.** They're the same map with the same 13,105 buildings in the same places.
+There are two. **Pick one.** They're the same map with the same 13,108 buildings in the same places.
 
 | | **Astoria 8K — Modded** | **Astoria 8K — Vanilla** |
 |---|---|---|
@@ -178,7 +178,7 @@ You have a build before 8 September 2026. Two separate faults aborted the `block
 shape pointing at an asset bundle that wasn't shipped, 73 blocks defined before the parent they
 extend, and 15 blocks whose `DowngradeBlock` target had been pruned away. Any one of these stops
 block creation, so most blocks never exist and every POI with a container throws. Re-download; the
-fixed build reports **1.10.0** in Vortex.
+fixed build reports **1.11.0** in Vortex.
 
 **Vortex says the mod is "not deployed".**
 Click **Deploy Mods** at the top of Vortex, or just click Disable then Enable again.
@@ -196,7 +196,7 @@ they're too big to sit in the repo itself:
 
 ```
 Astoria-8K-Complete.zip           638 MB  world "Astoria 8K Modded"  - the modders' own blocks and models
-Astoria-8K-Vanilla-Complete.zip   116 MB  world "Astoria 8K Vanilla" - the same 990 POIs, stock blocks only
+Astoria-8K-Vanilla-Complete.zip   116 MB  world "Astoria 8K Vanilla" - the same 987 POIs, stock blocks only
 ```
 
 And in the repo:
@@ -273,42 +273,33 @@ were stripped so it matches the rest. Its geometry is byte-identical to Zeebark'
 Two walled plots hold them: a **148×204 compound** with three houses, and a **74×74 plot** 14 m east
 with the Zeebark house.
 
-### The rampart
+### The fence
 
-The compound wall is a real fortification — the earlier version was a fence with iron bars. Same
-3 m footprint, same gate and door positions, so nothing inside moved and no ground was regraded.
+The compound is fenced the way the Modern House itself is fenced — not a drawing of it, the thing
+itself. Every block was cut out of `StarterBase_Modern_House` with its rotation intact:
 
 | | |
 |---|---|
-| **Wall** | 5 m of solid stone, 2 m thick — cobblestone base course, concrete body, brick string course |
-| **Walkway** | along the whole perimeter on top, behind a crenellated parapet you shoot over — merlons a metre high, crenels at half |
-| **Stairs** | exposed stone staircases climb the inner face every ~30 m and beside every gate, straight onto the walkway |
-| **Piers** | every 6 m, 2 m thick, rising a block above the parapet — a cast cap on most, a lantern on every other one to light the walkway |
-| **Entrances** | 6 vehicle gates keep the working 5×3 roll-up door, now set in the outer face under a solid lintel so the walkway bridges each one; a *Private Property* plaque beside each |
-| **Side doors** | 7 pedestrian doors, framed by piers, lamp over each |
-| **Corner towers** | guard room at the base — door onto the compound, slit window and *Staff Only* / *Private Property* signs outward — solid masonry above, crenellated top with a lantern |
-| **Planting** | a hedge bed the full length of the outside |
+| **Fence** | the house's own front bay, tiled along every side — brick pier, five panels of half-brick with iron bars on top, cast cap |
+| **Gates** | 6 working 5×3 roll-up doors set into the line between two piers, with a driveway out through the yard |
+| **Entrance buildings** | the 16 m building embedded in the house's front line, once per full side — brick back wall *on* the fence, windowed facade and door one row inside, yard in front |
+| **Security posts** | the module from the house's west fence, at every pedestrian entrance: carport outside, the fence with its door and the *Staff Only* / *Private Property* signs, the booth just inside — standing 4 m proud of the line so the booth clears the ring road |
+| **Yard** | an 18 m apron in front of the S, N and W sides and Plot 2's east side, on regraded ground |
 
-Every block is stock.
+The E side faces Plot 2 across a road, and Plot 2's other three sides are boxed in by the road out
+and a cabin, so those are the fence and gates only.
+
+The two buildings carry block rotations up to 27, so nothing was rotated by hand: each side is
+authored facing south and the game rotates it (S 0, E 1, N 2, W 3); the post is authored facing
+west (W 0, S 1, E 2, N 3). The convention was derived from `trader_rekt`, whose gate sits on its
+west edge at rotation 0 with `RotationToFaceNorth` 3 — quarter turns are counter-clockwise.
+
+Every block is stock, and this time both editions get exactly the same fence.
 
 ### Where the two editions differ
 
-The stonework, railings and archways are the same in both, and that is not laziness — across all
-**1,550 blocks and 114 shapes** the nine packs define there is not one structural fence, wall or
-pillar block. They are prop libraries. Every POI in them is built from stock blocks with custom
-decoration hung on the walls, which is exactly why 892 of the 981 pack POIs convert to vanilla
-byte-identically.
-
-So the modded edition dresses the same wall rather than building a different one:
-
-| | Modded | Vanilla |
-|---|---|---|
-| Outer face | **ivy climbing the stone**, eight varieties | bare |
-| Pier lighting | MPLogue LED panels | gooseneck lamps |
-| Corner towers | gun rack, desktop PC, CB radio in the guard room, red lamp outside | empty guard room |
-
-Both ship the same prefab *names* at the same coordinates, so the world file is identical — the two
-downloads simply carry different files under those names.
+Not on the compound any more — the fence is the Modern House's own, and that house is stock blocks
+throughout. The editions differ only in the POI packs' own buildings elsewhere on the map.
 
 ### Roads
 
