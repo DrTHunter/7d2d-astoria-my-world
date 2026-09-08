@@ -28,7 +28,7 @@ There are two. **Pick one.** They're the same map with the same 13,103 buildings
 
 | | **Astoria 8K — Modded** | **Astoria 8K — Vanilla** |
 |---|---|---|
-| Download size | 601 MB | 116 MB |
+| Download size | 638 MB | 116 MB |
 | The buildings | the modders' originals, with all their custom furniture, signs and textures | the same buildings, rebuilt out of ordinary game blocks |
 | Looks | the best it gets | 91% of the POIs are pixel-for-pixel identical anyway |
 | Shows in the world list as | `Astoria 8K Modded` | `Astoria 8K Vanilla` |
@@ -75,7 +75,7 @@ For **Vanilla** (116 MB — the recommended one):
 curl.exe -L -o "$([Environment]::GetFolderPath('Desktop'))\Astoria-8K-Vanilla-Complete.zip" https://github.com/DrTHunter/7d2d-astoria-my-world/releases/latest/download/Astoria-8K-Vanilla-Complete.zip
 ```
 
-For **Modded** (601 MB — the full-fat one):
+For **Modded** (638 MB — the full-fat one):
 
 ```powershell
 curl.exe -L -o "$([Environment]::GetFolderPath('Desktop'))\Astoria-8K-Complete.zip" https://github.com/DrTHunter/7d2d-astoria-my-world/releases/latest/download/Astoria-8K-Complete.zip
@@ -92,7 +92,7 @@ tells it to save the file to your Desktop.*
 Prefer to click? These download the same files straight to your browser's Downloads folder:
 
 - **[Astoria-8K-Vanilla-Complete.zip](https://github.com/DrTHunter/7d2d-astoria-my-world/releases/latest/download/Astoria-8K-Vanilla-Complete.zip)** (116 MB)
-- **[Astoria-8K-Complete.zip](https://github.com/DrTHunter/7d2d-astoria-my-world/releases/latest/download/Astoria-8K-Complete.zip)** (601 MB)
+- **[Astoria-8K-Complete.zip](https://github.com/DrTHunter/7d2d-astoria-my-world/releases/latest/download/Astoria-8K-Complete.zip)** (638 MB)
 
 Your browser may warn that it's a large file — that's fine, keep it.
 
@@ -166,6 +166,11 @@ game.
 Harmless, and not something either mod causes — those Compopack POIs use an old sign format that
 V 3.2.0 can't read. The building loads; some sign text doesn't. It happens on both editions.
 
+**The modded world won't load — the log says `Loading and parsing 'blocks.xml' failed`.**
+You have a build before 8 September 2026. One shape definition pointed at an asset bundle the mod
+didn't ship, and a single dangling reference aborts the whole config parse, so nothing loads at all.
+Re-download; the fixed build reports **1.5.0** in Vortex.
+
 **Vortex says the mod is "not deployed".**
 Click **Deploy Mods** at the top of Vortex, or just click Disable then Enable again.
 
@@ -181,7 +186,7 @@ The two mods are on the [Releases page](https://github.com/DrTHunter/7d2d-astori
 they're too big to sit in the repo itself:
 
 ```
-Astoria-8K-Complete.zip           601 MB  world "Astoria 8K Modded"  - the modders' own blocks and models
+Astoria-8K-Complete.zip           638 MB  world "Astoria 8K Modded"  - the modders' own blocks and models
 Astoria-8K-Vanilla-Complete.zip   116 MB  world "Astoria 8K Vanilla" - the same 989 POIs, stock blocks only
 ```
 
