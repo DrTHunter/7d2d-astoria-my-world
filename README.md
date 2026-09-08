@@ -178,7 +178,11 @@ You have a build before 8 September 2026. Two separate faults aborted the `block
 shape pointing at an asset bundle that wasn't shipped, 73 blocks defined before the parent they
 extend, and 15 blocks whose `DowngradeBlock` target had been pruned away. Any one of these stops
 block creation, so most blocks never exist and every POI with a container throws. Re-download; the
-fixed build reports **1.11.0** in Vortex.
+fixed build reports **1.12.0** in Vortex.
+
+**The log says `expected data len N. Probably outdated ins file` for `StarterBase_…`.**
+Builds before **1.12.0** shipped a placeholder `.ins` (inside-data) file with every prefab I authored,
+and the game flags each one. Harmless — the prefab still loads — and gone from 1.12.0 on.
 
 **Vortex says the mod is "not deployed".**
 Click **Deploy Mods** at the top of Vortex, or just click Disable then Enable again.
