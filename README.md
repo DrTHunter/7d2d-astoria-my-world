@@ -171,7 +171,7 @@ You have a build before 8 September 2026. Two separate faults aborted the `block
 shape pointing at an asset bundle that wasn't shipped, 73 blocks defined before the parent they
 extend, and 15 blocks whose `DowngradeBlock` target had been pruned away. Any one of these stops
 block creation, so most blocks never exist and every POI with a container throws. Re-download; the
-fixed build reports **1.8.0** in Vortex.
+fixed build reports **1.9.0** in Vortex.
 
 **Vortex says the mod is "not deployed".**
 Click **Deploy Mods** at the top of Vortex, or just click Disable then Enable again.
@@ -266,20 +266,23 @@ were stripped so it matches the rest. Its geometry is byte-identical to Zeebark'
 Two walled plots hold them: a **148×204 compound** with three houses, and a **74×74 plot** 14 m east
 with the Zeebark house.
 
-### The estate wall
+### The rampart
 
-The compound wall is 3 m deep rather than a flat 1 m screen, and the extra 2 m went *outward* — the
-ground beyond was re-graded to take it, so nothing inside moved.
+The compound wall is a real fortification — the earlier version was a fence with iron bars. Same
+3 m footprint, same gate and door positions, so nothing inside moved and no ground was regraded.
 
 | | |
 |---|---|
-| **Wall** | brick pillars every 6 m with cast caps, dark metal panels, iron railings between |
-| **Planting** | a hedge bed the full length of the outside, tucked against the railings |
-| **Verge** | a paved walkway outside the hedge, so you can walk the perimeter |
-| **Entrances** | 6 vehicle gates, each with a brick archway over it, a flanking pair of capped pillars, and a *Private Property* plaque |
-| **Side doors** | 7 pedestrian doors set into the wall, framed in brick and lit |
-| **Guard posts** | one on each corner — brick, bulletproof window looking out, *Staff Only* and *Private Property* signs, door onto the compound, light over it |
-| **Lighting** | gooseneck lamps along the wall and over every door |
+| **Wall** | 5 m of solid stone, 2 m thick — cobblestone base course, concrete body, brick string course |
+| **Walkway** | along the whole perimeter on top, behind a crenellated parapet you shoot over — merlons a metre high, crenels at half |
+| **Stairs** | exposed stone staircases climb the inner face every ~30 m and beside every gate, straight onto the walkway |
+| **Piers** | every 6 m, 2 m thick, rising a block above the parapet — a cast cap on most, a lantern on every other one to light the walkway |
+| **Entrances** | 6 vehicle gates keep the working 5×3 roll-up door, now set in the outer face under a solid lintel so the walkway bridges each one; a *Private Property* plaque beside each |
+| **Side doors** | 7 pedestrian doors, framed by piers, lamp over each |
+| **Corner towers** | guard room at the base — door onto the compound, slit window and *Staff Only* / *Private Property* signs outward — solid masonry above, crenellated top with a lantern |
+| **Planting** | a hedge bed the full length of the outside |
+
+Every block is stock.
 
 ### Where the two editions differ
 
@@ -293,9 +296,9 @@ So the modded edition dresses the same wall rather than building a different one
 
 | | Modded | Vanilla |
 |---|---|---|
-| Panels | **ivy climbing the railings**, eight varieties | bare |
-| Pillar lighting | MPLogue LED panels | gooseneck lamps |
-| Guard posts | gun rack, desktop PC, CB radio, red lamp outside | empty |
+| Outer face | **ivy climbing the stone**, eight varieties | bare |
+| Pier lighting | MPLogue LED panels | gooseneck lamps |
+| Corner towers | gun rack, desktop PC, CB radio in the guard room, red lamp outside | empty guard room |
 
 Both ship the same prefab *names* at the same coordinates, so the world file is identical — the two
 downloads simply carry different files under those names.
