@@ -166,10 +166,11 @@ game.
 Harmless, and not something either mod causes — those Compopack POIs use an old sign format that
 V 3.2.0 can't read. The building loads; some sign text doesn't. It happens on both editions.
 
-**The modded world won't load — the log says `Loading and parsing 'blocks.xml' failed`.**
-You have a build before 8 September 2026. One shape definition pointed at an asset bundle the mod
-didn't ship, and a single dangling reference aborts the whole config parse, so nothing loads at all.
-Re-download; the fixed build reports **1.5.0** in Vortex.
+**The modded world won't load, or the log fills with `is not a BlockCompositeTileEntity`.**
+You have a build before 8 September 2026. Two separate faults aborted the `blocks.xml` parse — a
+shape pointing at an asset bundle that wasn't shipped, and 73 blocks defined before the parent they
+extend. Either one stops block creation partway, so most blocks never exist and every POI with a
+container throws. Re-download; the fixed build reports **1.6.0** in Vortex.
 
 **Vortex says the mod is "not deployed".**
 Click **Deploy Mods** at the top of Vortex, or just click Disable then Enable again.
