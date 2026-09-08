@@ -162,16 +162,23 @@ Disable one. Both editions ship POI files under the same names, so with both on 
 whichever it found first for each building and you end up with a mix. Turn one off, restart the
 game.
 
-**The log says `Skipping loading of active block data for xcpv_…`.**
-Harmless, and not something either mod causes — those Compopack POIs use an old sign format that
-V 3.2.0 can't read. The building loads; some sign text doesn't. It happens on both editions.
+**The log fills with `Skipping loading of active block data for xcpv_…` / `Object reference not set`.**
+About 800 lines across 45 Compopack POIs, and harmless: those POIs carry sign data in a format
+V 3.2.0 can't convert, so the building loads and the sign text doesn't. The files are byte-identical
+to the pack's originals — it isn't either mod, and it happens on both editions. The world still
+reaches *Ready to spawn*; the red overlay is just the log being shown while it loads.
+
+**`Could not load prefab 'xcpv_…_EvilRacc0on'`.**
+Three Compopack POIs shipped with a property named `StaticSpawner.Size`, and the `.` in the name
+makes V 3.2.0 refuse the whole prefab. Fixed in builds from **1.10.0** — the property is removed and
+the build refuses to ship any prefab XML with an illegal property name.
 
 **The modded world won't load, or the log fills with `is not a BlockCompositeTileEntity`.**
 You have a build before 8 September 2026. Two separate faults aborted the `blocks.xml` parse — a
 shape pointing at an asset bundle that wasn't shipped, 73 blocks defined before the parent they
 extend, and 15 blocks whose `DowngradeBlock` target had been pruned away. Any one of these stops
 block creation, so most blocks never exist and every POI with a container throws. Re-download; the
-fixed build reports **1.9.0** in Vortex.
+fixed build reports **1.10.0** in Vortex.
 
 **Vortex says the mod is "not deployed".**
 Click **Deploy Mods** at the top of Vortex, or just click Disable then Enable again.
