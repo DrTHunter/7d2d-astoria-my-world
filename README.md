@@ -168,9 +168,10 @@ V 3.2.0 can't read. The building loads; some sign text doesn't. It happens on bo
 
 **The modded world won't load, or the log fills with `is not a BlockCompositeTileEntity`.**
 You have a build before 8 September 2026. Two separate faults aborted the `blocks.xml` parse — a
-shape pointing at an asset bundle that wasn't shipped, and 73 blocks defined before the parent they
-extend. Either one stops block creation partway, so most blocks never exist and every POI with a
-container throws. Re-download; the fixed build reports **1.6.0** in Vortex.
+shape pointing at an asset bundle that wasn't shipped, 73 blocks defined before the parent they
+extend, and 15 blocks whose `DowngradeBlock` target had been pruned away. Any one of these stops
+block creation, so most blocks never exist and every POI with a container throws. Re-download; the
+fixed build reports **1.7.0** in Vortex.
 
 **Vortex says the mod is "not deployed".**
 Click **Deploy Mods** at the top of Vortex, or just click Disable then Enable again.
