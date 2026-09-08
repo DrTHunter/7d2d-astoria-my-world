@@ -8,8 +8,8 @@ My version of the **Astoria 8K** map for *7 Days to Die* **V 3.2.0 (b10)**: the 
 
 | | |
 |---|--:|
-| POIs in the world | **13,095** |
-| …that aren't in the stock map | **2,100** |
+| POIs in the world | **13,103** |
+| …that aren't in the stock map | **2,108** |
 | Traders, one for every town | **38** |
 | Starter bases, no zombies inside | **8** |
 
@@ -24,11 +24,11 @@ game is exactly as it was, and Navezgane and random worlds keep working the whol
 
 ## First — which one do you want?
 
-There are two. **Pick one.** They're the same map with the same 13,095 buildings in the same places.
+There are two. **Pick one.** They're the same map with the same 13,103 buildings in the same places.
 
 | | **Astoria 8K — Modded** | **Astoria 8K — Vanilla** |
 |---|---|---|
-| Download size | 601 MB | 115 MB |
+| Download size | 601 MB | 116 MB |
 | The buildings | the modders' originals, with all their custom furniture, signs and textures | the same buildings, rebuilt out of ordinary game blocks |
 | Looks | the best it gets | 91% of the POIs are pixel-for-pixel identical anyway |
 | Shows in the world list as | `Astoria 8K Modded` | `Astoria 8K Vanilla` |
@@ -69,7 +69,7 @@ powershell
 **3.** A blue window opens. Copy the line below (click the copy icon in the corner of the box),
 right-click inside the blue window to paste it, and press **Enter**.
 
-For **Vanilla** (115 MB — the recommended one):
+For **Vanilla** (116 MB — the recommended one):
 
 ```powershell
 curl.exe -L -o "$([Environment]::GetFolderPath('Desktop'))\Astoria-8K-Vanilla-Complete.zip" https://github.com/DrTHunter/7d2d-astoria-my-world/releases/latest/download/Astoria-8K-Vanilla-Complete.zip
@@ -91,7 +91,7 @@ tells it to save the file to your Desktop.*
 
 Prefer to click? These download the same files straight to your browser's Downloads folder:
 
-- **[Astoria-8K-Vanilla-Complete.zip](https://github.com/DrTHunter/7d2d-astoria-my-world/releases/latest/download/Astoria-8K-Vanilla-Complete.zip)** (115 MB)
+- **[Astoria-8K-Vanilla-Complete.zip](https://github.com/DrTHunter/7d2d-astoria-my-world/releases/latest/download/Astoria-8K-Vanilla-Complete.zip)** (116 MB)
 - **[Astoria-8K-Complete.zip](https://github.com/DrTHunter/7d2d-astoria-my-world/releases/latest/download/Astoria-8K-Complete.zip)** (601 MB)
 
 Your browser may warn that it's a large file — that's fine, keep it.
@@ -182,7 +182,7 @@ they're too big to sit in the repo itself:
 
 ```
 Astoria-8K-Complete.zip           601 MB  world "Astoria 8K Modded"  - the modders' own blocks and models
-Astoria-8K-Vanilla-Complete.zip   115 MB  world "Astoria 8K Vanilla" - the same 981 POIs, stock blocks only
+Astoria-8K-Vanilla-Complete.zip   116 MB  world "Astoria 8K Vanilla" - the same 989 POIs, stock blocks only
 ```
 
 And in the repo:
@@ -279,7 +279,8 @@ ground beyond was re-graded to take it, so nothing inside moved.
 The stonework, railings and archways are the same in both, and that is not laziness — across all
 **1,550 blocks and 114 shapes** the nine packs define there is not one structural fence, wall or
 pillar block. They are prop libraries. Every POI in them is built from stock blocks with custom
-decoration hung on the walls, which is exactly why 892 of 981 convert to vanilla byte-identically.
+decoration hung on the walls, which is exactly why 892 of the 981 pack POIs convert to vanilla
+byte-identically.
 
 So the modded edition dresses the same wall rather than building a different one:
 
