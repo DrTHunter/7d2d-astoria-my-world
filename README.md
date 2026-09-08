@@ -256,10 +256,35 @@ they're safe to move into on day one.
 The last one ships from Zeebark as a Tier‑5 *infested* POI with **31 badass sleeper volumes**; those
 were stripped so it matches the rest. Its geometry is byte-identical to Zeebark's original.
 
-Two walled plots hold them: a **146×202 compound** with three houses, and a **74×74 plot** 14 m east
-with the Zeebark house. The wall is copied block-for-block from the Modern House's own front wall —
-brick pillars every 6 m, dark metal panels, iron railings — with **seven working roll-up gates** and
-a paved ring road inside each, joined to the real road network.
+Two walled plots hold them: a **148×204 compound** with three houses, and a **74×74 plot** 14 m east
+with the Zeebark house.
+
+### The estate wall
+
+The compound wall is 3 m deep rather than a flat 1 m screen, and the extra 2 m went *outward* — the
+ground beyond was re-graded to take it, so nothing inside moved.
+
+| | |
+|---|---|
+| **Wall** | brick pillars every 6 m with cast caps, dark metal panels, iron railings between |
+| **Planting** | a hedge bed the full length of the outside, tucked against the railings |
+| **Verge** | a paved walkway outside the hedge, so you can walk the perimeter |
+| **Entrances** | 6 vehicle gates, each with a brick archway over it, a flanking pair of capped pillars, and a *Private Property* plaque |
+| **Side doors** | 7 pedestrian doors set into the wall, framed in brick and lit |
+| **Guard posts** | one on each corner — brick, bulletproof window looking out, *Staff Only* and *Private Property* signs, door onto the compound, light over it |
+| **Lighting** | gooseneck lamps along the wall and over every door |
+
+Every block is stock. That is deliberate: the two editions have to look identical, and the vanilla
+one has no mod blocks to draw on.
+
+### Roads
+
+The ring road inside is asphalt with a concrete kerb down each side, on a gravel base. A cobbled
+path leads out of each entrance, and the two roads that join the compound to the real road network
+were shortened 2 m so they meet the wall's new outer face cleanly rather than running under it.
+
+Two entrances had to move: the north gate opened straight onto `xcpv_Trailer_01_ZZTong` and one east
+gate onto `cabin_16`, so both were shifted along the wall to the nearest clear ground.
 
 Teleports for all of them: [`docs/TELEPORTS_mine.txt`](docs/TELEPORTS_mine.txt).
 
