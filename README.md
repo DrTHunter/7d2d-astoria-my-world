@@ -152,20 +152,15 @@ Almost always one of two things:
    launch. **Fix: quit the game completely and restart it.**
 2. **You're on an old save.** See Step 4.
 
-To check for yourself, open the newest file in your logs folder and search it for `does not exist` —
-it names every building the game couldn't find. To get to the logs: **Windows key + R**, then paste
+To check for yourself, open the newest file in your logs folder and search it for
+`Could not load prefab` — it names every building the game couldn't place, and the `ERR` line just
+above each one says why. To get to the logs: **Windows key + R**, then paste
 `%APPDATA%\7DaysToDie\logs` and press Enter.
 
 **I enabled both mods and buildings look wrong.**
 Disable one. Both editions ship POI files under the same names, so with both on the game picks
 whichever it found first for each building and you end up with a mix. Turn one off, restart the
 game.
-
-**Whole buildings are missing, and the log says `Could not load prefab`.**
-If you downloaded the **Vanilla** file before 8 September 2026 you have a broken copy — 23 POIs
-failed to load, two starter bases among them. Grab it again (it reports version **1.2.0** in
-Vortex), then start a new game: the missing POIs were skipped when the ground was generated, so
-they won't appear anywhere you've already walked.
 
 **The log says `Skipping loading of active block data for xcpv_…`.**
 Harmless, and not something either mod causes — those Compopack POIs use an old sign format that
