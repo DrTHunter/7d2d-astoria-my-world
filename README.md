@@ -161,6 +161,16 @@ Disable one. Both editions ship POI files under the same names, so with both on 
 whichever it found first for each building and you end up with a mix. Turn one off, restart the
 game.
 
+**Whole buildings are missing, and the log says `Could not load prefab`.**
+If you downloaded the **Vanilla** file before 8 September 2026 you have a broken copy — 23 POIs
+failed to load, two starter bases among them. Grab it again (it reports version **1.2.0** in
+Vortex), then start a new game: the missing POIs were skipped when the ground was generated, so
+they won't appear anywhere you've already walked.
+
+**The log says `Skipping loading of active block data for xcpv_…`.**
+Harmless, and not something either mod causes — those Compopack POIs use an old sign format that
+V 3.2.0 can't read. The building loads; some sign text doesn't. It happens on both editions.
+
 **Vortex says the mod is "not deployed".**
 Click **Deploy Mods** at the top of Vortex, or just click Disable then Enable again.
 
