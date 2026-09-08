@@ -274,8 +274,23 @@ ground beyond was re-graded to take it, so nothing inside moved.
 | **Guard posts** | one on each corner — brick, bulletproof window looking out, *Staff Only* and *Private Property* signs, door onto the compound, light over it |
 | **Lighting** | gooseneck lamps along the wall and over every door |
 
-Every block is stock. That is deliberate: the two editions have to look identical, and the vanilla
-one has no mod blocks to draw on.
+### Where the two editions differ
+
+The stonework, railings and archways are the same in both, and that is not laziness — across all
+**1,550 blocks and 114 shapes** the nine packs define there is not one structural fence, wall or
+pillar block. They are prop libraries. Every POI in them is built from stock blocks with custom
+decoration hung on the walls, which is exactly why 892 of 981 convert to vanilla byte-identically.
+
+So the modded edition dresses the same wall rather than building a different one:
+
+| | Modded | Vanilla |
+|---|---|---|
+| Panels | **ivy climbing the railings**, eight varieties | bare |
+| Pillar lighting | MPLogue LED panels | gooseneck lamps |
+| Guard posts | gun rack, desktop PC, CB radio, red lamp outside | empty |
+
+Both ship the same prefab *names* at the same coordinates, so the world file is identical — the two
+downloads simply carry different files under those names.
 
 ### Roads
 
