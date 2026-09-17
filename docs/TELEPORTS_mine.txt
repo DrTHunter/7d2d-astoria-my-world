@@ -1,14 +1,14 @@
-# teleports to your builds (compound rebuilt 2026-09-06)
+# teleports to your builds (six bases retired 2026-09-17)
 
-tp 2430 61 -800   # StarterBase_Prison_Cellblock - prison yard (this is the spawn)
+tp 2464 58 -999   # map spawn - in front of StarterBase_UFO_Farm
 tp 2463 59 -952   # StarterBase_UFO_Farm
+tp 2485 58 -1009  # StarterBase_Horde_Bunker - beside the UFO Farm (roof hatch)
 tp 2461 61 -670   # StarterBase_Ranger_Station
-tp 2349 59 -674   # StarterBase_Hotel_Tower
-tp 2084 59 -525   # Compound - StarterBase_Modern_House
-tp 2053 59 -429   # Compound - StarterBase_Bunker_House
-tp 2121 59 -430   # Compound - StarterBase_Ayesoar_Mansion
-tp 2160 59 -530   # Compound - east gate 1 (outside the wall)
-tp 2160 59 -430   # Compound - east gate 2 (outside the wall)
-tp 2100 59 -380   # Compound - north gate (outside)
-tp 2085 59 -590   # Compound - south gate (outside)
-tp 2008 59 -464   # Compound - west gate (outside)
+
+# the buildings the retired bases were cut from, back as ordinary questable POIs (corner of each lot)
+tp 2365 59 -1227  # hotel_03            - was utility_refinery_02, industrial district of the big city
+tp 2506 59 -1553  # prison_01           - was farm_13, north edge of the big city
+tp 2500 59 129    # house_modern_18     - was house_old_gambrel_03, strip south of the city
+tp 2833 59 -328   # house_modern_31     - was cabin_13, residential tile of the big city
+tp 2591 59 -649   # Modern_House_Zeebark - was store_autoparts_01, commercial tile of the big city
+tp 1840 38 -799   # Ayesoar_Mansion_by_MPLogue - was gas_station_09, town to the west

@@ -1,17 +1,17 @@
 # Astoria 8K — my world
 
 My version of the **Astoria 8K** map for *7 Days to Die* **V 3.2.0 (b10)**: the junk cleared out,
-1,812 POIs swapped in, and eight zombie-free starter bases in two walled compounds.
+1,812 POIs swapped in, and two zombie-free starter bases with a horde bunker beside the spawn.
 
 📍 **[Browse every POI on the interactive map →](https://drthunter.github.io/astoria-8k-poi-map/)**
 &nbsp;·&nbsp; [how the map page works](https://github.com/DrTHunter/astoria-8k-poi-map)
 
 | | |
 |---|--:|
-| POIs in the world | **13,108** |
+| POIs in the world | **13,068** |
 | …that aren't in the stock map | **2,109** |
 | Traders, one for every town | **38** |
-| Starter bases, no zombies inside | **8** + 2 horde bunkers |
+| Starter bases, no zombies inside | **2** + a horde bunker |
 
 ---
 
@@ -24,7 +24,8 @@ game is exactly as it was, and Navezgane and random worlds keep working the whol
 
 ## First — which one do you want?
 
-There are two. **Pick one.** They're the same map with the same 13,108 buildings in the same places.
+There are two. **Pick one.** They're the same map with the same buildings in the same places
+(until the Vanilla edition catches up with 1.16, it still has the eight-base layout — see *The six that were retired* below).
 
 | | **Astoria 8K — Modded** | **Astoria 8K — Vanilla** |
 |---|---|---|
@@ -120,7 +121,7 @@ Start 7 Days to Die. Click **New Game**, and in the world dropdown pick whicheve
 
 Only the one you enabled will be in the list.
 
-You'll spawn in the prison yard, which is a starter base with no zombies in it.
+You'll spawn in front of the UFO Farm, a starter base with no zombies in it, with the horde bunker a few metres to the east.
 
 > **Start a NEW game.** 7 Days to Die bakes the buildings into the ground the first time you visit
 > an area. If you load an old save, everywhere you've already walked keeps the old layout.
@@ -189,7 +190,7 @@ Click **Deploy Mods** at the top of Vortex, or just click Disable then Enable ag
 
 **I have no idea whether it worked.**
 Start a new game on Astoria 8K Modded or Astoria 8K Vanilla and look at where you spawn. If you're
-standing in a prison yard, it worked. If you're in an ordinary field, it didn't.
+standing in front of a farm with a glass dome over it, it worked. If you're in an ordinary field, it didn't.
 
 ---
 
@@ -206,7 +207,7 @@ Astoria-8K-Vanilla-Complete.zip   116 MB  world "Astoria 8K Vanilla" - the same 
 And in the repo:
 
 ```
-vortex/Astoria-StarterBases.zip   just the 8 starter bases, if you want them on their own
+vortex/Astoria-StarterBases.zip   just the 2 starter bases and the horde bunker, if you want them on their own
 world-patch/                      the raw map changes: dtm.patch, prefabs.xml, spawnpoints.xml
 tools/install.py                  the old route - patches a Nexus copy of the map in place
 docs/                             the full write-up of every change, and every trader's coordinates
@@ -255,85 +256,92 @@ to see where they all are.
 
 The full list, with teleport commands: [`docs/TRADERS.md`](docs/TRADERS.md).
 
-## The eight starter bases
+## The starter bases
 
-Each was cut out of an existing POI. **None has a single sleeper volume**, so nothing spawns inside —
-they're safe to move into on day one.
+Two are left, both cut out of an existing POI and both without a single sleeper volume, so nothing
+spawns inside and they're safe to move into on day one:
 
-| Cut from | Name | Size |
-|---|---|--:|
-| `prison_01` | **StarterBase_Prison_Cellblock** — the map spawn is in its yard | 113×109 |
-| `farm_17` | **StarterBase_UFO_Farm** | 69×75 |
-| `ranger_station_07` | **StarterBase_Ranger_Station** | 70×79 |
-| `hotel_03` | **StarterBase_Hotel_Tower** | 127×124 |
-| `house_modern_18` | **StarterBase_Modern_House** — compound | 111×105 |
-| `house_modern_31` | **StarterBase_Bunker_House** — compound | 69×75 |
-| `Ayesoar_Mansion_by_MPLogue` | **StarterBase_Ayesoar_Mansion** — compound | 60×54 |
-| `Modern_House_Zeebark` | **StarterBase_Zeebark_Modern_House** — own plot | 60×60 |
+| Cut from | Name | Size | Where |
+|---|---|--:|---|
+| `farm_17` | **StarterBase_UFO_Farm** — you spawn in front of it | 69×75 | X 2429 Z −990, against the west edge of the big city |
+| `ranger_station_07` | **StarterBase_Ranger_Station** | 70×79 | X 2426 Z −710, 200 m north-east of the farm |
 
-The last one ships from Zeebark as a Tier‑5 *infested* POI with **31 badass sleeper volumes**; those
-were stripped so it matches the rest. Its geometry is byte-identical to Zeebark's original.
+Beside the farm stands the **horde bunker** — TFP's own `aaa_horde_base`, a 25 m concrete pillbox
+with iron bars entered through a roof hatch, no sleeper volumes, every block stock, shipped as
+**StarterBase_Horde_Bunker** so it doesn't depend on the game's `Test` folder being on the prefab
+search path. It sits at X 2473 Z -1021, 7 m off the farm's front edge, on a pad graded to the farm's
+own level. The spawn is at X 2464 Z -999, between the two.
 
-Two walled plots hold them: a **148×204 compound** with three houses, and a **74×74 plot** 14 m east
-with the Zeebark house.
+### The Ranger Station's fence is steel
 
-### The fence
+The perimeter came from `ranger_station_07` as chain-link (300 HP a block) skinned with corrugated
+sheet (1,000 HP). On 2026-09-17 every block on the line was rebuilt in **steel (10,000 HP)** without
+changing how it looks: the 319 chain-link segments are now `steelShapes:barsCentered` on the same axis,
+the 35 corner and post blocks `steelShapes:poleCentered`, and the 188 corrugated panels the same shape
+in steel, painted *Corrugated metal* where they carried no paint and left with their own paint where
+they did (the rust-black pillars). The double gate, the pedestrian door and the barbed wire on top are
+unchanged, and the fence inside the yard and the buildings' own walls were not touched. Script:
+[`tools/steel_border.py`](tools/steel_border.py). Modded builds from **1.17.0** carry it.
 
-The compound is fenced the way the Modern House itself is fenced — not a drawing of it, the thing
-itself. Every block was cut out of `StarterBase_Modern_House` with its rotation intact:
+### The six that were retired (2026-09-17)
 
-| | |
-|---|---|
-| **Fence** | the house's own front bay, tiled along every side — brick pier, five panels of half-brick with iron bars on top, cast cap |
-| **Gates** | 6 working 5×3 roll-up doors set into the line between two piers, with a driveway out through the yard. The bar course runs across the top of each opening and a cast lintel ties the two flanking pier caps together, so a gate reads as a portal rather than a gap |
-| **Entrance buildings** | the 16 m building embedded in the house's front line, once per full side — brick back wall *on* the fence, windowed facade and door one row inside, yard in front. Each one stands hard against its gate's own pier, so the guard shack watches the drive-through |
-| **Security posts** | the module from the house's west fence, at every pedestrian entrance: carport outside, the fence with its door and the *Staff Only* / *Private Property* signs, the booth just inside — standing 4 m proud of the line so the booth clears the ring road |
-| **Yard** | an 18 m apron in front of the S, N and W sides and Plot 2's east side, on regraded ground |
+The Prison Cellblock, the Hotel Tower and the four houses of the two walled plots are gone, along
+with the compound's walls, gates, security posts, ring roads and paths and the second horde bunker.
+The ground under all of it is the original Astoria terrain again, cell for cell; only the Ranger
+Station's pad and its 13 m ramps remain, re-blended into the restored ground.
 
-The E side faces Plot 2 across a road, and Plot 2's other three sides are boxed in by the road out
-and a cabin, so those are the fence and gates only.
+The buildings they were cut from are back in the world as ordinary questable POIs, zombies and all,
+each on the lowest-tier lot of a neighbouring town that was exactly its size — the lot's own rotation
+kept, so every one faces its street:
 
-Every fence block carries the same paint the Modern House gives it — `0x3f` on the brick piers,
-`0x32` on the half-brick panels and the caps, `0x18` on the window, the bars and the steel gate
-panels. The first build of these strips wrote no paint layer at all, which is why the piers and
-gates came out the wrong colour against the house they were cut from;
-[`tools/refence.py`](tools/refence.py) puts it back, reading the scheme off a capture of the house's
-own fence. The rebuilt strips are in [`world-patch/fence/`](world-patch/fence/), the originals
-beside them in `world-patch/fence-backup/`.
+| Building | Tier | Replaced | Was | Lot |
+|---|--:|---|--:|---|
+| `hotel_03` | 5 | `utility_refinery_02` | T4 | X 2368 Z −1224, industrial district of the big city |
+| `prison_01` | 5 | `farm_13` | T3 | X 2509 Z −1550, north edge of the same city |
+| `house_modern_18` | 4 | `house_old_gambrel_03` | T3 | X 2503 Z 132, the strip south of the city |
+| `house_modern_31` | 5 | `cabin_13` | T2 | X 2836 Z −325, residential tile of the big city |
+| `Modern_House_Zeebark` | 5 | `store_autoparts_01` | T2 | X 2594 Z −646, commercial tile of the big city |
+| `Ayesoar_Mansion_by_MPLogue` | 4 | `gas_station_09` | T1 | X 1843 Z −796, commercial tile of the town to the west |
 
-The two buildings carry block rotations up to 27, so nothing was rotated by hand: each side is
-authored facing south and the game rotates it (S 0, E 1, N 2, W 3); the post is authored facing
-west (W 0, S 1, E 2, N 3). The convention was derived from `trader_rekt`, whose gate sits on its
-west edge at rotation 0 with `RotationToFaceNorth` 3 — quarter turns are counter-clockwise.
+Every POI replaced had at least two other copies on the map, so nothing was lost from it; two
+lower-tier lots (`rest_area_02`, `xcpv_Haulier_lg_Limodor`) were passed over because they were the
+only copy. The script is [`tools/retire_bases.py`](tools/retire_bases.py); the details are in
+[`docs/MY_PREFABS.md`](docs/MY_PREFABS.md).
 
-Every block is stock, and this time both editions get exactly the same fence.
+### The first quest
 
-### Where the two editions differ
+Stock 7 Days to Die does not send *Journey to Settlement* to the closest trader. The quest carries
+`unique_key="traderquest"`, and for that key the game gathers every pine-forest trader on the map,
+ignores distance, and picks the one with the most Tier‑1 POIs within 500 m of it. On Astoria that is
+`trader_rekt` at 1312,1198 — 2.3 km from the spawn, 40 Tier‑1 POIs — while
+`trader_xcpv_Settlement_02_Viper7` sits 232 m away with 26. Both mods now ship a three‑line
+[`Config/quests.xml`](world-patch/Config/quests.xml) that gives the quest a different key, and with any
+other key the game falls back to the closest trader in the biome. A quest that is already in your
+journal keeps its old target; in the console (F1) run `removequest quest_whiteRiverCitizen1` then
+`givequest quest_whiteRiverCitizen1`, or start a new game.
 
-Not on the compound any more — the fence is the Modern House's own, and that house is stock blocks
-throughout. The editions differ only in the POI packs' own buildings elsewhere on the map.
+### Locks
 
-### Roads
+Nothing in the starter bases is locked. Cut from real POIs, they arrived with the POIs' locks (counted when all eight were still placed): **193 locked
+doors and gates** (Hotel 60, Bunker House 46, Modern House 37, Prison 19, Ranger Station 11, Zeebark
+11, Mansion 6, UFO Farm 3) and **21 safes, chests and ATMs** the game locks on placement whatever the
+prefab says. The doors are unlocked in the prefabs' own tile-entity data — the same bit the prefab
+editor sets. The safes have no such bit; a `cntGunSafe` is locked by definition, so each is swapped
+for the block the game leaves behind after a successful lockpick (`cntGunSafeInsecure` and friends):
+same model, same loot list, no lock. [`tools/unlock.py`](tools/unlock.py) does both, reports every
+door and safe it touched, and can be pointed at any folder of prefabs. Builds from **1.15.0** (modded)
+/ **1.11.0** (vanilla) carry it.
 
-The ring road inside is asphalt with a concrete kerb down each side, on a gravel base. A cobbled
-path leads out of each entrance, and the two roads that join the compound to the real road network
-were shortened 2 m so they meet the wall's new outer face cleanly rather than running under it.
+### The compound, as it was
 
-Two entrances had to move: the north gate opened straight onto `xcpv_Trailer_01_ZZTong` and one east
-gate onto `cabin_16`, so both were shifted along the wall to the nearest clear ground.
+The two walled plots were fenced with the Modern House's own front bay, block for block, with six
+working roll-up gates, a guard building per side and a security post at every pedestrian entrance;
+the ring road inside was asphalt on a gravel base. All of that was retired on 2026-09-17 with the
+houses it enclosed — see *The six that were retired* above. The fence strips are still in
+[`world-patch/fence/`](world-patch/fence/) and [`tools/refence.py`](tools/refence.py) still rebuilds
+their paint, in case they are ever wanted again.
 
-### Two horde bunkers
-
-Both are TFP's own `aaa_horde_base` — a 25 m concrete pillbox with iron bars, entered through a
-roof hatch, no sleeper volumes, every block stock — shipped here as **StarterBase_Horde_Bunker** so it
-doesn't depend on the game's `Test` folder being on the prefab search path.
-
-| Where | Position | Notes |
-|---|---|---|
-| **In the compound** | X 2126 Z −412, the northeast nook | The mansion moved 10 m south and the north ring road was cut short of the corner to open a 25×25 pocket — there wasn't one before |
-| **Behind the prison** | X 2418 Z −746 | 66 m from the map spawn, 3 m off the prison's back wall, 12 m short of the ranger station — between two starter bases, clear of the prison gate, which faces south |
-
-Teleports for all of them: [`docs/TELEPORTS_mine.txt`](docs/TELEPORTS_mine.txt).
+Teleports to what remains: [`docs/TELEPORTS_mine.txt`](docs/TELEPORTS_mine.txt).
 
 ## What was done to the map
 
@@ -342,7 +350,7 @@ Teleports for all of them: [`docs/TELEPORTS_mine.txt`](docs/TELEPORTS_mine.txt).
   times**). Those, and every 7th-and-beyond copy of a vanilla POI, now hold a Compopack POI: **820
   distinct** ones, never more than 4 copies of any single POI across the whole 8 km map. **1,769 of
   them have sleeper volumes**, so they're lootable and questable — the rubble wasn't.
-- **Terrain re-graded** under the two plots and the roads: 112,881 cells, 0.17 % of the map.
+- **Terrain re-graded** under the two starter bases, the horde bunker and the added traders: 98,290 cells, 0.15 % of the map. The ground under the six retired bases is the original map again.
 - The detail, including how the placement rules were derived and checked:
   [`docs/REPOPULATED.md`](docs/REPOPULATED.md) and [`docs/MY_PREFABS.md`](docs/MY_PREFABS.md).
   Every single swap is listed in [`docs/REPOPULATED_pois.csv`](docs/REPOPULATED_pois.csv).

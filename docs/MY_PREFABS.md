@@ -1,4 +1,94 @@
-# Starter bases - Astoria 8K (rebuilt 2026-09-06)
+# Starter bases - Astoria 8K (rebuilt 2026-09-06, cut down to two 2026-09-17)
+
+## 2026-09-17: six bases retired, two kept
+
+Kept exactly as they were: **StarterBase_Ranger_Station** (2426,-710) and **StarterBase_UFO_Farm**
+(2429,-990). Everything else that was ours is gone from `prefabs.xml`: the Prison Cellblock, the
+Hotel Tower, the Modern House, the Bunker House, the Ayesoar Mansion, the Zeebark Modern House, the
+eight compound and Plot 2 wall strips, the ten road pieces, the four paths, the seven security posts
+and both horde bunkers - 41 decorations. The prefab files for all 33 retired names were removed from
+the Complete mod (and its release zip); a copy of every one of them, plus the three world files as they
+were, is in `%APPDATA%\7DaysToDie\Astoria-8K-Modded.backup-2026-09-17-before-retiring-bases\`.
+
+**Terrain.** `dtm.raw` was compared cell for cell with the untouched Nexus map. The starter bases had
+touched two regions - the prison / hotel / ranger block (x 2258..2503, z -872..-585) and the compound /
+Plot 2 block (x 1971..2279, z -632..-319). Every changed cell in those two regions went back to the
+original value except the Ranger Station's box plus a 13 m ring. That ring was then re-blended: pad
+height (58.25 m) at the box edge, easing linearly to the original terrain 13 m out, on the three sides
+that now face original ground; the 8 m ramp east to the city tile was left as graded. The hotel,
+prison and compound footprints are byte-identical to the original map; the biggest step between two
+neighbouring cells around the Ranger Station is 1.00 m (the original terrain there has 0.95 m steps,
+the old grading had 1.38 m). 98,290 cells now differ from the original, down from 205,033; the rest
+are the UFO Farm's pad, the horde bunker's pad and the trader pads, untouched.
+
+**Horde bunker.** One `StarterBase_Horde_Bunker` (25x25) at **2473,-1021**, 7 m off the UFO Farm's
+z=-990 edge, aligned with the farm's east side and 7 m short of the city's tile at x 2504. The ground
+there was already within 0.4 m of the farm's 56.25 m pad; it was set to 56.25 with a 6 m ramp
+(222 cells, biggest change 0.09 m). The site search scored every 25x25 box on the three free sides of
+the farm for flatness and clearance from other prefabs.
+
+**Spawn.** `spawnpoints.xml` has one point, **2464,0,-999**: 9 m in front of the farm's edge, 1 m off
+its centre line, 9 m west of the bunker, on a 7x7 patch that is flat to 0.06 m at 56.27 m.
+
+**The buildings went back into the world.** Each retired base was cut from a real POI; that POI now
+stands, zombies and quests intact, on the lowest-tier lot of exactly its size in one of the two
+neighbouring towns (the 31-tile city at 2654,-646 and the 13-tile town at 1679,-871). Rotation is the
+lot's own - every prefab involved has `RotationToFaceNorth` 2, so the swap formula from
+`REPOPULATED.md` reduces to keeping the rotation. Lots of the wrong size were never considered, and
+POIs with a single copy on the map were passed over (`rest_area_02` T0 and
+`xcpv_Haulier_lg_Limodor` T1 would otherwise have been first for a 60x60 lot):
+
+| Placed | Tier | Size | Replaced | Tier | Copies left | Position | Rot |
+|---|--:|--:|---|--:|--:|---|--:|
+| `hotel_03` | 5 | 100x100 | `utility_refinery_02` | 4 | 4 | 2368,-1224 | 1 |
+| `prison_01` | 5 | 100x100 | `farm_13` | 3 | 1 | 2509,-1550 | 2 |
+| `house_modern_18` | 4 | 100x100 | `house_old_gambrel_03` | 3 | 3 | 2503,132 | 0 |
+| `house_modern_31` | 5 | 60x60 | `cabin_13` | 2 | 5 | 2836,-325 | 2 |
+| `Modern_House_Zeebark` | 5 | 60x60 | `store_autoparts_01` | 2 | 5 | 2594,-646 | 3 |
+| `Ayesoar_Mansion_by_MPLogue` | 4 | 60x60 | `gas_station_09` | 1 | 4 | 1843,-796 | 2 |
+
+Only five 100x100 lots existed in the big city's cluster and one in the western town, all Tier 3-4,
+which is why the three big buildings sit on the city's edges rather than downtown.
+
+Result: **13,068 decorations** (13,108 - 41 + 1), Complete mod **1.16.0**, `world-patch/` regenerated
+(`dtm.patch`, `prefabs.xml`, `spawnpoints.xml`, `manifest.json`, `starterbases.json`),
+`vortex/Astoria-StarterBases.zip` 1.2.0 with just the three prefabs that are still placed. The whole
+step is `tools/retire_bases.py`. The Vanilla edition has not been touched yet.
+
+## 2026-09-17: Ranger Station perimeter upgraded to steel, same look
+
+The fence line was found by block name: every `chainlink*` block outside the pen in the yard
+(x 21..33, z 24..36) is border, and every `corrugatedMetalShapes` *billboard / shantywall02-04 /
+pillar0.05* within one cell of a border column is its skin (the shed at x 37..45, z 49..54 excluded;
+ladders, pipes and roof wedges that merely touch the fence left alone). Chain-link runs three courses
+high (y 4-6) with barbed wire at y 7; the sheet skin two courses (y 4-5) one cell outside it.
+
+| Was | HP | Now | HP | Count |
+|---|--:|---|--:|--:|
+| chainlinkFence Bottom/Top/MiddleRail (+PoleLeft/Right, Bridge) | 300 | `steelShapes:barsCentered` | 10,000 | 319 |
+| chainlinkFence *Corner*, chainlinkFencePole/02/03 | 300 | `steelShapes:poleCentered` | 10,000 | 35 |
+| corrugatedMetalShapes billboard / shantywall02-04 / pillar0.05 | 1,000 | `steelShapes:` same shape | 10,000 | 188 |
+| chainlinkGateDoubleWide, chainlinkFenceDoor, barbedWireSpindle | | unchanged | | |
+
+Rotation: chain-link at rot 0/2 runs along x and 1/3 along z, the same convention `billboard` uses on
+this fence (rot 0 on the z=56 line, 1/3 on the x=6 / x=48 lines) and the one `barsCentered` shows in
+TFP's own prefabs (cemetery_01: rot 0/2 along x, rot 3 along z), so bars take rot 0 on x-lines and 1
+on z-lines. Posts are symmetric and take rot 0.
+
+Paint: 68 of the 188 panels were already painted (the pillars, Rust_black 0x0f) and keep it; the other
+164 got Corrugated_metal (paint 57, TextureId 194 = the block's own texture) on all six faces, so a
+steel billboard renders exactly as the corrugated one did. Bars and posts show steel. Damage was
+zeroed on every converted block; density, the tile-entity trailer and every other block are untouched.
+Paint is six 8-bit face ids and two pad bytes per painted block, in block order, behind the bit plane -
+`tools/tts.py` carries it through.
+
+`tools/steel_border.py` does the whole thing (`--apply` writes `out2/`). Deployed to the Modded mod
+(1.17.0), its release zip and `vortex/Astoria-StarterBases.zip` (1.3.0). Vanilla still has the
+chain-link version - the two editions' Ranger Station `.tts` are no longer byte-identical.
+
+Everything below this line describes the eight-base layout as it was built on 2026-09-06.
+
+---
 
 The 13 builds from the first attempt are gone. `prefabs.xml` is back to the state before them
 (original map + the 124 mod POIs from the densify pass) and `dtm.raw` is back to the untouched
@@ -258,3 +348,29 @@ claim block should be outside the box first.
 - `spawnpoints.xml.ORIGINAL-BACKUP` - the original 10 spawn points
 - `map_info.xml.ORIGINAL-BACKUP`
 - `..\..\LocalPrefabs.backup-2026-09-06\` - the seven prefab .xml files before YOffset was added
+
+## Locks (2026-09-14)
+
+Every door, gate, safe, chest and ATM in the eight starter bases is unlocked. Two mechanisms, two fixes:
+
+| | where the lock lives | fix |
+|---|---|---|
+| doors and gates (`TEFeatureLockable`) | a bool in the prefab's tile-entity record for that block; a door with no record is unlocked | bool set to 0 |
+| safes, chests, ATMs (`TEFeatureLockPickable`) | the block itself - the game locks it on placement, no record involved | block swapped for its `DowngradeBlock`, the post-lockpick form (same model, same loot list) |
+
+| Base | doors unlocked | safes swapped |
+|---|--:|---|
+| StarterBase_Hotel_Tower | 60 | 2 ATM, 2 wall safe, 1 gun safe, 1 T5 chest |
+| StarterBase_Bunker_House | 46 | 1 wall safe, 1 T5 chest |
+| StarterBase_Modern_House | 37 | 1 gun safe, 1 wall safe, 1 T4 chest |
+| StarterBase_Prison_Cellblock | 19 | 1 T5 chest |
+| StarterBase_Ranger_Station | 11 | 1 hero chest |
+| StarterBase_Zeebark_Modern_House | 11 | 1 gun safe, 1 wall safe, 1 T5 chest |
+| StarterBase_Ayesoar_Mansion | 6 | 1 gun safe, 1 T4 chest |
+| StarterBase_UFO_Farm | 3 | 3 player gun safes |
+| **total** | **193** | **21** |
+
+The `.tts` files are byte-identical between the two editions before and after, so the same bytes
+went into both mods. `tools/unlock.py <dir> [--apply]` reports and applies; it reads the stock
+`blocks.xml` and, with `--blocks`, a mod's, to know which blocks are lockable and what each safe
+downgrades to.

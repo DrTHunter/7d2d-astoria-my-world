@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <spawnpoints>
-  <!-- single spawn: prison yard of PrisonRightOne -->
-  <spawnpoint position="2430,0,-800" rotation="0,0,0" />
+  <!-- single spawn: in front of StarterBase_UFO_Farm, beside the horde bunker -->
+  <spawnpoint position="2464,0,-999" rotation="0,0,0" />
 </spawnpoints>

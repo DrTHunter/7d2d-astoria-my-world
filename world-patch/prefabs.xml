@@ -4099,7 +4099,7 @@
   <decoration type="model" name="cornfield_sm" position="-890,57,-3094" rotation="3" y_is_groundlevel="true" />
   <decoration type="model" name="cornfield_sm" position="-878,57,-3094" rotation="3" y_is_groundlevel="true" />
   <decoration type="model" name="house_old_gambrel_03" position="-287,36,-3271" rotation="0" y_is_groundlevel="true" />
-  <decoration type="model" name="house_old_gambrel_03" position="2503,57,132" rotation="0" y_is_groundlevel="true" />
+  <decoration type="model" name="house_modern_18" position="2503,57,132" rotation="0" y_is_groundlevel="true" />
   <decoration type="model" name="house_old_gambrel_03" position="-3284,36,2495" rotation="2" y_is_groundlevel="true" />
   <decoration type="model" name="downtown_building_03" position="-453,36,3278" rotation="0" y_is_groundlevel="true" />
   <decoration type="model" name="downtown_building_05" position="-495,36,3278" rotation="2" y_is_groundlevel="true" />
@@ -4996,7 +4996,7 @@
   <decoration type="model" name="part_farm60_shed_01" position="-2498,149,-723" rotation="0" y_is_groundlevel="true" />
   <decoration type="model" name="canyon_cliff_dwellings" position="-1444,28,-2397" rotation="2" y_is_groundlevel="true" />
   <decoration type="model" name="rock_form02" position="2466,11,478" rotation="0" y_is_groundlevel="true" />
-  <decoration type="model" name="farm_13" position="2509,57,-1550" rotation="2" y_is_groundlevel="true" />
+  <decoration type="model" name="prison_01" position="2509,57,-1550" rotation="2" y_is_groundlevel="true" />
   <decoration type="model" name="xcpv_Ranger_Cabin_Guppycur" position="2515,57,-1624" rotation="2" y_is_groundlevel="true" />
   <decoration type="model" name="bombshelter_01" position="3492,36,1323" rotation="0" y_is_groundlevel="true" />
   <decoration type="model" name="survivor_site_07" position="3501,36,1299" rotation="2" y_is_groundlevel="true" />
@@ -5368,7 +5368,7 @@
   <decoration type="model" name="part_armytruck_01" position="-1870,179,1146" rotation="1" y_is_groundlevel="true" />
   <decoration type="model" name="part_military_camp" position="-1874,179,1128" rotation="3" y_is_groundlevel="true" />
   <decoration type="model" name="cabin_12" position="3044,57,-622" rotation="1" y_is_groundlevel="true" />
-  <decoration type="model" name="cabin_13" position="2836,57,-325" rotation="2" y_is_groundlevel="true" />
+  <decoration type="model" name="house_modern_31" position="2836,57,-325" rotation="2" y_is_groundlevel="true" />
   <decoration type="model" name="cabin_14" position="2906,57,-321" rotation="1" y_is_groundlevel="true" />
   <decoration type="model" name="farm_17" position="2661,57,-144" rotation="1" y_is_groundlevel="true" />
   <decoration type="model" name="cabin_20" position="2210,57,-447" rotation="3" y_is_groundlevel="true" />
@@ -8596,7 +8596,7 @@
   <decoration type="model" name="xcpv_They_All_Float_Down_Here_FNS" position="2547,57,-371" rotation="3" y_is_groundlevel="true" />
   <decoration type="model" name="xcpv_Uptown_Filler_10_LuzipherMST" position="2626,57,-423" rotation="3" y_is_groundlevel="true" />
   <decoration type="model" name="part_streetlight_quad" position="2490,66,-1145" rotation="3" y_is_groundlevel="true" />
-  <decoration type="model" name="utility_refinery_02" position="2368,57,-1224" rotation="1" y_is_groundlevel="true" />
+  <decoration type="model" name="hotel_03" position="2368,57,-1224" rotation="1" y_is_groundlevel="true" />
   <decoration type="model" name="part_streetlight_double" position="2482,66,-1177" rotation="3" y_is_groundlevel="true" />
   <decoration type="model" name="part_streetlight_double" position="2432,67,-1112" rotation="3" y_is_groundlevel="true" />
   <decoration type="model" name="xcpv_Guns_Store_ChickenRH" position="2593,57,-1156" rotation="3" y_is_groundlevel="true" />
@@ -8637,7 +8637,7 @@
   <decoration type="model" name="restaurant_02" position="2513,57,-591" rotation="1" y_is_groundlevel="true" />
   <decoration type="model" name="part_crosswalk" position="2584,59,-584" rotation="0" y_is_groundlevel="true" />
   <decoration type="model" name="part_trafficlight_single" position="2569,63,-583" rotation="0" y_is_groundlevel="true" />
-  <decoration type="model" name="store_autoparts_01" position="2594,57,-646" rotation="3" y_is_groundlevel="true" />
+  <decoration type="model" name="Modern_House_Zeebark" position="2594,57,-646" rotation="3" y_is_groundlevel="true" />
   <decoration type="model" name="part_kiosk_foodtrailer_01" position="2608,57,-565" rotation="2" y_is_groundlevel="true" />
   <decoration type="model" name="part_streetlight_single_diagonal" position="2565,66,-566" rotation="2" y_is_groundlevel="true" />
   <decoration type="model" name="part_streetlight_single_diagonal" position="2722,66,-415" rotation="2" y_is_groundlevel="true" />
@@ -8755,7 +8755,7 @@
   <decoration type="model" name="part_car_accident_01" position="1669,35,-720" rotation="3" y_is_groundlevel="true" />
   <decoration type="model" name="commercial_strip_03" position="1694,36,-796" rotation="2" y_is_groundlevel="true" />
   <decoration type="model" name="office_03" position="1757,36,-795" rotation="2" y_is_groundlevel="true" />
-  <decoration type="model" name="gas_station_09" position="1843,36,-796" rotation="2" y_is_groundlevel="true" />
+  <decoration type="model" name="Ayesoar_Mansion_by_MPLogue" position="1843,36,-796" rotation="2" y_is_groundlevel="true" />
   <decoration type="model" name="office_02" position="1800,36,-795" rotation="2" y_is_groundlevel="true" />
   <decoration type="model" name="office_01" position="1851,35,-703" rotation="3" y_is_groundlevel="true" />
   <decoration type="model" name="store_pharmacy_02" position="1755,36,-707" rotation="1" y_is_groundlevel="true" />
@@ -13071,38 +13071,11 @@
   <decoration type="model" name="park_residential_01_exd_svarii" position="896,36,229" rotation="1" y_is_groundlevel="true" />
   <decoration type="model" name="park_residential_01_exd_svarii" position="2441,57,-496" rotation="2" y_is_groundlevel="true" />
   <!-- ===== STARTER BASES (rebuilt 2026-09-06): 7 LocalPrefabs + 4 compound wall strips, all on levelled pads ===== -->
-  <decoration type="model" name="StarterBase_Prison_Cellblock" position="2374,59,-857" rotation="0" y_is_groundlevel="true" />
   <decoration type="model" name="StarterBase_UFO_Farm" position="2429,57,-990" rotation="0" y_is_groundlevel="true" />
+  <decoration type="model" name="StarterBase_Horde_Bunker" position="2473,57,-1021" rotation="0" y_is_groundlevel="true" />
   <decoration type="model" name="StarterBase_Ranger_Station" position="2426,59,-710" rotation="0" y_is_groundlevel="true" />
-  <decoration type="model" name="StarterBase_Hotel_Tower" position="2286,57,-736" rotation="0" y_is_groundlevel="true" />
-  <decoration type="model" name="StarterBase_Modern_House" position="2029,57,-578" rotation="0" y_is_groundlevel="true" />
-  <decoration type="model" name="StarterBase_Bunker_House" position="2019,57,-467" rotation="0" y_is_groundlevel="true" />
-  <decoration type="model" name="StarterBase_Ayesoar_Mansion" position="2091,57,-467" rotation="0" y_is_groundlevel="true" />
-  <decoration type="model" name="StarterBase_Compound_Wall_S" position="2010,57,-604" rotation="0" y_is_groundlevel="true" />
-  <decoration type="model" name="StarterBase_Compound_Wall_N" position="2010,57,-387" rotation="2" y_is_groundlevel="true" />
-  <decoration type="model" name="StarterBase_Compound_Wall_W" position="1994,57,-585" rotation="3" y_is_groundlevel="true" />
-  <decoration type="model" name="StarterBase_Compound_Wall_E" position="2157,57,-585" rotation="1" y_is_groundlevel="true" />
   <!-- ===== compound roads (2026-09-06) ===== -->
-  <decoration type="model" name="StarterBase_Road_Ring_W" position="2013,57,-585" rotation="0" y_is_groundlevel="true" />
-  <decoration type="model" name="StarterBase_Road_Ring_E" position="2152,57,-585" rotation="0" y_is_groundlevel="true" />
-  <decoration type="model" name="StarterBase_Road_Ring_S" position="2018,57,-585" rotation="0" y_is_groundlevel="true" />
-  <decoration type="model" name="StarterBase_Road_Ring_N" position="2018,57,-390" rotation="0" y_is_groundlevel="true" />
-  <decoration type="model" name="StarterBase_Road_Lane" position="2018,57,-473" rotation="0" y_is_groundlevel="true" />
-  <decoration type="model" name="StarterBase_Road_Link" position="2088,57,-467" rotation="0" y_is_groundlevel="true" />
-  <decoration type="model" name="StarterBase_Road_Out_A" position="2160,57,-533" rotation="0" y_is_groundlevel="true" />
-  <decoration type="model" name="StarterBase_Road_Out_B" position="2259,57,-558" rotation="0" y_is_groundlevel="true" />
   <!-- ===== plot 2: Zeebark modern house, walled, 14 m east of the compound ===== -->
-  <decoration type="model" name="StarterBase_Zeebark_Modern_House" position="2179,57,-517" rotation="0" y_is_groundlevel="true" />
-  <decoration type="model" name="StarterBase_Plot2_Wall_S" position="2172,57,-524" rotation="0" y_is_groundlevel="true" />
-  <decoration type="model" name="StarterBase_Plot2_Wall_N" position="2172,57,-451" rotation="2" y_is_groundlevel="true" />
-  <decoration type="model" name="StarterBase_Plot2_Wall_W" position="2172,57,-523" rotation="3" y_is_groundlevel="true" />
-  <decoration type="model" name="StarterBase_Plot2_Wall_E" position="2243,57,-523" rotation="1" y_is_groundlevel="true" />
-  <decoration type="model" name="StarterBase_Plot2_Road_W" position="2173,57,-523" rotation="0" y_is_groundlevel="true" />
-  <decoration type="model" name="StarterBase_Plot2_Road_E" position="2240,57,-523" rotation="0" y_is_groundlevel="true" />
-  <decoration type="model" name="StarterBase_Plot2_Road_S" position="2178,57,-523" rotation="0" y_is_groundlevel="true" />
-  <decoration type="model" name="StarterBase_Plot2_Road_N" position="2178,57,-456" rotation="0" y_is_groundlevel="true" />
-  <decoration type="model" name="StarterBase_Plot2_Road_Spur" position="2206,57,-526" rotation="0" y_is_groundlevel="true" />
-  <decoration type="model" name="StarterBase_Road_Link2" position="2160,57,-490" rotation="0" y_is_groundlevel="true" />
   <!-- ===== traders added on the approach roads (2026-09-07) ===== -->
   <decoration type="model" name="trader_xcpv_Settlement_02_Viper7" position="2442,57,-568" rotation="0" y_is_groundlevel="true" />
   <decoration type="model" name="trader_jen_by_MPLogue" position="3292,42,-2676" rotation="0" y_is_groundlevel="true" />
@@ -13119,19 +13092,6 @@
   <decoration type="model" name="trader_hugh_by_MPLogue" position="1412,57,-1228" rotation="0" y_is_groundlevel="true" />
   <decoration type="model" name="trader_bob" position="1620,18,1156" rotation="0" y_is_groundlevel="true" />
   <!-- ===== compound perimeter: guard posts and paths ===== -->
-  <decoration type="model" name="StarterBase_Path_S" position="2081,57,-617" rotation="0" y_is_groundlevel="true" />
-  <decoration type="model" name="StarterBase_Path_N" position="2104,57,-366" rotation="0" y_is_groundlevel="true" />
-  <decoration type="model" name="StarterBase_Path_W" position="1980,57,-466" rotation="0" y_is_groundlevel="true" />
-  <decoration type="model" name="StarterBase_Path_E" position="2160,57,-437" rotation="0" y_is_groundlevel="true" />
   <!-- ===== horde bunkers: compound northeast nook, and behind the prison ===== -->
-  <decoration type="model" name="StarterBase_Horde_Bunker" position="2126,57,-412" rotation="0" y_is_groundlevel="true" />
-  <decoration type="model" name="StarterBase_Horde_Bunker" position="2418,59,-746" rotation="0" y_is_groundlevel="true" />
   <!-- ===== Modern House fence: security posts, 4 m proud of the line ===== -->
-  <decoration type="model" name="StarterBase_SecurityPost" position="2034,57,-593" rotation="1" y_is_groundlevel="true" />
-  <decoration type="model" name="StarterBase_SecurityPost" position="2120,57,-593" rotation="1" y_is_groundlevel="true" />
-  <decoration type="model" name="StarterBase_SecurityPost" position="2129,57,-385" rotation="3" y_is_groundlevel="true" />
-  <decoration type="model" name="StarterBase_SecurityPost" position="2041,57,-385" rotation="3" y_is_groundlevel="true" />
-  <decoration type="model" name="StarterBase_SecurityPost" position="2005,57,-425" rotation="0" y_is_groundlevel="true" />
-  <decoration type="model" name="StarterBase_SecurityPost" position="2005,57,-540" rotation="0" y_is_groundlevel="true" />
-  <decoration type="model" name="StarterBase_SecurityPost" position="2245,57,-517" rotation="2" y_is_groundlevel="true" />
 </prefabs>

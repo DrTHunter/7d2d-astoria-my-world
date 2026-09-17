@@ -1,0 +1,11 @@
+<configs>
+	<!-- Astoria 8K: send the starter quest to the nearest trader.
+
+	     Stock 7 Days to Die does not send "Journey to Settlement" to the closest trader. Because the
+	     quest carries unique_key "traderquest", the game gathers every pine-forest trader on the whole
+	     map, ignores distance, and picks the one with the most Tier-1 POIs within 500 m of it. On
+	     Astoria that is trader_rekt at 1312,1198 - 2.3 km from the spawn - while
+	     trader_xcpv_Settlement_02_Viper7 sits 232 m away. With any other unique_key the game falls
+	     back to the closest trader in the biome, which is what this does. -->
+	<set xpath="/quests/quest[@id='quest_whiteRiverCitizen1']/property[@name='unique_key']/@value">starterquest_nearest</set>
+</configs>
